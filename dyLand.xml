@@ -16,5 +16,7 @@
  <mapCity name="TheRink"/>
  <saveMap name="DyLand_3"/> 
  <mapRoad start="BooVille" end="Lafayette"/>
-  <saveMap name="DyLand_4"/> 
+ <saveMap name="DyLand_4"/> 
+ <mapRoad start="TheRink" end="Lafayette"/>
+  <saveMap name="DyLand_5"/> 
 </commands>
