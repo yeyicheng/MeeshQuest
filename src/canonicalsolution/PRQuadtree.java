@@ -500,6 +500,7 @@ public class PRQuadtree {
                 //canvas.addCross(getCenterX(), getCenterY(), halfWidth, Color.BLACK);
 				int cx = getCenterX();
 				int cy = getCenterY();
+//				System.out.println(cx + ":X  " + cy + ":Y  " );
                 canvas.addLine(cx - halfWidth, cy, cx + halfWidth, cy, Color.BLACK);
                 canvas.addLine(cx, cy - halfHeight, cx, cy + halfHeight, Color.BLACK);
 			}

@@ -97,4 +97,38 @@
     </parameters>
     <output/>
   </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="TheRink"/>
+      <end value="Lafayette"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="DyLand_5"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree>
+        <gray x="32" y="32">
+          <gray x="16" y="48">
+            <white/>
+            <black name="TheRink" x="19" y="61"/>
+            <black name="Lafayette" x="10" y="45"/>
+            <white/>
+          </gray>
+          <white/>
+          <black name="BooVille" x="31" y="21"/>
+          <white/>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
 </results>

@@ -26,6 +26,7 @@ import canonicalsolution.PRQuadtree.InternalNode;
 import canonicalsolution.PRQuadtree.LeafNode;
 import canonicalsolution.PRQuadtree.Node;
 import cmsc420.drawing.CanvasPlus;
+import cmsc420.drawing.Drawable2D;
 import cmsc420.geom.Circle2D;
 
 /**
@@ -75,8 +76,8 @@ public class Command {
 	}
 
 	/**
-	 * Set the DOM Document tree to send the of processed commands to.
-	 * Creates the root results node.
+	 * Set the DOM Document tree to send the of processed commands to. Creates
+	 * the root results node.
 	 * 
 	 * @param results
 	 *            DOM Document tree
@@ -207,14 +208,15 @@ public class Command {
 	public void processCommands(final Element node) {
 		spatialWidth = Integer.parseInt(node.getAttribute("spatialWidth"));
 		spatialHeight = Integer.parseInt(node.getAttribute("spatialHeight"));
-//		g = Integer.parseInt(node.getAttribute("g"));
-//		pmOrder = Integer.parseInt(node.getAttribute("pmOrder"));
+		// g = Integer.parseInt(node.getAttribute("g"));
+		// pmOrder = Integer.parseInt(node.getAttribute("pmOrder"));
 
 		/* initialize canvas */
 		canvas.setFrameSize(spatialWidth, spatialHeight);
 		/* add a rectangle to show where the bounds of the map are located */
-		canvas.addRectangle(0, 0, (spatialWidth > spatialHeight) ? spatialWidth : spatialHeight, 
-				(spatialWidth > spatialHeight) ? spatialWidth : spatialHeight, Color.WHITE, true);
+		canvas.addRectangle(0, 0, (spatialWidth > spatialHeight) ? spatialWidth
+				: spatialHeight, (spatialWidth > spatialHeight) ? spatialWidth
+				: spatialHeight, Color.WHITE, true);
 		canvas.addRectangle(0, 0, spatialWidth, spatialHeight, Color.BLACK,
 				false);
 
@@ -379,8 +381,8 @@ public class Command {
 		cityNode.setAttribute("name", city.getName());
 		cityNode.setAttribute("x", Integer.toString((int) city.getX()));
 		cityNode.setAttribute("y", Integer.toString((int) city.getY()));
-		cityNode.setAttribute("radius", Integer
-				.toString((int) city.getRadius()));
+		cityNode.setAttribute("radius",
+				Integer.toString((int) city.getRadius()));
 		cityNode.setAttribute("color", city.getColor());
 		node.appendChild(cityNode);
 	}
@@ -537,19 +539,19 @@ public class Command {
 				final LeafNode currentLeaf = (LeafNode) currentNode;
 				final Element black = results.createElement("black");
 				black.setAttribute("name", currentLeaf.getCity().getName());
-				black.setAttribute("x", Integer.toString((int) currentLeaf
-						.getCity().getX()));
-				black.setAttribute("y", Integer.toString((int) currentLeaf
-						.getCity().getY()));
+				black.setAttribute("x",
+						Integer.toString((int) currentLeaf.getCity().getX()));
+				black.setAttribute("y",
+						Integer.toString((int) currentLeaf.getCity().getY()));
 				xmlNode.appendChild(black);
 			} else {
 				/* internal node */
 				final InternalNode currentInternal = (InternalNode) currentNode;
 				final Element gray = results.createElement("gray");
-				gray.setAttribute("x", Integer.toString((int) currentInternal
-						.getCenterX()));
-				gray.setAttribute("y", Integer.toString((int) currentInternal
-						.getCenterY()));
+				gray.setAttribute("x",
+						Integer.toString((int) currentInternal.getCenterX()));
+				gray.setAttribute("y",
+						Integer.toString((int) currentInternal.getCenterY()));
 				for (int i = 0; i < 4; i++) {
 					printPRQuadtreeHelper(currentInternal.getChild(i), gray);
 				}
@@ -670,27 +672,28 @@ public class Command {
 		final int y = processIntegerAttribute(node, "y", parametersNode);
 
 		final Point2D.Float point = new Point2D.Float(x, y);
-		
+
 		if (citiesByName.size() <= 0) {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
 			return;
 		}
 
-		//final PriorityQueue<NearestCity> nearCities = new PriorityQueue<NearestCity>(
-		//		citiesByName.size());
+		// final PriorityQueue<NearestCity> nearCities = new
+		// PriorityQueue<NearestCity>(
+		// citiesByName.size());
 
 		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
 		} else {
 
 			//
-			//nearCities.add(new NearestCity(null, Double.POSITIVE_INFINITY));
+			// nearCities.add(new NearestCity(null, Double.POSITIVE_INFINITY));
 			//
 
-			//nearestCityHelper(prQuadtree.getRoot(), point, nearCities);
-			//NearestCity nearestCity = nearCities.remove();
+			// nearestCityHelper(prQuadtree.getRoot(), point, nearCities);
+			// NearestCity nearestCity = nearCities.remove();
 			City n = nearestCityHelper2(prQuadtree.getRoot(), point);
-			//addCityNode(outputNode, nearestCity.getCity());
+			// addCityNode(outputNode, nearestCity.getCity());
 			addCityNode(outputNode, n);
 
 			/* add success node to results */
@@ -700,6 +703,7 @@ public class Command {
 
 	/**
 	 * 2/25/2011
+	 * 
 	 * @param root
 	 * @param point
 	 */
@@ -716,28 +720,30 @@ public class Command {
 			}
 			currNode = q.remove().quadtreeNode;
 		}
-		
+
 		return ((LeafNode) currNode).getCity();
 	}
-	
+
 	class QuadrantDistance implements Comparable<QuadrantDistance> {
 		public Node quadtreeNode;
 		private double distance;
-		
+
 		public QuadrantDistance(Node node, Point2D.Float pt) {
 			quadtreeNode = node;
 			if (node.getType() == Node.INTERNAL) {
 				InternalNode gray = (InternalNode) node;
-				distance = Shape2DDistanceCalculator.distance(pt, 
-						new Rectangle2D.Float(gray.origin.x, gray.origin.y, gray.width, gray.height));
+				distance = Shape2DDistanceCalculator.distance(pt,
+						new Rectangle2D.Float(gray.origin.x, gray.origin.y,
+								gray.width, gray.height));
 			} else if (node.getType() == Node.LEAF) {
 				LeafNode leaf = (LeafNode) node;
 				distance = pt.distance(leaf.getCity().pt);
 			} else {
-				throw new IllegalArgumentException("Only leaf or internal node can be passed in");
+				throw new IllegalArgumentException(
+						"Only leaf or internal node can be passed in");
 			}
 		}
-		
+
 		public int compareTo(QuadrantDistance qd) {
 			if (distance < qd.distance) {
 				return -1;
@@ -752,8 +758,12 @@ public class Command {
 					}
 				} else if (quadtreeNode.getType() == Node.LEAF) {
 					// both are leaves
-					return ((LeafNode) quadtreeNode).getCity().getName().compareTo(
-							((LeafNode) qd.quadtreeNode).getCity().getName());
+					return ((LeafNode) quadtreeNode)
+							.getCity()
+							.getName()
+							.compareTo(
+									((LeafNode) qd.quadtreeNode).getCity()
+											.getName());
 				} else {
 					// both are internals
 					return 0;
@@ -765,42 +775,55 @@ public class Command {
 	public void processMapRoad(final Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");
-		
-		
-		final String start_city = processStringAttribute(node, "start", parametersNode);
-		final String end_city = processStringAttribute(node, "end", parametersNode);
+
+		final String start_city = processStringAttribute(node, "start",
+				parametersNode);
+		final String end_city = processStringAttribute(node, "end",
+				parametersNode);
 
 		final Element outputNode = results.createElement("output");
-		
-		if (!citiesByName.containsKey(start_city) || !citiesByName.containsKey(end_city)) {
+
+		if (!citiesByName.containsKey(start_city)
+				|| !citiesByName.containsKey(end_city)) {
 			addErrorNode("nameNotInDictionary", commandNode, parametersNode);
 		} else {
 			City s_city = citiesByName.get(start_city);
 			City e_city = citiesByName.get(end_city);
+//
+//			java.awt.geom.Line2D.Double line = new java.awt.geom.Line2D.Double(
+//					s_city.getX(), s_city.getY(), e_city.getX(), e_city.getY());
+//
+//			java.awt.geom.Rectangle2D.Double rect = new java.awt.geom.Rectangle2D.Double(
+//					s_city.getX(), s_city.getY(), 32, 32);
+//
+//			System.out.println(cmsc420.geom.Inclusive2DIntersectionVerifier.intersects(line, rect));
 			
-			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(), e_city.getY(), Color.CYAN);
+			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(),
+					e_city.getY(), Color.CYAN);
 			addSuccessNode(commandNode, parametersNode, outputNode);
 
 		}
+
+		// cmsc420.geom.Inclusive2DIntersectionVerifier
 	}
 
 	public void processRangeRoads(Element commandNode) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void processPrintAvlTree(Element commandNode) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void processPrintPMQuadtree(Element commandNode) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void processShortestPath(Element commandNode) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

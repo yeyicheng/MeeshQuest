@@ -154,8 +154,8 @@ public class MeeshQuest {
 			command.processRangeRoads(commandNode);
 		} else if (name.equals("printAvlTree")) {		// PART 2
 			command.processPrintAvlTree(commandNode);
-		} else if (name.equals("printPMQuadtree")) {		// PART 2
-			command.processPrintPMQuadtree(commandNode);
+		} else if (name.equals("printPMQuadtree")) {		// PART 2 
+			command.processPrintPRQuadtree(commandNode); // ***WARINING THIS CALLS THE WRONG METHOD MUST CALL PM NOT PR
 		} else if (name.equals("shortestPath")) {		// PART 2
 			command.processShortestPath(commandNode);
 		} else {
