@@ -4,6 +4,7 @@ package canonicalsolution ;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import cmsc420.drawing.CanvasPlus;
@@ -31,6 +32,8 @@ public class PRQuadtree {
 	/** used to keep track of cities within the spatial map */
 	protected HashSet<String> cityNames;
 
+	
+	// Cannot have singleton in PM because all Nodes can store Road Info
 	/** empty PR Quadtree node */
 	protected EmptyNode emptyNode = new EmptyNode();
 
@@ -355,11 +358,20 @@ public class PRQuadtree {
 	 * Represents an empty leaf node of a PR Quadtree.
 	 */
 	public class EmptyNode extends Node {
+		
+		// TODO  this should be able to hold road info!!! 
+		public ArrayList<Road> roads;
+
 		/**
 		 * Constructs and initializes an empty node.
 		 */
 		public EmptyNode() {
 			super(Node.EMPTY);
+		}
+
+		public EmptyNode(ArrayList<Road> roads) {
+			super(Node.EMPTY);
+			this.roads = roads;
 		}
 
 		public Node add(City city, Point2D.Float origin, int width, int height) {
@@ -380,6 +392,7 @@ public class PRQuadtree {
 	public class LeafNode extends Node {
 		/** city contained within this leaf node */
 		protected City city;
+		public ArrayList<Road> roads;
 
 		/**
 		 * Constructs and initializes a leaf node.
@@ -421,7 +434,7 @@ public class PRQuadtree {
 			} else {
 				/* remove city, node becomes empty */
 				this.city = null;
-				return emptyNode;
+				return new EmptyNode(this.roads);
 			}
 		}
 	}
@@ -471,7 +484,7 @@ public class PRQuadtree {
 
 			children = new Node[4];
 			for (int i = 0; i < 4; i++) {
-				children[i] = emptyNode;
+				children[i] = new EmptyNode();
 			}
 
 			this.width = width;
@@ -532,6 +545,7 @@ public class PRQuadtree {
 				/* remove cross from the drawing panel */
 				if (canvas != null)
                     canvas.removeCross(getCenterX(), getCenterY(), halfWidth, Color.BLACK);
+				// TODO During removal of a node Must return all of the roads that have pass through from each of the children
 				return emptyNode;
 
 			} else if (getNumEmptyNodes() == 3 && getNumLeafNodes() == 1) {
@@ -560,7 +574,7 @@ public class PRQuadtree {
 		protected int getNumEmptyNodes() {
 			int numEmptyNodes = 0;
 			for (Node node : children) {
-				if (node == emptyNode) {
+				if (node.getType() == Node.EMPTY) {
 					numEmptyNodes++;
 				}
 			}

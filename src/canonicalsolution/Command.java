@@ -772,6 +772,10 @@ public class Command {
 		}
 	}
 
+	/**
+	 * Processes the adding of a new Road to the map
+	 * @param node
+	 */
 	public void processMapRoad(final Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");
@@ -800,11 +804,41 @@ public class Command {
 			
 			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(),
 					e_city.getY(), Color.CYAN);
-			addSuccessNode(commandNode, parametersNode, outputNode);
-
+			
+			// Check to make sure root is gray, if not you can't have a road
+			if (prQuadtree.getRoot().getType() != Node.INTERNAL){
+				addErrorNode("cannotHaveARoad", commandNode, parametersNode);
+			} else { // Root is gray. Check what quadrants the road hits
+				processMapRoadHelper(prQuadtree.getRoot());
+				addSuccessNode(commandNode, parametersNode, outputNode);
+			}
 		}
 
-		// cmsc420.geom.Inclusive2DIntersectionVerifier
+	}
+	/**
+	 * Helper Method: Adds road to a Nodes Road list if it intersects
+	 * @param currentNode
+	 */
+	private void processMapRoadHelper(Node currentNode) {
+		
+		if (currentNode.getType() == Node.LEAF || currentNode.getType() == Node.EMPTY){
+			final LeafNode currentLeaf = (LeafNode) currentNode;
+			// Check to see if road intersects quadrant 
+			
+			
+		} else {
+			final InternalNode currentInternal = (InternalNode) currentNode;
+			
+			// Recursive call on all 4 children
+			for (int i = 0; i < 4; i++){
+				processMapRoadHelper(currentInternal.getChild(i));
+			}
+			
+		}
+		
+		
+		
+		
 	}
 
 	public void processRangeRoads(Element commandNode) {
