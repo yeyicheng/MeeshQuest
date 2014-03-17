@@ -207,8 +207,8 @@ public class Command {
 	public void processCommands(final Element node) {
 		spatialWidth = Integer.parseInt(node.getAttribute("spatialWidth"));
 		spatialHeight = Integer.parseInt(node.getAttribute("spatialHeight"));
-		g = Integer.parseInt(node.getAttribute("g"));
-		pmOrder = Integer.parseInt(node.getAttribute("pmOrder"));
+//		g = Integer.parseInt(node.getAttribute("g"));
+//		pmOrder = Integer.parseInt(node.getAttribute("pmOrder"));
 
 		/* initialize canvas */
 		canvas.setFrameSize(spatialWidth, spatialHeight);
@@ -762,9 +762,26 @@ public class Command {
 		}
 	}
 
-	public void processMapRoad(Element commandNode) {
-		// TODO Auto-generated method stub
+	public void processMapRoad(final Element node) {
+		final Element commandNode = getCommandNode(node);
+		final Element parametersNode = results.createElement("parameters");
 		
+		
+		final String start_city = processStringAttribute(node, "start", parametersNode);
+		final String end_city = processStringAttribute(node, "end", parametersNode);
+
+		final Element outputNode = results.createElement("output");
+		
+		if (!citiesByName.containsKey(start_city) || !citiesByName.containsKey(end_city)) {
+			addErrorNode("nameNotInDictionary", commandNode, parametersNode);
+		} else {
+			City s_city = citiesByName.get(start_city);
+			City e_city = citiesByName.get(end_city);
+			
+			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(), e_city.getY(), Color.CYAN);
+			addSuccessNode(commandNode, parametersNode, outputNode);
+
+		}
 	}
 
 	public void processRangeRoads(Element commandNode) {

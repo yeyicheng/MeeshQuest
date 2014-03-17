@@ -1,0 +1,20 @@
+<commands
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="part2in.xsd"
+ 	spatialWidth="64"
+ 	spatialHeight="64"
+ 	g="3"
+	pmOrder="3">
+ <saveMap name="DyLand_1"/>
+ <createCity name="BooVille" y="21" x="31" radius="10" color="red"/>
+ <mapCity name="BooVille"/>
+ <saveMap name="DyLand_1"/>
+ <createCity name="Lafayette" y="45" x="10" radius="10" color="yellow"/> 		
+ <mapCity name="Lafayette"/>
+ <saveMap name="DyLand_2"/>
+ <createCity name="TheRink" y="61" x="19" radius="10" color="blue"/> 		
+ <mapCity name="TheRink"/>
+ <saveMap name="DyLand_3"/> 
+ <mapRoad start="BooVille" end="Lafayette"/>
+  <saveMap name="DyLand_4"/> 
+</commands>

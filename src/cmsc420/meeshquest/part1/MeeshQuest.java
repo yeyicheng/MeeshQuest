@@ -28,9 +28,12 @@ public class MeeshQuest {
 	
 	
 	// UNCOMMENT THIS TO TEST WITH FILES
-	private File xmlInput = new File("part1.rangeCitiesAndSaveMap.input.xml");
+	//private File xmlInput = new File("part1.rangeCitiesAndSaveMap.input.xml");
 	private File xmlOutput = new File("test1.txt");
 
+	private File xmlInput = new File("dyLand.xml");
+	
+	
 
 	/* output DOM Document tree */
 	private Document results;
