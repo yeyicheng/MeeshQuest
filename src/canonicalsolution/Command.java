@@ -211,8 +211,8 @@ public class Command {
 	public void processCommands(final Element node) {
 		spatialWidth = Integer.parseInt(node.getAttribute("spatialWidth"));
 		spatialHeight = Integer.parseInt(node.getAttribute("spatialHeight"));
-		// g = Integer.parseInt(node.getAttribute("g"));
-		// pmOrder = Integer.parseInt(node.getAttribute("pmOrder"));
+		g = Integer.parseInt(node.getAttribute("g"));
+		pmOrder = Integer.parseInt(node.getAttribute("pmOrder"));
 
 		/* initialize canvas */
 		canvas.setFrameSize(spatialWidth, spatialHeight);
@@ -514,6 +514,7 @@ public class Command {
 		} else {
 			/* print PR Quadtree */
 			final Element quadtreeNode = results.createElement("quadtree");
+			quadtreeNode.setAttribute("order", String.valueOf(pmOrder));
 			printPRQuadtreeHelper(prQuadtree.getRoot(), quadtreeNode);
 
 			outputNode.appendChild(quadtreeNode);
@@ -533,20 +534,63 @@ public class Command {
 	 */
 	private void printPRQuadtreeHelper(final Node currentNode,
 			final Element xmlNode) {
+		final Element city;
+		final Element node;
 		if (currentNode.getType() == Node.EMPTY) {
-			Element white = results.createElement("white");
-			xmlNode.appendChild(white);
+			node = results.createElement("white");
+			xmlNode.appendChild(node);
+
 		} else {
 			if (currentNode.getType() == Node.LEAF) {
 				/* leaf node */
 				final LeafNode currentLeaf = (LeafNode) currentNode;
-				final Element black = results.createElement("black");
-				black.setAttribute("name", currentLeaf.getCity().getName());
-				black.setAttribute("x",
+
+				node = results.createElement("black");
+				node.setAttribute("cardinality",
+						String.valueOf(1 + currentLeaf.roads.size()));
+				xmlNode.appendChild(node);
+
+				// Isolated city
+				if (currentLeaf.roads.size() == 0){
+					city = results.createElement("isolatedCity");
+				} else {
+					// City tag
+					city = results.createElement("city");					
+				}
+
+				city.setAttribute("color", "black");
+				city.setAttribute("name", currentLeaf.getCity().getName());
+				city.setAttribute("radius",
+						String.valueOf(currentLeaf.getCity().radius));
+				city.setAttribute("x",
 						Integer.toString((int) currentLeaf.getCity().getX()));
-				black.setAttribute("y",
+				city.setAttribute("y",
 						Integer.toString((int) currentLeaf.getCity().getY()));
-				xmlNode.appendChild(black);
+
+				// Appends black node city
+				xmlNode.appendChild(city);
+
+				// Appends node roads
+				for (Road r : currentLeaf.roads) {
+					final Element road = results.createElement("road");
+					
+					// Sets end city to the city not of the current node
+					road.setAttribute("end",
+							r.getCities()[0].equals(currentLeaf.getCity()
+									.getName()) ? r.getCities()[1].toString()
+									: r.getCities()[0].toString());
+					// Sets start city to city of current node
+					road.setAttribute("start",
+							r.getCities()[0].equals(currentLeaf.getCity()
+									.getName()) ? r.getCities()[0].toString()
+									: r.getCities()[1].toString());
+					
+					xmlNode.appendChild(road);
+
+				}
+
+				
+
 			} else {
 				/* internal node */
 				final InternalNode currentInternal = (InternalNode) currentNode;
@@ -811,6 +855,9 @@ public class Command {
 			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(),
 					e_city.getY(), Color.CYAN);
 
+//			processMapRoadHelper(prQuadtree.getRoot(), road);
+//			addSuccessNode(commandNode, parametersNode, outputNode);
+			
 			// Check to make sure root is gray, if not you can't have a road
 			if (prQuadtree.getRoot().getType() != Node.INTERNAL) {
 				addErrorNode("cannotHaveARoad", commandNode, parametersNode);
@@ -836,11 +883,10 @@ public class Command {
 			if (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
 					currentLeaf.rect)) {
 				currentNode.add_road(road);
-				
-				// Highlights Quadrant that includes Road
+
+				// TODO: TESTING - Highlights Quadrant that includes Road
 				canvas.addRectangle(currentLeaf.rect.getX(),
-						currentLeaf.rect.getY(),
-						currentLeaf.rect.getWidth(),
+						currentLeaf.rect.getY(), currentLeaf.rect.getWidth(),
 						currentLeaf.rect.getHeight(), Color.RED, false);
 			}
 
@@ -850,14 +896,13 @@ public class Command {
 			if (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
 					currentLeaf.rect)) {
 				currentNode.add_road(road);
-				
-				// Highlights Quadrant that includes Road
+
+				// TODO: TESTING - Highlights Quadrant that includes Road
 				canvas.addRectangle(currentLeaf.rect.getX(),
-						currentLeaf.rect.getY(),
-						currentLeaf.rect.getWidth(),
+						currentLeaf.rect.getY(), currentLeaf.rect.getWidth(),
 						currentLeaf.rect.getHeight(), Color.RED, false);
 			}
-			
+
 		} else {
 			final InternalNode currentInternal = (InternalNode) currentNode;
 

@@ -6,5 +6,5 @@
 	<mapCity id="4" name="Noah"/>
 	<mapRoad end="Noah" id="5" start="Dylan"/>
 	<saveMap id="6" name="before"/>
+	<printPMQuadtree id="7"/>
 </commands>
-

@@ -5,6 +5,11 @@ import java.awt.geom.Line2D;
 public class Road {
 	
 	private City[] cities = new City[2];
+	
+	public City[] getCities() {
+		return cities;
+	}
+
 	private Line2D line;
 	
 	public Road(City s_city, City e_city) {

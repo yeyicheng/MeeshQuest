@@ -1,6 +1,8 @@
 import sys
 from xml.dom import minidom
 
+# ***NOTE***: input file should have no extra blank lines!
+
 _IMPL = minidom.getDOMImplementation()
 _ROOT_ATTRS = {
         "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
@@ -20,6 +22,11 @@ class Commands(object):
     def do_mapCity(self, doc, name):
         me = doc.createElement("mapCity")
         me.setAttribute("name", name)
+        return me
+        
+    def do_printTree(self, doc, id_num):
+        me = doc.createElement("printPMQuadtree")
+        me.setAttribute("id", id_num)
         return me
     
     def do_road(self, doc, start, end):

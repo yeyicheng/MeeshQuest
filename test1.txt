@@ -51,4 +51,22 @@
     </parameters>
     <output/>
   </success>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="1">
+        <gray x="32" y="32">
+          <white/>
+          <black cardinality="2"/>
+          <city color="black" name="Dylan" radius="5" x="48" y="48"/>
+          <road end="Dylan(48.0, 48.0)" start="Noah(16.0, 16.0)"/>
+          <black cardinality="2"/>
+          <city color="black" name="Noah" radius="5" x="16" y="16"/>
+          <road end="Dylan(48.0, 48.0)" start="Noah(16.0, 16.0)"/>
+          <white/>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
 </results>
