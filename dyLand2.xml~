@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<commands g="4" pmOrder="1" spatialHeight="64" spatialWidth="64" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="part2in.xsd">
+	<createCity color="black" id="1" name="Dylan" radius="5" x="48" y="48"/>
+	<createCity color="black" id="2" name="Noah" radius="5" x="16" y="16"/>
+	<mapRoad end="Noah" id="3" start="Dylan"/>
+	<saveMap id="4" name="before"/>
+</commands>
+
