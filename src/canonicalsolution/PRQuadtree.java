@@ -363,10 +363,8 @@ public class PRQuadtree {
 	 */
 	public class EmptyNode extends Node {
 		
-		// TODO  this should be able to hold road info!!! 
 		public ArrayList<Road> roads = new ArrayList<Road>();
 		
-		// TODO Rectangle2D object representing quadrant area
 		public Rectangle2D rect;
 
 		/**
@@ -420,7 +418,7 @@ public class PRQuadtree {
 		protected City city;
 		public ArrayList<Road> roads;
 
-		// TODO Rectangle2D object representing quadrant area
+		// Rectangle2D object representing quadrant area
 		public Rectangle2D rect;
 		
 		

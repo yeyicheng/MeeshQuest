@@ -534,6 +534,8 @@ public class Command {
 	 */
 	private void printPRQuadtreeHelper(final Node currentNode,
 			final Element xmlNode) {
+		//TODO Need to fix this method so that white nodes print <white/>
+		// TODO Nodes that have a road associated with them are black
 		final Element city;
 		final Element node;
 		if (currentNode.getType() == Node.EMPTY) {
@@ -915,9 +917,19 @@ public class Command {
 
 	}
 
-	public void processRangeRoads(Element commandNode) {
-		// TODO Auto-generated method stub
+	public void processRangeRoads(Element node) {
+		final Element commandNode = getCommandNode(node);
+		final Element parametersNode = results.createElement("parameters");
+		final Element outputNode = results.createElement("output");
+		
+		final int x = processIntegerAttribute(node, "x", parametersNode);
+		final int y = processIntegerAttribute(node, "y", parametersNode);
+		final int radius = processIntegerAttribute(node, "radius",
+				parametersNode);
+		
+		
 
+		
 	}
 
 	public void processPrintAvlTree(Element commandNode) {
