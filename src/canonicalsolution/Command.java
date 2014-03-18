@@ -20,14 +20,17 @@ import java.util.TreeSet;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+// Import for intersections
 import canonicalsolution.PRQuadtree.CityAlreadyMappedException;
 import canonicalsolution.PRQuadtree.CityOutOfBoundsException;
 import canonicalsolution.PRQuadtree.InternalNode;
 import canonicalsolution.PRQuadtree.LeafNode;
+import canonicalsolution.PRQuadtree.EmptyNode;
 import canonicalsolution.PRQuadtree.Node;
 import cmsc420.drawing.CanvasPlus;
 import cmsc420.drawing.Drawable2D;
 import cmsc420.geom.Circle2D;
+import cmsc420.geom.Inclusive2DIntersectionVerifier;
 
 /**
  * Processes each command in the MeeshQuest program. Takes in an XML command
@@ -774,6 +777,7 @@ public class Command {
 
 	/**
 	 * Processes the adding of a new Road to the map
+	 * 
 	 * @param node
 	 */
 	public void processMapRoad(final Element node) {
@@ -793,52 +797,77 @@ public class Command {
 		} else {
 			City s_city = citiesByName.get(start_city);
 			City e_city = citiesByName.get(end_city);
-//
-//			java.awt.geom.Line2D.Double line = new java.awt.geom.Line2D.Double(
-//					s_city.getX(), s_city.getY(), e_city.getX(), e_city.getY());
-//
-//			java.awt.geom.Rectangle2D.Double rect = new java.awt.geom.Rectangle2D.Double(
-//					s_city.getX(), s_city.getY(), 32, 32);
-//
-//			System.out.println(cmsc420.geom.Inclusive2DIntersectionVerifier.intersects(line, rect));
-			
+
+			Road road = new Road(s_city, e_city);
+
+			//
+			// java.awt.geom.Rectangle2D.Double rect = new
+			// java.awt.geom.Rectangle2D.Double(
+			// s_city.getX(), s_city.getY(), 32, 32);
+			//
+			// System.out.println(cmsc420.geom.Inclusive2DIntersectionVerifier.intersects(line,
+			// rect));
+
 			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(),
 					e_city.getY(), Color.CYAN);
-			
+
 			// Check to make sure root is gray, if not you can't have a road
-			if (prQuadtree.getRoot().getType() != Node.INTERNAL){
+			if (prQuadtree.getRoot().getType() != Node.INTERNAL) {
 				addErrorNode("cannotHaveARoad", commandNode, parametersNode);
 			} else { // Root is gray. Check what quadrants the road hits
-				processMapRoadHelper(prQuadtree.getRoot());
+				processMapRoadHelper(prQuadtree.getRoot(), road);
 				addSuccessNode(commandNode, parametersNode, outputNode);
 			}
 		}
 
 	}
+
 	/**
 	 * Helper Method: Adds road to a Nodes Road list if it intersects
+	 * 
 	 * @param currentNode
+	 * @param road
 	 */
-	private void processMapRoadHelper(Node currentNode) {
-		
-		if (currentNode.getType() == Node.LEAF || currentNode.getType() == Node.EMPTY){
+	private void processMapRoadHelper(Node currentNode, Road road) {
+
+		if (currentNode.getType() == Node.LEAF) {
 			final LeafNode currentLeaf = (LeafNode) currentNode;
-			// Check to see if road intersects quadrant 
-			
+			// Check to see if road intersects quadrant
+			if (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
+					currentLeaf.rect)) {
+				currentNode.add_road(road);
+				
+				// Highlights Quadrant that includes Road
+				canvas.addRectangle(currentLeaf.rect.getX(),
+						currentLeaf.rect.getY(),
+						currentLeaf.rect.getWidth(),
+						currentLeaf.rect.getHeight(), Color.RED, false);
+			}
+
+		} else if (currentNode.getType() == Node.EMPTY) {
+			final EmptyNode currentLeaf = (EmptyNode) currentNode;
+			// Check to see if road intersects quadrant
+			if (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
+					currentLeaf.rect)) {
+				currentNode.add_road(road);
+				
+				// Highlights Quadrant that includes Road
+				canvas.addRectangle(currentLeaf.rect.getX(),
+						currentLeaf.rect.getY(),
+						currentLeaf.rect.getWidth(),
+						currentLeaf.rect.getHeight(), Color.RED, false);
+			}
 			
 		} else {
 			final InternalNode currentInternal = (InternalNode) currentNode;
-			
+
 			// Recursive call on all 4 children
-			for (int i = 0; i < 4; i++){
-				processMapRoadHelper(currentInternal.getChild(i));
+			for (int i = 0; i < 4; i++) {
+				processMapRoadHelper(currentInternal.getChild(i), road);
 			}
-			
+
 		}
-		
-		
-		
-		
+
 	}
 
 	public void processRangeRoads(Element commandNode) {

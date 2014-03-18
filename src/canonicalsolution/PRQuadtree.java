@@ -4,6 +4,7 @@ package canonicalsolution ;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.Rectangle2D.Float;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -344,6 +345,9 @@ public class PRQuadtree {
 		public abstract Node remove(City city, Point2D.Float origin, int width,
 				int height);
 
+		
+		public abstract Node add_road(Road road);
+		
 		/**
 		 * Gets the type of the node (either empty, leaf, or internal).
 		 * 
@@ -360,7 +364,10 @@ public class PRQuadtree {
 	public class EmptyNode extends Node {
 		
 		// TODO  this should be able to hold road info!!! 
-		public ArrayList<Road> roads;
+		public ArrayList<Road> roads = new ArrayList<Road>();
+		
+		// TODO Rectangle2D object representing quadrant area
+		public Rectangle2D rect;
 
 		/**
 		 * Constructs and initializes an empty node.
@@ -374,15 +381,34 @@ public class PRQuadtree {
 			this.roads = roads;
 		}
 
+		public EmptyNode(Rectangle2D rect) {
+			super(Node.EMPTY);
+			this.rect = rect;
+		}
+
+		public EmptyNode(ArrayList<Road> roads2, Rectangle2D rect2) {
+			super(Node.EMPTY);
+			this.roads = roads2;
+			this.rect = rect2;
+		}
+
 		public Node add(City city, Point2D.Float origin, int width, int height) {
-			Node leafNode = new LeafNode();
+			Node leafNode = new LeafNode(roads, rect);
 			return leafNode.add(city, origin, width, height);
 		}
+
+		
 
 		public Node remove(City city, Point2D.Float origin, int width,
 				int height) {
 			/* should never get here, nothing to remove */
 			throw new IllegalArgumentException();
+		}
+
+		@Override
+		public Node add_road(Road road) {
+			roads.add(road);
+			return new EmptyNode(this.roads, this.rect);
 		}
 	}
 
@@ -394,11 +420,21 @@ public class PRQuadtree {
 		protected City city;
 		public ArrayList<Road> roads;
 
+		// TODO Rectangle2D object representing quadrant area
+		public Rectangle2D rect;
+		
+		
 		/**
 		 * Constructs and initializes a leaf node.
 		 */
 		public LeafNode() {
 			super(Node.LEAF);
+		}
+
+		public LeafNode(ArrayList<Road> roads2, Rectangle2D rect2) {
+			super(Node.LEAF);
+			this.roads = roads2;
+			this.rect = rect2;
 		}
 
 		/**
@@ -434,8 +470,14 @@ public class PRQuadtree {
 			} else {
 				/* remove city, node becomes empty */
 				this.city = null;
-				return new EmptyNode(this.roads);
+				return new EmptyNode(this.roads, this.rect);
 			}
+		}
+
+		@Override
+		public Node add_road(Road road) {
+			roads.add(road);
+			return this;
 		}
 	}
 
@@ -483,9 +525,7 @@ public class PRQuadtree {
 			this.origin = origin;
 
 			children = new Node[4];
-			for (int i = 0; i < 4; i++) {
-				children[i] = new EmptyNode();
-			}
+
 
 			this.width = width;
 			this.height = height;
@@ -503,8 +543,14 @@ public class PRQuadtree {
 			regions = new Rectangle2D.Float[4];
 			int i = 0;
 			while (i < 4) {
-				regions[i] = new Rectangle2D.Float(origins[i].x, origins[i].y,
+				// Generates rectangle for specific quadrant
+				Rectangle2D.Float rect = new Rectangle2D.Float(origins[i].x, origins[i].y,
 						halfWidth, halfHeight);
+				
+				regions[i] = rect;
+				
+				// Creates the new EmptyNode child with respected Rectangle2D
+				children[i] = new EmptyNode(rect);		
 				i++;
 			}
 
@@ -670,6 +716,12 @@ public class PRQuadtree {
 		 */
 		public int getHalfHeight() {
 			return halfHeight;
+		}
+
+		@Override
+		public Node add_road(Road road) {
+			// This method should never be used. 
+			return null;
 		}
 	}
 }
