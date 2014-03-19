@@ -1,72 +1,115 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <results>
   <success>
-    <command name="createCity"/>
+    <command name="saveMap"/>
     <parameters>
-      <name value="Dylan"/>
-      <x value="48"/>
-      <y value="48"/>
-      <radius value="5"/>
-      <color value="black"/>
+      <name value="DyLand_1"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="createCity"/>
     <parameters>
-      <name value="Noah"/>
-      <x value="16"/>
-      <y value="16"/>
-      <radius value="5"/>
-      <color value="black"/>
+      <name value="BooVille"/>
+      <x value="31"/>
+      <y value="21"/>
+      <radius value="10"/>
+      <color value="red"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="mapCity"/>
     <parameters>
-      <name value="Dylan"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="Noah"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Dylan"/>
-      <end value="Noah"/>
+      <name value="BooVille"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="saveMap"/>
     <parameters>
-      <name value="before"/>
+      <name value="DyLand_1"/>
     </parameters>
     <output/>
   </success>
   <success>
-    <command name="printPMQuadtree"/>
-    <parameters/>
-    <output>
-      <quadtree order="1">
-        <gray x="32" y="32">
-          <white/>
-          <black cardinality="2"/>
-          <city color="black" name="Dylan" radius="5" x="48" y="48"/>
-          <road end="Dylan(48.0, 48.0)" start="Noah(16.0, 16.0)"/>
-          <black cardinality="2"/>
-          <city color="black" name="Noah" radius="5" x="16" y="16"/>
-          <road end="Dylan(48.0, 48.0)" start="Noah(16.0, 16.0)"/>
-          <white/>
-        </gray>
-      </quadtree>
-    </output>
+    <command name="createCity"/>
+    <parameters>
+      <name value="Lafayette"/>
+      <x value="10"/>
+      <y value="45"/>
+      <radius value="10"/>
+      <color value="yellow"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="Lafayette"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="DyLand_2"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="TheRink"/>
+      <x value="19"/>
+      <y value="61"/>
+      <radius value="10"/>
+      <color value="blue"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="TheRink"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="DyLand_3"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="BooVille"/>
+      <end value="Lafayette"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="DyLand_4"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="TheRink"/>
+      <end value="Lafayette"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="DyLand_5"/>
+    </parameters>
+    <output/>
   </success>
 </results>

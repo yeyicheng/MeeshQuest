@@ -402,6 +402,10 @@ public class Command {
 	private void addCityNode(final Element node, final City city) {
 		addCityNode(node, "city", city);
 	}
+	
+	private void addRoadNode(final Element node, final Road road){
+		// TODO Use this method in addCityNode when printing out PMquadTree
+	}
 
 	/**
 	 * Maps a city to the spatial map.
@@ -829,12 +833,10 @@ public class Command {
 	public void processMapRoad(final Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");
-
 		final String start_city = processStringAttribute(node, "start",
 				parametersNode);
 		final String end_city = processStringAttribute(node, "end",
 				parametersNode);
-
 		final Element outputNode = results.createElement("output");
 
 		if (!citiesByName.containsKey(start_city)
@@ -843,42 +845,31 @@ public class Command {
 		} else {
 			City s_city = citiesByName.get(start_city);
 			City e_city = citiesByName.get(end_city);
-
 			Road road = new Road(s_city, e_city);
-
-			//
-			// java.awt.geom.Rectangle2D.Double rect = new
-			// java.awt.geom.Rectangle2D.Double(
-			// s_city.getX(), s_city.getY(), 32, 32);
-			//
-			// System.out.println(cmsc420.geom.Inclusive2DIntersectionVerifier.intersects(line,
-			// rect));
 
 			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(),
 					e_city.getY(), Color.CYAN);
-
-//			processMapRoadHelper(prQuadtree.getRoot(), road);
-//			addSuccessNode(commandNode, parametersNode, outputNode);
-			
+		
 			// Check to make sure root is gray, if not you can't have a road
 			if (prQuadtree.getRoot().getType() != Node.INTERNAL) {
 				addErrorNode("cannotHaveARoad", commandNode, parametersNode);
 			} else { // Root is gray. Check what quadrants the road hits
-				processMapRoadHelper(prQuadtree.getRoot(), road);
+				
+				prQuadtree.add(road);
+				
+//				processMapRoadHelper(prQuadtree.getRoot(), road);
 				addSuccessNode(commandNode, parametersNode, outputNode);
 			}
 		}
-
 	}
-
-	/**
+/*
+	*//**
 	 * Helper Method: Adds road to a Nodes Road list if it intersects
 	 * 
 	 * @param currentNode
 	 * @param road
-	 */
+	 *//*
 	private void processMapRoadHelper(Node currentNode, Road road) {
-
 		if (currentNode.getType() == Node.LEAF) {
 			final LeafNode currentLeaf = (LeafNode) currentNode;
 			// Check to see if road intersects quadrant
@@ -891,7 +882,6 @@ public class Command {
 						currentLeaf.rect.getY(), currentLeaf.rect.getWidth(),
 						currentLeaf.rect.getHeight(), Color.RED, false);
 			}
-
 		} else if (currentNode.getType() == Node.EMPTY) {
 			final EmptyNode currentLeaf = (EmptyNode) currentNode;
 			// Check to see if road intersects quadrant
@@ -904,7 +894,6 @@ public class Command {
 						currentLeaf.rect.getY(), currentLeaf.rect.getWidth(),
 						currentLeaf.rect.getHeight(), Color.RED, false);
 			}
-
 		} else {
 			final InternalNode currentInternal = (InternalNode) currentNode;
 
@@ -912,11 +901,9 @@ public class Command {
 			for (int i = 0; i < 4; i++) {
 				processMapRoadHelper(currentInternal.getChild(i), road);
 			}
-
 		}
-
 	}
-
+*/
 	public void processRangeRoads(Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");

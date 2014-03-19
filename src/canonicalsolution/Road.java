@@ -27,8 +27,4 @@ public class Road {
 	public void setLine(Line2D line) {
 		this.line = line;
 	}
-	 
-	// TODO add city array
-	// TODO add line2d object
-	// TODO add getters and setters
 }

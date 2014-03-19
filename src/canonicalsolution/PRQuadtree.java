@@ -1,5 +1,4 @@
-package canonicalsolution ;
-
+package canonicalsolution;
 
 import java.awt.Color;
 import java.awt.geom.Point2D;
@@ -10,10 +9,11 @@ import java.util.HashSet;
 
 import cmsc420.drawing.CanvasPlus;
 import cmsc420.geom.Circle2D;
-
+import cmsc420.geom.Inclusive2DIntersectionVerifier;
 
 /**
  * PR Quadtree is a region quadtree capable of storing points.
+ * 
  * @author Ben Zoller
  * @version 2.0, 23 Jan 2007
  */
@@ -33,8 +33,9 @@ public class PRQuadtree {
 	/** used to keep track of cities within the spatial map */
 	protected HashSet<String> cityNames;
 
-	
-	// Cannot have singleton in PM because all Nodes can store Road Info
+	/** Used to store all of the roads in the spatial map */
+	protected HashSet<Road> roads;
+
 	/** empty PR Quadtree node */
 	protected EmptyNode emptyNode = new EmptyNode();
 
@@ -142,6 +143,16 @@ public class PRQuadtree {
 	}
 
 	/**
+	 * Recursively Adds road to specified nodes/regions it crosses through
+	 * 
+	 * @param road
+	 */
+	public void add(Road road) {
+		//roads.add(road);
+		root = root.add(road, spatialOrigin, spatialWidth, spatialHeight);
+	}
+
+	/**
 	 * Removes a given city from the spatial map.
 	 * 
 	 * @param city
@@ -209,8 +220,8 @@ public class PRQuadtree {
 
 		/* translate coordinates, placing circle at origin */
 		final Rectangle2D.Double r = new Rectangle2D.Double(rect.getX()
-				- circle.getCenterX(), rect.getY() - circle.getCenterY(), rect
-				.getWidth(), rect.getHeight());
+				- circle.getCenterX(), rect.getY() - circle.getCenterY(),
+				rect.getWidth(), rect.getHeight());
 
 		if (r.getMaxX() < 0) {
 			/* rectangle to left of circle center */
@@ -327,6 +338,18 @@ public class PRQuadtree {
 				int height);
 
 		/**
+		 * Adds a Road to a given node or group of nodes
+		 * 
+		 * @param road
+		 * @param origin
+		 * @param width
+		 * @param height
+		 * @return this node after the road has been added
+		 */
+		public abstract Node add(Road road, Point2D.Float origin, int width,
+				int height);
+
+		/**
 		 * Removes a city from the node. If this is a leaf node and the city is
 		 * contained in it, the city is removed and the node becomes a leaf
 		 * node. If this is an internal node, then the removal command is passed
@@ -345,9 +368,6 @@ public class PRQuadtree {
 		public abstract Node remove(City city, Point2D.Float origin, int width,
 				int height);
 
-		
-		public abstract Node add_road(Road road);
-		
 		/**
 		 * Gets the type of the node (either empty, leaf, or internal).
 		 * 
@@ -362,10 +382,6 @@ public class PRQuadtree {
 	 * Represents an empty leaf node of a PR Quadtree.
 	 */
 	public class EmptyNode extends Node {
-		
-		public ArrayList<Road> roads = new ArrayList<Road>();
-		
-		public Rectangle2D rect;
 
 		/**
 		 * Constructs and initializes an empty node.
@@ -374,28 +390,10 @@ public class PRQuadtree {
 			super(Node.EMPTY);
 		}
 
-		public EmptyNode(ArrayList<Road> roads) {
-			super(Node.EMPTY);
-			this.roads = roads;
-		}
-
-		public EmptyNode(Rectangle2D rect) {
-			super(Node.EMPTY);
-			this.rect = rect;
-		}
-
-		public EmptyNode(ArrayList<Road> roads2, Rectangle2D rect2) {
-			super(Node.EMPTY);
-			this.roads = roads2;
-			this.rect = rect2;
-		}
-
 		public Node add(City city, Point2D.Float origin, int width, int height) {
-			Node leafNode = new LeafNode(roads, rect);
+			Node leafNode = new LeafNode();
 			return leafNode.add(city, origin, width, height);
 		}
-
-		
 
 		public Node remove(City city, Point2D.Float origin, int width,
 				int height) {
@@ -403,11 +401,12 @@ public class PRQuadtree {
 			throw new IllegalArgumentException();
 		}
 
-		@Override
-		public Node add_road(Road road) {
-			roads.add(road);
-			return new EmptyNode(this.roads, this.rect);
+		public Node add(Road road, java.awt.geom.Point2D.Float origin,
+				int width, int height) {
+			Node leafNode = new LeafNode();
+			return leafNode.add(road, origin, width, height);
 		}
+
 	}
 
 	/**
@@ -416,23 +415,19 @@ public class PRQuadtree {
 	public class LeafNode extends Node {
 		/** city contained within this leaf node */
 		protected City city;
-		public ArrayList<Road> roads;
+
+		// List of roads in Node
+		public ArrayList<Road> roads = new ArrayList<Road>();
 
 		// Rectangle2D object representing quadrant area
 		public Rectangle2D rect;
-		
-		
+
 		/**
 		 * Constructs and initializes a leaf node.
 		 */
 		public LeafNode() {
 			super(Node.LEAF);
-		}
 
-		public LeafNode(ArrayList<Road> roads2, Rectangle2D rect2) {
-			super(Node.LEAF);
-			this.roads = roads2;
-			this.rect = rect2;
 		}
 
 		/**
@@ -456,8 +451,18 @@ public class PRQuadtree {
 						height);
 				internalNode.add(city, origin, width, height);
 				internalNode.add(newCity, origin, width, height);
+				for (Road r : roads) {
+					internalNode.add(r, origin, width, height);
+				}
 				return internalNode;
 			}
+		}
+
+		@Override
+		public Node add(Road road, java.awt.geom.Point2D.Float origin,
+				int width, int height) {
+			roads.add(road);
+			return this;
 		}
 
 		public Node remove(City city, Point2D.Float origin, int width,
@@ -468,14 +473,8 @@ public class PRQuadtree {
 			} else {
 				/* remove city, node becomes empty */
 				this.city = null;
-				return new EmptyNode(this.roads, this.rect);
+				return emptyNode;
 			}
-		}
-
-		@Override
-		public Node add_road(Road road) {
-			roads.add(road);
-			return this;
 		}
 	}
 
@@ -523,7 +522,9 @@ public class PRQuadtree {
 			this.origin = origin;
 
 			children = new Node[4];
-
+			for (int i = 0; i < 4; i++) {
+				children[i] = emptyNode;
+			}
 
 			this.width = width;
 			this.height = height;
@@ -542,24 +543,22 @@ public class PRQuadtree {
 			int i = 0;
 			while (i < 4) {
 				// Generates rectangle for specific quadrant
-				Rectangle2D.Float rect = new Rectangle2D.Float(origins[i].x, origins[i].y,
+				regions[i] = new Rectangle2D.Float(origins[i].x, origins[i].y,
 						halfWidth, halfHeight);
-				
-				regions[i] = rect;
-				
-				// Creates the new EmptyNode child with respected Rectangle2D
-				children[i] = new EmptyNode(rect);		
 				i++;
 			}
 
 			/* add a cross to the drawing panel */
 			if (canvas != null) {
-                //canvas.addCross(getCenterX(), getCenterY(), halfWidth, Color.BLACK);
+				// canvas.addCross(getCenterX(), getCenterY(), halfWidth,
+				// Color.BLACK);
 				int cx = getCenterX();
 				int cy = getCenterY();
-//				System.out.println(cx + ":X  " + cy + ":Y  " );
-                canvas.addLine(cx - halfWidth, cy, cx + halfWidth, cy, Color.BLACK);
-                canvas.addLine(cx, cy - halfHeight, cx, cy + halfHeight, Color.BLACK);
+				// System.out.println(cx + ":X  " + cy + ":Y  " );
+				canvas.addLine(cx - halfWidth, cy, cx + halfWidth, cy,
+						Color.BLACK);
+				canvas.addLine(cx, cy - halfHeight, cx, cy + halfHeight,
+						Color.BLACK);
 			}
 		}
 
@@ -572,6 +571,30 @@ public class PRQuadtree {
 					break;
 				}
 			}
+			return this;
+		}
+
+		@Override
+		public Node add(Road road, java.awt.geom.Point2D.Float origin,
+				int width, int height) {
+
+			// Recursively adds roads if they are in the specific region
+			// if EmptyNode it creates a new LeafNode
+			// if LeafNode it just adds the road to its roads list
+			// if InternalNode it adds it loops over children recursing on
+			// other InternalNodes.
+			for (int i = 0; i < 4; i++) {
+				if (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
+						regions[i])) {
+					children[i] = children[i].add(road, origin, width, height);
+					
+					// TODO Highlights Region that road passes through (FOR TESTING)
+					canvas.addRectangle(regions[i].getX(), regions[i].getY(),
+							regions[i].getWidth(), regions[i].getHeight(),
+							Color.RED, false);
+				}
+			}
+
 			return this;
 		}
 
@@ -588,14 +611,17 @@ public class PRQuadtree {
 			if (getNumEmptyNodes() == 4) {
 				/* remove cross from the drawing panel */
 				if (canvas != null)
-                    canvas.removeCross(getCenterX(), getCenterY(), halfWidth, Color.BLACK);
-				// TODO During removal of a node Must return all of the roads that have pass through from each of the children
+					canvas.removeCross(getCenterX(), getCenterY(), halfWidth,
+							Color.BLACK);
+				// TODO During removal of a node Must return all of the roads
+				// that have pass through from each of the children
 				return emptyNode;
 
 			} else if (getNumEmptyNodes() == 3 && getNumLeafNodes() == 1) {
 				/* remove cross from the drawing panel */
-                if (canvas != null)
-                    canvas.removeCross(getCenterX(), getCenterY(), halfWidth,						Color.BLACK);
+				if (canvas != null)
+					canvas.removeCross(getCenterX(), getCenterY(), halfWidth,
+							Color.BLACK);
 				for (Node node : children) {
 					if (node.getType() == Node.LEAF) {
 						return node;
@@ -702,24 +728,20 @@ public class PRQuadtree {
 
 		/**
 		 * Gets half the width of this internal node.
+		 * 
 		 * @return half the width of this internal node
 		 */
 		public int getHalfWidth() {
 			return halfWidth;
 		}
 
-		/** 
+		/**
 		 * Gets half the height of this internal node.
+		 * 
 		 * @return half the height of this internal node
 		 */
 		public int getHalfHeight() {
 			return halfHeight;
-		}
-
-		@Override
-		public Node add_road(Road road) {
-			// This method should never be used. 
-			return null;
 		}
 	}
 }
