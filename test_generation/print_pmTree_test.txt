@@ -1,0 +1,8 @@
+64 64 1 4
+city Dylan 48 48
+city Noah 16 16
+mapCity Dylan
+mapCity Noah
+road Dylan Noah
+savemap before
+printTree 488
