@@ -3,6 +3,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
+/**
+ * Determines if a line specified by two points intersects a circle
+ * Note that the two points are not a line segment but an infinite line 
+ * extending in both directions
+ * @author arne.b (screen name from stackoverflow.com
+ *
+ */
 public class CircleLine {
 
     public static List<Point> getCircleLineIntersectionPoint(Point pointA,
@@ -49,7 +57,7 @@ public class CircleLine {
         }
     }
 
-
+/*
     public static void main(String[] args) {
 //        System.out.println(getCircleLineIntersectionPoint(new Point(-3, -3),
 //                new Point(-3, 3), new Point(0, 0), 5));
@@ -60,4 +68,6 @@ public class CircleLine {
         System.out.println(getCircleLineIntersectionPoint(new Point(1,0),
                 new Point(2,0), new Point(0, 0), 3));
     }
+*/
+    
 }
