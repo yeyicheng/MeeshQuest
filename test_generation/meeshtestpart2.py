@@ -44,7 +44,14 @@ class Commands(object):
         me = doc.createElement("deleteCity")
         me.setAttribute("name", name)
         return me
-
+    
+    def do_rangeRoads(self, doc, x, y, radius):
+        me = doc.createElement("rangeRoads")
+        me.setAttribute("x", x)
+        me.setAttribute("y", y)                    
+        me.setAttribute("radius", radius)
+        return me
+                
 def main(f):
     doc = _IMPL.createDocument(None, "commands", None)
     id = 1

@@ -12,6 +12,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Point2D.Float;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
@@ -402,8 +403,8 @@ public class Command {
 	private void addCityNode(final Element node, final City city) {
 		addCityNode(node, "city", city);
 	}
-	
-	private void addRoadNode(final Element node, final Road road){
+
+	private void addRoadNode(final Element node, final Road road) {
 		// TODO Use this method in addCityNode when printing out PMquadTree
 	}
 
@@ -538,7 +539,7 @@ public class Command {
 	 */
 	private void printPRQuadtreeHelper(final Node currentNode,
 			final Element xmlNode) {
-		//TODO Need to fix this method so that white nodes print <white/>
+		// TODO Need to fix this method so that white nodes print <white/>
 		// TODO Nodes that have a road associated with them are black
 		final Element city;
 		final Element node;
@@ -557,11 +558,11 @@ public class Command {
 				xmlNode.appendChild(node);
 
 				// Isolated city
-				if (currentLeaf.roads.size() == 0){
+				if (currentLeaf.roads.size() == 0) {
 					city = results.createElement("isolatedCity");
 				} else {
 					// City tag
-					city = results.createElement("city");					
+					city = results.createElement("city");
 				}
 
 				city.setAttribute("color", "black");
@@ -579,7 +580,7 @@ public class Command {
 				// Appends node roads
 				for (Road r : currentLeaf.roads) {
 					final Element road = results.createElement("road");
-					
+
 					// Sets end city to the city not of the current node
 					road.setAttribute("end",
 							r.getCities()[0].equals(currentLeaf.getCity()
@@ -590,12 +591,10 @@ public class Command {
 							r.getCities()[0].equals(currentLeaf.getCity()
 									.getName()) ? r.getCities()[0].toString()
 									: r.getCities()[1].toString());
-					
+
 					xmlNode.appendChild(road);
 
 				}
-
-				
 
 			} else {
 				/* internal node */
@@ -849,74 +848,85 @@ public class Command {
 
 			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(),
 					e_city.getY(), Color.CYAN);
-		
+
 			// Check to make sure root is gray, if not you can't have a road
 			if (prQuadtree.getRoot().getType() != Node.INTERNAL) {
 				addErrorNode("cannotHaveARoad", commandNode, parametersNode);
 			} else { // Root is gray. Check what quadrants the road hits
-				
+
 				prQuadtree.add(road);
-				
-//				processMapRoadHelper(prQuadtree.getRoot(), road);
+
+				// processMapRoadHelper(prQuadtree.getRoot(), road);
 				addSuccessNode(commandNode, parametersNode, outputNode);
 			}
 		}
 	}
-/*
+
+	/*
 	*//**
 	 * Helper Method: Adds road to a Nodes Road list if it intersects
 	 * 
 	 * @param currentNode
 	 * @param road
-	 *//*
-	private void processMapRoadHelper(Node currentNode, Road road) {
-		if (currentNode.getType() == Node.LEAF) {
-			final LeafNode currentLeaf = (LeafNode) currentNode;
-			// Check to see if road intersects quadrant
-			if (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
-					currentLeaf.rect)) {
-				currentNode.add_road(road);
-
-				// TODO: TESTING - Highlights Quadrant that includes Road
-				canvas.addRectangle(currentLeaf.rect.getX(),
-						currentLeaf.rect.getY(), currentLeaf.rect.getWidth(),
-						currentLeaf.rect.getHeight(), Color.RED, false);
-			}
-		} else if (currentNode.getType() == Node.EMPTY) {
-			final EmptyNode currentLeaf = (EmptyNode) currentNode;
-			// Check to see if road intersects quadrant
-			if (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
-					currentLeaf.rect)) {
-				currentNode.add_road(road);
-
-				// TODO: TESTING - Highlights Quadrant that includes Road
-				canvas.addRectangle(currentLeaf.rect.getX(),
-						currentLeaf.rect.getY(), currentLeaf.rect.getWidth(),
-						currentLeaf.rect.getHeight(), Color.RED, false);
-			}
-		} else {
-			final InternalNode currentInternal = (InternalNode) currentNode;
-
-			// Recursive call on all 4 children
-			for (int i = 0; i < 4; i++) {
-				processMapRoadHelper(currentInternal.getChild(i), road);
-			}
-		}
-	}
-*/
+	 */
+	/*
+	 * private void processMapRoadHelper(Node currentNode, Road road) { if
+	 * (currentNode.getType() == Node.LEAF) { final LeafNode currentLeaf =
+	 * (LeafNode) currentNode; // Check to see if road intersects quadrant if
+	 * (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
+	 * currentLeaf.rect)) { currentNode.add_road(road);
+	 * 
+	 * // TODO: TESTING - Highlights Quadrant that includes Road
+	 * canvas.addRectangle(currentLeaf.rect.getX(), currentLeaf.rect.getY(),
+	 * currentLeaf.rect.getWidth(), currentLeaf.rect.getHeight(), Color.RED,
+	 * false); } } else if (currentNode.getType() == Node.EMPTY) { final
+	 * EmptyNode currentLeaf = (EmptyNode) currentNode; // Check to see if road
+	 * intersects quadrant if
+	 * (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
+	 * currentLeaf.rect)) { currentNode.add_road(road);
+	 * 
+	 * // TODO: TESTING - Highlights Quadrant that includes Road
+	 * canvas.addRectangle(currentLeaf.rect.getX(), currentLeaf.rect.getY(),
+	 * currentLeaf.rect.getWidth(), currentLeaf.rect.getHeight(), Color.RED,
+	 * false); } } else { final InternalNode currentInternal = (InternalNode)
+	 * currentNode;
+	 * 
+	 * // Recursive call on all 4 children for (int i = 0; i < 4; i++) {
+	 * processMapRoadHelper(currentInternal.getChild(i), road); } } }
+	 */
 	public void processRangeRoads(Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");
 		final Element outputNode = results.createElement("output");
-		
+
+		// Gathers info from attributes
 		final int x = processIntegerAttribute(node, "x", parametersNode);
 		final int y = processIntegerAttribute(node, "y", parametersNode);
 		final int radius = processIntegerAttribute(node, "radius",
 				parametersNode);
-		
-		
 
+		// Creates Circle or area in question for road intersection
+		final Point2D.Double pt = new Point2D.Double(x, y);
+		final Circle2D.Double circle = new Circle2D.Double(pt, radius);
+
+		ArrayList<Road> road_intersections = new ArrayList<Road>();
 		
+		// Looping over Roads (Might have to do this recursively DFS)
+		for (Road r : prQuadtree.roads) {
+
+			ArrayList<Point2D> intersections = (ArrayList<Point2D>) CircleLine
+					.getCircleLineIntersectionPoint(r.getLine().getP1(), r
+							.getLine().getP2(), pt, radius);
+
+			for (Point2D p : intersections){
+				if (r.getLine().contains(p)){
+					road_intersections.add(r);
+				}
+			}
+		}
+		
+		System.out.println(road_intersections.toString());
+
 	}
 
 	public void processPrintAvlTree(Element commandNode) {

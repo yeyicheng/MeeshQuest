@@ -5,6 +5,7 @@
 	<mapCity id="3" name="Dylan"/>
 	<mapCity id="4" name="Noah"/>
 	<mapRoad end="Noah" id="5" start="Dylan"/>
-	<saveMap id="6" name="before"/>
-	<printPMQuadtree id="7"/>
+	<rangeRoads id="6" radius="5" x="32" y="32"/>
+	<saveMap id="7" name="roads_in_range"/>
+	<printPMQuadtree id="8"/>
 </commands>

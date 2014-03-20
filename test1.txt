@@ -1,114 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <results>
   <success>
-    <command name="saveMap"/>
+    <command name="createCity"/>
     <parameters>
-      <name value="DyLand_1"/>
+      <name value="Dylan"/>
+      <x value="48"/>
+      <y value="48"/>
+      <radius value="5"/>
+      <color value="black"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="createCity"/>
     <parameters>
-      <name value="BooVille"/>
-      <x value="31"/>
-      <y value="21"/>
-      <radius value="10"/>
-      <color value="red"/>
+      <name value="Noah"/>
+      <x value="16"/>
+      <y value="16"/>
+      <radius value="5"/>
+      <color value="black"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="mapCity"/>
     <parameters>
-      <name value="BooVille"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="saveMap"/>
-    <parameters>
-      <name value="DyLand_1"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="createCity"/>
-    <parameters>
-      <name value="Lafayette"/>
-      <x value="10"/>
-      <y value="45"/>
-      <radius value="10"/>
-      <color value="yellow"/>
+      <name value="Dylan"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="mapCity"/>
     <parameters>
-      <name value="Lafayette"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="saveMap"/>
-    <parameters>
-      <name value="DyLand_2"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="createCity"/>
-    <parameters>
-      <name value="TheRink"/>
-      <x value="19"/>
-      <y value="61"/>
-      <radius value="10"/>
-      <color value="blue"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="TheRink"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="saveMap"/>
-    <parameters>
-      <name value="DyLand_3"/>
+      <name value="Noah"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="mapRoad"/>
     <parameters>
-      <start value="BooVille"/>
-      <end value="Lafayette"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="saveMap"/>
-    <parameters>
-      <name value="DyLand_4"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="TheRink"/>
-      <end value="Lafayette"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="saveMap"/>
-    <parameters>
-      <name value="DyLand_5"/>
+      <start value="Dylan"/>
+      <end value="Noah"/>
     </parameters>
     <output/>
   </success>

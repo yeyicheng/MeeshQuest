@@ -31,7 +31,7 @@ public class MeeshQuest {
 	//private File xmlInput = new File("part1.rangeCitiesAndSaveMap.input.xml");
 	private File xmlOutput = new File("test1.txt");
 
-	private File xmlInput = new File("dyLand.xml");
+	private File xmlInput = new File("dyLand2.xml");
 	
 	
 
