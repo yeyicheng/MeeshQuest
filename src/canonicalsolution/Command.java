@@ -14,12 +14,16 @@ import java.awt.geom.Point2D.Float;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.PriorityQueue;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+
 
 // Import for intersections
 import canonicalsolution.PRQuadtree.CityAlreadyMappedException;
@@ -909,7 +913,7 @@ public class Command {
 		final Point2D.Double pt = new Point2D.Double(x, y);
 		final Circle2D.Double circle = new Circle2D.Double(pt, radius);
 
-		ArrayList<Road> road_intersections = new ArrayList<Road>();
+		Set<Road> road_intersections = new HashSet<Road>();
 		
 		// Looping over Roads (Might have to do this recursively DFS)
 		for (Road r : prQuadtree.roads) {
@@ -918,10 +922,17 @@ public class Command {
 					.getCircleLineIntersectionPoint(r.getLine().getP1(), r
 							.getLine().getP2(), pt, radius);
 
+			System.out.println(intersections.toString());
+
+			
 			for (Point2D p : intersections){
-				if (r.getLine().contains(p)){
+				if (r.point_close_enough(p)){
 					road_intersections.add(r);
 				}
+				
+//				if (r.getLine().contains(p.getX(), p.getY())){
+//					road_intersections.add(r);
+//				}
 			}
 		}
 		

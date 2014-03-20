@@ -1,11 +1,10 @@
 <?xml version="1.0" ?>
 <commands g="4" pmOrder="1" spatialHeight="64" spatialWidth="64" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="part2in.xsd">
-	<createCity color="black" id="1" name="Dylan" radius="5" x="48" y="48"/>
-	<createCity color="black" id="2" name="Noah" radius="5" x="16" y="16"/>
+	<createCity color="black" id="1" name="Dylan" radius="5" x="40" y="38"/>
+	<createCity color="black" id="2" name="Noah" radius="5" x="24" y="26"/>
 	<mapCity id="3" name="Dylan"/>
 	<mapCity id="4" name="Noah"/>
 	<mapRoad end="Noah" id="5" start="Dylan"/>
 	<rangeRoads id="6" radius="5" x="32" y="32"/>
 	<saveMap id="7" name="roads_in_range"/>
-	<printPMQuadtree id="8"/>
 </commands>

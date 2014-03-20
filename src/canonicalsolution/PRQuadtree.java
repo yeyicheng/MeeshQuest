@@ -48,6 +48,7 @@ public class PRQuadtree {
 	public PRQuadtree() {
 		root = emptyNode;
 		cityNames = new HashSet<String>();
+		roads = new HashSet<Road>();
 		spatialOrigin = new Point2D.Float(0, 0);
 	}
 
@@ -148,7 +149,7 @@ public class PRQuadtree {
 	 * @param road
 	 */
 	public void add(Road road) {
-		//roads.add(road);
+		roads.add(road);
 		root = root.add(road, spatialOrigin, spatialWidth, spatialHeight);
 	}
 
@@ -401,6 +402,9 @@ public class PRQuadtree {
 			throw new IllegalArgumentException();
 		}
 
+		/**
+		 * Adds Road to leaf nodes rodes list
+		 */
 		public Node add(Road road, java.awt.geom.Point2D.Float origin,
 				int width, int height) {
 			Node leafNode = new LeafNode();
@@ -462,6 +466,13 @@ public class PRQuadtree {
 		public Node add(Road road, java.awt.geom.Point2D.Float origin,
 				int width, int height) {
 			roads.add(road);
+			
+			/*
+			// TODO Highlights Region that road passes through (FOR TESTING)
+			canvas.addRectangle(rect.getX(), regions[i].getY(),
+					regions[i].getWidth(), regions[i].getHeight(),
+					Color.RED, false);
+*/			
 			return this;
 		}
 
@@ -587,11 +598,12 @@ public class PRQuadtree {
 				if (Inclusive2DIntersectionVerifier.intersects(road.getLine(),
 						regions[i])) {
 					children[i] = children[i].add(road, origin, width, height);
-					
+
+					/*
 					// TODO Highlights Region that road passes through (FOR TESTING)
 					canvas.addRectangle(regions[i].getX(), regions[i].getY(),
 							regions[i].getWidth(), regions[i].getHeight(),
-							Color.RED, false);
+							Color.RED, false);*/
 				}
 			}
 
