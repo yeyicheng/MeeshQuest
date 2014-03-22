@@ -1,5 +1,5 @@
 64 64 1 4
-city Dylan 36 35
+city Dylan 36 10
 city Noah 28 29
 mapCity Dylan
 mapCity Noah

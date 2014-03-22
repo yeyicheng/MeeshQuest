@@ -1,10 +1,29 @@
 <?xml version="1.0" ?>
 <commands g="4" pmOrder="1" spatialHeight="64" spatialWidth="64" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="part2in.xsd">
-	<createCity color="black" id="1" name="Dylan" radius="5" x="36" y="35"/>
-	<createCity color="black" id="2" name="Noah" radius="5" x="28" y="29"/>
-	<mapCity id="3" name="Dylan"/>
-	<mapCity id="4" name="Noah"/>
-	<mapRoad end="Noah" id="5" start="Dylan"/>
-	<rangeRoads id="6" radius="5" x="32" y="32"/>
-	<saveMap id="7" name="roads_in_range"/>
+	<createCity color="black" id="1" name="Dylan" radius="5" x="40" y="38"/>
+	<createCity color="black" id="2" name="Noah" radius="5" x="24" y="26"/>
+	<createCity color="black" id="3" name="pasta" radius="5" x="48" y="25"/>
+	<createCity color="black" id="4" name="rice" radius="5" x="19" y="19"/>
+	<createCity color="black" id="5" name="pizza" radius="5" x="1" y="62"/>
+	<createCity color="black" id="6" name="cheese" radius="5" x="62" y="1"/>
+	<mapCity id="7" name="pasta"/>
+	<mapCity id="8" name="rice"/>
+	<mapCity id="9" name="pizza"/>
+	<mapCity id="10" name="cheese"/>
+	<mapCity id="11" name="Dylan"/>
+	<mapCity id="12" name="Noah"/>
+	<mapRoad end="Noah" id="13" start="Dylan"/>
+	<mapRoad end="pasta" id="14" start="Dylan"/>
+	<mapRoad end="rice" id="15" start="Dylan"/>
+	<mapRoad end="pizza" id="16" start="Dylan"/>
+	<mapRoad end="cheese" id="17" start="Dylan"/>
+	<mapRoad end="rice" id="18" start="pasta"/>
+	<mapRoad end="cheese" id="19" start="rice"/>
+	<mapRoad end="pasta" id="20" start="cheese"/>
+	<mapRoad end="rice" id="21" start="Noah"/>
+	<mapRoad end="cheese" id="22" start="Noah"/>
+	<mapRoad end="pizza" id="23" start="rice"/>
+	<rangeRoads id="24" radius="20" x="19" y="19"/>
+	<saveMap id="25" name="roads_in_range"/>
 </commands>
+
