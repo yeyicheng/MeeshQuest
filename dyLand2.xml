@@ -1,16 +1,14 @@
 <?xml version="1.0" ?>
 <commands g="4" pmOrder="1" spatialHeight="64" spatialWidth="64" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="part2in.xsd">
-	<createCity color="black" id="1" name="Dylan" radius="5" x="41" y="41"/>
-	<createCity color="black" id="2" name="Noah" radius="5" x="41" y="20"/>
-	<createCity color="black" id="3" name="Boo" radius="5" x="26" y="26"/>
-	<createCity color="black" id="4" name="Lafayette" radius="5" x="26" y="19"/>
+	<createCity color="black" id="1" name="Dylan" radius="5" x="48" y="48"/>
+	<createCity color="black" id="2" name="Furrigson" radius="5" x="10" y="8"/>
+	<createCity color="black" id="3" name="Boo" radius="5" x="25" y="25"/>
+	<createCity color="black" id="4" name="Lafayette" radius="5" x="53" y="44"/>
 	<mapCity id="5" name="Dylan"/>
-	<mapCity id="6" name="Noah"/>
+	<mapCity id="6" name="Furrigson"/>
 	<mapCity id="7" name="Boo"/>
 	<mapCity id="8" name="Lafayette"/>
-	<mapRoad end="Lafayette" id="9" start="Boo"/>
-	<mapRoad end="Noah" id="10" start="Dylan"/>
-	<saveMap id="12" name="nearestRoad"/>
-	<nearestRoad id="11" x="30" y="35"/>
-
+	<nearestIsolatedCity id="9" x="48" y="59"/>
+	<saveMap id="10" name="Image1"/>
+	<printPMQuadtree id="11"/>
 </commands>

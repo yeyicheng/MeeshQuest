@@ -62,7 +62,13 @@ class Commands(object):
         me = doc.createElement("nearestCity")
         me.setAttribute("x", x)
         me.setAttribute("y", y)                    
-        return me         
+        return me  
+    
+    def do_nearestIsolatedCity(self, doc, x, y):
+        me = doc.createElement("nearestIsolatedCity")
+        me.setAttribute("x", x)
+        me.setAttribute("y", y)                    
+        return me    
           
 def main(f):
     doc = _IMPL.createDocument(None, "commands", None)

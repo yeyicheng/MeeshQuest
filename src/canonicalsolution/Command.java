@@ -829,7 +829,7 @@ public class Command {
 	 * @param node
 	 *            nearestCity command being processed
 	 */
-	public void processIsolatedNearestCity(Element node) {
+	public void processNearestIsolatedCity(Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");
 		final Element outputNode = results.createElement("output");
@@ -851,7 +851,7 @@ public class Command {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
 		} else {
 
-			City n = nearestIsolatedCityHelper2(prQuadtree.getRoot(), point);
+			City n = processNearestIsolatedCityHelper2(prQuadtree.getRoot(), point);
 			addCityNode(outputNode, n);
 
 			/* add success node to results */
@@ -865,7 +865,7 @@ public class Command {
 	 * @param root
 	 * @param point
 	 */
-	private City nearestIsolatedCityHelper2(Node root, Point2D.Float point) {
+	private City processNearestIsolatedCityHelper2(Node root, Point2D.Float point) {
 		PriorityQueue<QuadrantDistance> q = new PriorityQueue<QuadrantDistance>();
 		Node currNode = root;
 		while (currNode.getType() != Node.LEAF) {

@@ -4,8 +4,8 @@
     <command name="createCity"/>
     <parameters>
       <name value="Dylan"/>
-      <x value="41"/>
-      <y value="41"/>
+      <x value="48"/>
+      <y value="48"/>
       <radius value="5"/>
       <color value="black"/>
     </parameters>
@@ -14,9 +14,9 @@
   <success>
     <command name="createCity"/>
     <parameters>
-      <name value="Noah"/>
-      <x value="41"/>
-      <y value="20"/>
+      <name value="Furrigson"/>
+      <x value="10"/>
+      <y value="8"/>
       <radius value="5"/>
       <color value="black"/>
     </parameters>
@@ -26,8 +26,8 @@
     <command name="createCity"/>
     <parameters>
       <name value="Boo"/>
-      <x value="26"/>
-      <y value="26"/>
+      <x value="25"/>
+      <y value="25"/>
       <radius value="5"/>
       <color value="black"/>
     </parameters>
@@ -37,8 +37,8 @@
     <command name="createCity"/>
     <parameters>
       <name value="Lafayette"/>
-      <x value="26"/>
-      <y value="19"/>
+      <x value="53"/>
+      <y value="44"/>
       <radius value="5"/>
       <color value="black"/>
     </parameters>
@@ -54,7 +54,7 @@
   <success>
     <command name="mapCity"/>
     <parameters>
-      <name value="Noah"/>
+      <name value="Furrigson"/>
     </parameters>
     <output/>
   </success>
@@ -73,36 +73,48 @@
     <output/>
   </success>
   <success>
-    <command name="mapRoad"/>
+    <command name="nearestIsolatedCity"/>
     <parameters>
-      <start value="Boo"/>
-      <end value="Lafayette"/>
+      <x value="48"/>
+      <y value="59"/>
     </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Dylan"/>
-      <end value="Noah"/>
-    </parameters>
-    <output/>
+    <output>
+      <city color="black" name="Dylan" radius="5" x="48" y="48"/>
+    </output>
   </success>
   <success>
     <command name="saveMap"/>
     <parameters>
-      <name value="nearestRoad"/>
+      <name value="Image1"/>
     </parameters>
     <output/>
   </success>
   <success>
-    <command name="nearestRoad"/>
-    <parameters>
-      <x value="30"/>
-      <y value="35"/>
-    </parameters>
+    <command name="printPMQuadtree"/>
+    <parameters/>
     <output>
-      <road end="Lafayette(26.0, 19.0)" start="Boo(26.0, 26.0)"/>
+      <quadtree order="1">
+        <gray x="32" y="32">
+          <white/>
+          <gray x="48" y="48">
+            <white/>
+            <black cardinality="1"/>
+            <isolatedCity color="black" name="Dylan" radius="5" x="48" y="48"/>
+            <white/>
+            <black cardinality="1"/>
+            <isolatedCity color="black" name="Lafayette" radius="5" x="53" y="44"/>
+          </gray>
+          <gray x="16" y="16">
+            <white/>
+            <black cardinality="1"/>
+            <isolatedCity color="black" name="Boo" radius="5" x="25" y="25"/>
+            <black cardinality="1"/>
+            <isolatedCity color="black" name="Furrigson" radius="5" x="10" y="8"/>
+            <white/>
+          </gray>
+          <white/>
+        </gray>
+      </quadtree>
     </output>
   </success>
 </results>
