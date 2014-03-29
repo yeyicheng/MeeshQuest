@@ -1,0 +1,12 @@
+64 64 1 4
+city Dylan 48 48
+city Furrigson 10 8
+city Boo 25 25
+city Lafayette 53 44
+mapCity Dylan
+mapCity Furrigson
+mapCity Boo
+mapCity Lafayette
+nearestIsolatedCity 32 32
+savemap Image1
+printTree 488

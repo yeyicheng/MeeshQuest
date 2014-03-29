@@ -73,13 +73,49 @@
     <output/>
   </success>
   <success>
-    <command name="nearestIsolatedCity"/>
+    <command name="mapRoad"/>
     <parameters>
-      <x value="48"/>
-      <y value="59"/>
+      <start value="Dylan"/>
+      <end value="Furrigson"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="Boo"/>
+      <end value="Lafayette"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="Boo"/>
+      <end value="Dylan"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="Lafayette"/>
+      <end value="Furrigson"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="rangeRoads"/>
+    <parameters>
+      <x value="32"/>
+      <y value="32"/>
+      <radius value="20"/>
     </parameters>
     <output>
-      <city color="black" name="Dylan" radius="5" x="48" y="48"/>
+      <road end="Dylan(48.0, 48.0)" start="Boo(25.0, 25.0)"/>
+      <road end="Lafayette(53.0, 44.0)" start="Boo(25.0, 25.0)"/>
+      <road end="Furrigson(10.0, 8.0)" start="Dylan(48.0, 48.0)"/>
+      <road end="Furrigson(10.0, 8.0)" start="Lafayette(53.0, 44.0)"/>
     </output>
   </success>
   <success>
@@ -88,33 +124,5 @@
       <name value="Image1"/>
     </parameters>
     <output/>
-  </success>
-  <success>
-    <command name="printPMQuadtree"/>
-    <parameters/>
-    <output>
-      <quadtree order="1">
-        <gray x="32" y="32">
-          <white/>
-          <gray x="48" y="48">
-            <white/>
-            <black cardinality="1"/>
-            <isolatedCity color="black" name="Dylan" radius="5" x="48" y="48"/>
-            <white/>
-            <black cardinality="1"/>
-            <isolatedCity color="black" name="Lafayette" radius="5" x="53" y="44"/>
-          </gray>
-          <gray x="16" y="16">
-            <white/>
-            <black cardinality="1"/>
-            <isolatedCity color="black" name="Boo" radius="5" x="25" y="25"/>
-            <black cardinality="1"/>
-            <isolatedCity color="black" name="Furrigson" radius="5" x="10" y="8"/>
-            <white/>
-          </gray>
-          <white/>
-        </gray>
-      </quadtree>
-    </output>
   </success>
 </results>

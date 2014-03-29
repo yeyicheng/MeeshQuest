@@ -8,7 +8,10 @@
 	<mapCity id="6" name="Furrigson"/>
 	<mapCity id="7" name="Boo"/>
 	<mapCity id="8" name="Lafayette"/>
-	<nearestIsolatedCity id="9" x="48" y="59"/>
-	<saveMap id="10" name="Image1"/>
-	<printPMQuadtree id="11"/>
+	<mapRoad end="Furrigson" id="9" start="Dylan"/>
+	<mapRoad end="Lafayette" id="10" start="Boo"/>
+	<mapRoad end="Dylan" id="11" start="Boo"/>
+	<mapRoad end="Furrigson" id="12" start="Lafayette"/>
+	<rangeRoads id="13" radius="20" x="32" y="32"/>
+	<saveMap id="14" name="Image1"/>
 </commands>

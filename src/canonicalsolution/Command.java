@@ -1104,7 +1104,108 @@ public class Command {
 	 * // Recursive call on all 4 children for (int i = 0; i < 4; i++) {
 	 * processMapRoadHelper(currentInternal.getChild(i), road); } } }
 	 */
-	public void processRangeRoads(Element node) {
+	
+	public void processRangeRoads(Element node){
+		final Element commandNode = getCommandNode(node);
+		final Element parametersNode = results.createElement("parameters");
+		final Element outputNode = results.createElement("output");
+
+		// Gathers info from attributes
+		final int x = processIntegerAttribute(node, "x", parametersNode);
+		final int y = processIntegerAttribute(node, "y", parametersNode);
+		final int radius = processIntegerAttribute(node, "radius",
+				parametersNode);
+
+		final Point2D.Float point = new Point2D.Float(x, y);
+		
+		HashSet<Road> roads_in_range = new HashSet<Road>();
+		
+		
+		// Check if there are cities on the map, Must have 2 to have road
+		if (citiesByName.size() <= 1) {
+			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			return;
+		}
+
+		// Check to see if root is empty
+		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
+			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+		} else {
+			roads_in_range = processRangeRoadsHelper(prQuadtree.getRoot(), point, radius);
+			
+			// Must sort roads_in_range First!!!!!
+			
+			for (Road r: roads_in_range){
+				addRoadNode(outputNode, r);
+				
+			}
+			
+			addSuccessNode(commandNode, parametersNode, outputNode);
+			
+			
+		}
+	}
+	
+	
+	
+	private HashSet<Road> processRangeRoadsHelper(Node root, Float point, int radius) {
+		PriorityQueue<RoadQuadrantDistance> q = new PriorityQueue<RoadQuadrantDistance>();
+		Node currNode = root;
+		HashSet<Road> roads_added = new HashSet<Road>();
+		HashSet<Road> roads_in_range = new HashSet<Road>();
+
+		RoadQuadrantDistance currDistance = null;
+		
+		// Iterates until the first node in priority queue is not a gray node
+		while (currNode.getType() == Node.INTERNAL){
+			InternalNode g = (InternalNode) currNode;
+			
+			// Looping over children of current gray node
+			for (int i = 0; i < 4; i++){
+				Node kid = g.children[i];
+				
+				// Check that child is gray
+				if (kid.getType() == Node.INTERNAL){
+					q.add(new RoadQuadrantDistance(kid, point));
+
+				} else if (kid.getType() == Node.LEAF){
+					for (Road r : ((LeafNode) kid).roads){
+						// Only add a road once
+						
+						if (!roads_added.contains(r)){
+							q.add(new RoadQuadrantDistance(r, kid, point));
+							roads_added.add(r);
+						}
+							
+					}
+				}
+			}
+			
+			// Removes Leaf nodes from beginning of priority queue
+			while (q.peek() != null && q.peek().quadtreeNode.getType() == Node.LEAF){
+				currDistance = q.remove();
+				if (currDistance.distance <= radius){
+					roads_in_range.add(currDistance.road);
+				}
+			}
+			// Removing a gray node
+			if (q.peek() != null){
+				currDistance = q.remove();
+				currNode = currDistance.quadtreeNode;
+				if (currDistance.distance > radius){
+					break;
+				}
+			} else {
+				break;
+			}
+			
+		}
+		return roads_in_range;
+	}
+
+	
+
+/*	public void processRangeRoads(Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");
 		final Element outputNode = results.createElement("output");
@@ -1146,7 +1247,7 @@ public class Command {
 
 	}
 
-	public void processPrintAvlTree(Element commandNode) {
+*/	public void processPrintAvlTree(Element commandNode) {
 		// TODO Auto-generated method stub
 
 	}
