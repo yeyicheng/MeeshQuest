@@ -927,10 +927,11 @@ public class Command {
 		PriorityQueue<RoadQuadrantDistance> q = new PriorityQueue<RoadQuadrantDistance>();
 		Node currNode = root;	
 		HashSet<Road> roads_added = new HashSet<Road>();
-		RoadQuadrantDistance currDistance = new RoadQuadrantDistance(currNode, point);
+		//RoadQuadrantDistance currDistance = new RoadQuadrantDistance(currNode, point);
+		RoadQuadrantDistance currDistance = null;
 		
 		// Iterates until the first node in priority queue is not a gray node
-		while (currDistance.quadtreeNode.getType() == Node.INTERNAL){
+		while (currNode.getType() == Node.INTERNAL){
 			InternalNode g = (InternalNode) currNode;
 			
 			// Looping over children of current gray node
@@ -956,6 +957,7 @@ public class Command {
 			// pops off first closest distance, 
 			// if its not a gray it will not continue the loop
 			currDistance = q.remove();
+			currNode = currDistance.quadtreeNode;
 		}
 		return currDistance.road;
 	}

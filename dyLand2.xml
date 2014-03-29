@@ -10,6 +10,7 @@
 	<mapCity id="8" name="Lafayette"/>
 	<mapRoad end="Lafayette" id="9" start="Boo"/>
 	<mapRoad end="Noah" id="10" start="Dylan"/>
-	<nearestRoad id="11" x="32" y="32"/>
 	<saveMap id="12" name="nearestRoad"/>
+	<nearestRoad id="11" x="30" y="35"/>
+
 </commands>
