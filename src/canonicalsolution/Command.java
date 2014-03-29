@@ -25,6 +25,7 @@ import org.w3c.dom.Element;
 
 
 
+
 // Import for intersections
 import canonicalsolution.PRQuadtree.CityAlreadyMappedException;
 import canonicalsolution.PRQuadtree.CityOutOfBoundsException;
@@ -408,9 +409,21 @@ public class Command {
 		addCityNode(node, "city", city);
 	}
 
+	/**
+	 * Creates a road node containing information about a road
+	 * @param node
+	 * @param road
+	 * @param roadNodeName 
+	 */
 	private void addRoadNode(final Element node, final Road road) {
-		// TODO Use this method in addCityNode when printing out PMquadTree
+		final Element roadNode = results.createElement("road");
+
+		roadNode.setAttribute("end", road.getCities()[1].toString());
+		roadNode.setAttribute("start", road.getCities()[0].toString());
+
+		node.appendChild(roadNode);
 	}
+	
 
 	/**
 	 * Maps a city to the spatial map.
@@ -583,23 +596,8 @@ public class Command {
 
 				// Appends node roads
 				for (Road r : currentLeaf.roads) {
-					final Element road = results.createElement("road");
-
-					// Sets end city to the city not of the current node
-					road.setAttribute("end",
-							r.getCities()[0].equals(currentLeaf.getCity()
-									.getName()) ? r.getCities()[1].toString()
-									: r.getCities()[0].toString());
-					// Sets start city to city of current node
-					road.setAttribute("start",
-							r.getCities()[0].equals(currentLeaf.getCity()
-									.getName()) ? r.getCities()[0].toString()
-									: r.getCities()[1].toString());
-
-					xmlNode.appendChild(road);
-
+					addRoadNode(xmlNode,r);
 				}
-
 			} else {
 				/* internal node */
 				final InternalNode currentInternal = (InternalNode) currentNode;
@@ -729,27 +727,18 @@ public class Command {
 
 		final Point2D.Float point = new Point2D.Float(x, y);
 
+		// Check if there are cities on the map
 		if (citiesByName.size() <= 0) {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
 			return;
 		}
 
-		// final PriorityQueue<NearestCity> nearCities = new
-		// PriorityQueue<NearestCity>(
-		// citiesByName.size());
-
+		// Check to see if root is empty
 		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
 		} else {
 
-			//
-			// nearCities.add(new NearestCity(null, Double.POSITIVE_INFINITY));
-			//
-
-			// nearestCityHelper(prQuadtree.getRoot(), point, nearCities);
-			// NearestCity nearestCity = nearCities.remove();
 			City n = nearestCityHelper2(prQuadtree.getRoot(), point);
-			// addCityNode(outputNode, nearestCity.getCity());
 			addCityNode(outputNode, n);
 
 			/* add success node to results */
@@ -770,7 +759,11 @@ public class Command {
 			InternalNode g = (InternalNode) currNode;
 			for (int i = 0; i < 4; i++) {
 				Node kid = g.children[i];
-				if (kid.getType() != Node.EMPTY) {
+				if (kid.getType() == Node.LEAF){
+					if (((LeafNode) kid).getCity() != null){
+						q.add(new QuadrantDistance(kid, point));
+					}		
+				} else if (kid.getType() != Node.EMPTY) {
 					q.add(new QuadrantDistance(kid, point));
 				}
 			}
@@ -780,6 +773,7 @@ public class Command {
 		return ((LeafNode) currNode).getCity();
 	}
 
+	// Says that you are a certain distance from a quadrant or a city
 	class QuadrantDistance implements Comparable<QuadrantDistance> {
 		public Node quadtreeNode;
 		private double distance;
@@ -788,6 +782,7 @@ public class Command {
 			quadtreeNode = node;
 			if (node.getType() == Node.INTERNAL) {
 				InternalNode gray = (InternalNode) node;
+				// Calculates distance from point to gray node quadrant 
 				distance = Shape2DDistanceCalculator.distance(pt,
 						new Rectangle2D.Float(gray.origin.x, gray.origin.y,
 								gray.width, gray.height));
@@ -801,6 +796,214 @@ public class Command {
 		}
 
 		public int compareTo(QuadrantDistance qd) {
+			if (distance < qd.distance) {
+				return -1;
+			} else if (distance > qd.distance) {
+				return 1;
+			} else {
+				if (quadtreeNode.getType() != qd.quadtreeNode.getType()) {
+					if (quadtreeNode.getType() == Node.INTERNAL) {
+						return -1;
+					} else {
+						return 1;
+					}
+				} else if (quadtreeNode.getType() == Node.LEAF) {
+					// both are leaves
+					return ((LeafNode) quadtreeNode)
+							.getCity()
+							.getName()
+							.compareTo(
+									((LeafNode) qd.quadtreeNode).getCity()
+											.getName());
+				} else {
+					// both are internals
+					return 0;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Finds the nearest city to a given point.
+	 * 
+	 * @param node
+	 *            nearestCity command being processed
+	 */
+	public void processIsolatedNearestCity(Element node) {
+		final Element commandNode = getCommandNode(node);
+		final Element parametersNode = results.createElement("parameters");
+		final Element outputNode = results.createElement("output");
+
+		/* extract attribute values from command */
+		final int x = processIntegerAttribute(node, "x", parametersNode);
+		final int y = processIntegerAttribute(node, "y", parametersNode);
+
+		final Point2D.Float point = new Point2D.Float(x, y);
+
+		// Check if there are cities on the map
+		if (citiesByName.size() <= 0) {
+			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			return;
+		}
+
+		// Check to see if root is empty
+		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
+			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+		} else {
+
+			City n = nearestIsolatedCityHelper2(prQuadtree.getRoot(), point);
+			addCityNode(outputNode, n);
+
+			/* add success node to results */
+			addSuccessNode(commandNode, parametersNode, outputNode);
+		}
+	}
+
+	/**
+	 * Helper for finding the nearest isolated city
+	 * 
+	 * @param root
+	 * @param point
+	 */
+	private City nearestIsolatedCityHelper2(Node root, Point2D.Float point) {
+		PriorityQueue<QuadrantDistance> q = new PriorityQueue<QuadrantDistance>();
+		Node currNode = root;
+		while (currNode.getType() != Node.LEAF) {
+			InternalNode g = (InternalNode) currNode;
+			for (int i = 0; i < 4; i++) {
+				Node kid = g.children[i];
+				// Checks that child is a leaf
+				if (kid.getType() == Node.LEAF){
+					// Checks that Leaf has a city
+					if (((LeafNode) kid).getCity() != null){
+						// Checks that Leaf nodes City is Isolated
+						if (((LeafNode) kid).roads.size() == 0){
+							q.add(new QuadrantDistance(kid, point));
+						}						
+					}	
+				// Check to make sure a gray node
+				} else if (kid.getType() == Node.INTERNAL) {
+					q.add(new QuadrantDistance(kid, point));
+				}
+				// Does not add empty nodes to priority queue
+			}
+			currNode = q.remove().quadtreeNode;
+		}
+
+		return ((LeafNode) currNode).getCity();
+	}
+	
+	public void processNearestRoad(final Element node){
+		final Element commandNode = getCommandNode(node);
+		final Element parametersNode = results.createElement("parameters");
+		final Element outputNode = results.createElement("output");
+
+		/* extract attribute values from command */
+		final int x = processIntegerAttribute(node, "x", parametersNode);
+		final int y = processIntegerAttribute(node, "y", parametersNode);
+
+		final Point2D.Float point = new Point2D.Float(x, y);
+		
+		// Check if there are cities on the map, Must have 2 to have road
+		if (citiesByName.size() <= 1) {
+			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			return;
+		}
+
+		// Check to see if root is empty
+		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
+			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+		} else {
+
+			Road n = processNearestRoadHelper(prQuadtree.getRoot(), point);
+			addRoadNode(outputNode, n);
+
+			/* add success node to results */
+			addSuccessNode(commandNode, parametersNode, outputNode);
+		}
+	}
+		
+	private Road processNearestRoadHelper(Node root, Point2D.Float point) {
+		PriorityQueue<RoadQuadrantDistance> q = new PriorityQueue<RoadQuadrantDistance>();
+		Node currNode = root;	
+		HashSet<Road> roads_added = new HashSet<Road>();
+		RoadQuadrantDistance currDistance = new RoadQuadrantDistance(currNode, point);
+		
+		// Iterates until the first node in priority queue is not a gray node
+		while (currDistance.quadtreeNode.getType() == Node.INTERNAL){
+			InternalNode g = (InternalNode) currNode;
+			
+			// Looping over children of current gray node
+			for (int i = 0; i < 4; i++){
+				Node kid = g.children[i];
+				
+				// Check that child is gray
+				if (kid.getType() == Node.INTERNAL){
+					q.add(new RoadQuadrantDistance(kid, point));
+
+				} else if (kid.getType() == Node.LEAF){
+					for (Road r : ((LeafNode) kid).roads){
+						// Only add a road once
+						
+						if (!roads_added.contains(r)){
+							q.add(new RoadQuadrantDistance(r, kid, point));
+							roads_added.add(r);
+						}
+							
+					}
+				}
+			}
+			// pops off first closest distance, 
+			// if its not a gray it will not continue the loop
+			currDistance = q.remove();
+		}
+		return currDistance.road;
+	}
+	
+	
+	/**
+	 * Calculates distance between a quadrant(gray node) or a road and a specific point
+	 * @author Dylan Zingler
+	 *
+	 */
+	class RoadQuadrantDistance implements Comparable<RoadQuadrantDistance> {
+		public Node quadtreeNode;
+		private double distance;
+		public Road road;
+
+		/**
+		 * Constructor that takes in a node and not a road (For Internal Only)
+		 * @param node
+		 * @param pt
+		 */
+		public RoadQuadrantDistance(Node node, Point2D.Float pt) {
+			quadtreeNode = node;
+			road = null;
+			if (node.getType() == Node.INTERNAL) {
+				InternalNode gray = (InternalNode) node;
+				// Calculates distance from point to gray node quadrant 
+				distance = Shape2DDistanceCalculator.distance(pt,
+						new Rectangle2D.Float(gray.origin.x, gray.origin.y,
+								gray.width, gray.height));
+			} else {
+				throw new IllegalArgumentException(
+						"Only internal node can be passed in");
+			}
+		}
+
+		/**
+		 * Constructor that takes in a road
+		 * @param r
+		 * @param node
+		 * @param point
+		 */
+		public RoadQuadrantDistance(Road r, Node node, Point2D.Float point) {
+			quadtreeNode = node;
+			distance = r.getLine().ptSegDist(point);
+			road = r;
+		}
+
+		public int compareTo(RoadQuadrantDistance qd) {
 			if (distance < qd.distance) {
 				return -1;
 			} else if (distance > qd.distance) {
@@ -865,6 +1068,7 @@ public class Command {
 			}
 		}
 	}
+	
 
 	/*
 	*//**

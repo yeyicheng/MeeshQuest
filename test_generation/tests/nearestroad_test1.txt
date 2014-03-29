@@ -1,0 +1,13 @@
+64 64 1 4
+city Dylan 41 41
+city Noah 41 20
+city Boo 26 26
+city Lafayette 26 19
+mapCity Dylan
+mapCity Noah
+mapCity Boo
+mapCity Lafayette
+road Boo Lafayette
+road Dylan Noah
+nearestRoad 32 32
+savemap nearestRoad

@@ -1,0 +1,27 @@
+64 64 1 4
+city Dylan 40 38
+city Noah 24 26
+city pasta 48 25
+city rice 19 19
+city pizza 1 62
+city cheese 62 1
+mapCity pasta
+mapCity rice
+mapCity pizza
+mapCity cheese
+mapCity Dylan
+mapCity Noah
+road Dylan Noah
+road Dylan pasta
+road Dylan rice
+road Dylan pizza
+road Dylan cheese
+road pasta rice
+road rice cheese
+road cheese pasta
+road Noah rice
+road Noah cheese
+road rice pizza
+rangeRoads 32 32 5
+savemap roads_in_range
+printTree 488

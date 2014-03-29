@@ -4,8 +4,8 @@
     <command name="createCity"/>
     <parameters>
       <name value="Dylan"/>
-      <x value="36"/>
-      <y value="35"/>
+      <x value="40"/>
+      <y value="38"/>
       <radius value="5"/>
       <color value="black"/>
     </parameters>
@@ -15,8 +15,8 @@
     <command name="createCity"/>
     <parameters>
       <name value="Noah"/>
-      <x value="28"/>
-      <y value="29"/>
+      <x value="24"/>
+      <y value="26"/>
       <radius value="5"/>
       <color value="black"/>
     </parameters>
@@ -45,9 +45,19 @@
     <output/>
   </success>
   <success>
+    <command name="nearestRoad"/>
+    <parameters>
+      <x value="0"/>
+      <y value="0"/>
+    </parameters>
+    <output>
+      <road end="Noah(24.0, 26.0)" start="Dylan(40.0, 38.0)"/>
+    </output>
+  </success>
+  <success>
     <command name="saveMap"/>
     <parameters>
-      <name value="before"/>
+      <name value="roads_in_range"/>
     </parameters>
     <output/>
   </success>

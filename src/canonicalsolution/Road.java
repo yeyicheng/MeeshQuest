@@ -4,7 +4,7 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.Arrays;
 
-public class Road {
+public class Road implements Comparable<Road>{
 
 	@Override
 	public String toString() {
@@ -62,5 +62,11 @@ public class Road {
 			return false;
 		}
 		
+	}
+
+	@Override
+	public int compareTo(Road o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

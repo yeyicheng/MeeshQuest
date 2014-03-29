@@ -1,0 +1,9 @@
+64 64 1 4
+city Dylan 36 35
+city Noah 28 29
+mapCity Dylan
+mapCity Noah
+road Dylan Noah
+rangeRoads 32 32 5
+savemap roads_in_range
+printTree 488

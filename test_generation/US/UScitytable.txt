@@ -1,0 +1,1819 @@
+        <tr>
+          <th valign="bottom" align="left">City</th>
+
+          <th valign="bottom" align="center">°</th>
+
+          <th valign="bottom" align="center">'</th>
+
+          <th valign="bottom" align="center">°</th>
+
+          <th valign="bottom" align="center">'</th>
+
+          <th valign="bottom" align="center">Time</th>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Albany, N.Y.</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">73</td>
+
+          <td valign="top" align="right">45</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Albuquerque, N.M.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">05</td>
+
+          <td valign="top" align="right">106</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Amarillo, Tex.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">11</td>
+
+          <td valign="top" align="right">101</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Anchorage, Alaska</td>
+
+          <td valign="top" align="right">61</td>
+
+          <td valign="top" align="right">13</td>
+
+          <td valign="top" align="right">149</td>
+
+          <td valign="top" align="right">54</td>
+
+          <td valign="top" align="right">8:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Atlanta, Ga.</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">45</td>
+
+          <td valign="top" align="right">84</td>
+
+          <td valign="top" align="right">23</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Austin, Tex.</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">16</td>
+
+          <td valign="top" align="right">97</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Baker, Ore.</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">117</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Baltimore, Md.</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">18</td>
+
+          <td valign="top" align="right">76</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Bangor, Maine</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">68</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Birmingham, Ala.</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">86</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Bismarck, N.D.</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">100</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Boise, Idaho</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">36</td>
+
+          <td valign="top" align="right">116</td>
+
+          <td valign="top" align="right">13</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Boston, Mass.</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">21</td>
+
+          <td valign="top" align="right">71</td>
+
+          <td valign="top" align="right">5</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Buffalo, N.Y.</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">55</td>
+
+          <td valign="top" align="right">78</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Calgary, Alba., Can.</td>
+
+          <td valign="top" align="right">51</td>
+
+          <td valign="top" align="right">1</td>
+
+          <td valign="top" align="right">114</td>
+
+          <td valign="top" align="right">1</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Carlsbad, N.M.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">26</td>
+
+          <td valign="top" align="right">104</td>
+
+          <td valign="top" align="right">15</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Charleston, S.C.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">79</td>
+
+          <td valign="top" align="right">56</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Charleston, W. Va.</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">21</td>
+
+          <td valign="top" align="right">81</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Charlotte, N.C.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">14</td>
+
+          <td valign="top" align="right">80</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Cheyenne, Wyo.</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">9</td>
+
+          <td valign="top" align="right">104</td>
+
+          <td valign="top" align="right">52</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Chicago, Ill.</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">87</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Cincinnati, Ohio</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">8</td>
+
+          <td valign="top" align="right">84</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Cleveland, Ohio</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">28</td>
+
+          <td valign="top" align="right">81</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Columbia, S.C.</td>
+
+          <td valign="top" align="right">34</td>
+
+          <td valign="top" align="right">0</td>
+
+          <td valign="top" align="right">81</td>
+
+          <td valign="top" align="right">2</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Columbus, Ohio</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">0</td>
+
+          <td valign="top" align="right">83</td>
+
+          <td valign="top" align="right">1</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Dallas, Tex.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">96</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Denver, Colo.</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">45</td>
+
+          <td valign="top" align="right">105</td>
+
+          <td valign="top" align="right">0</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Des Moines, Iowa</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">93</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Detroit, Mich.</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">20</td>
+
+          <td valign="top" align="right">83</td>
+
+          <td valign="top" align="right">3</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Dubuque, Iowa</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">31</td>
+
+          <td valign="top" align="right">90</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Duluth, Minn.</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">49</td>
+
+          <td valign="top" align="right">92</td>
+
+          <td valign="top" align="right">5</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Eastport, Maine</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">54</td>
+
+          <td valign="top" align="right">67</td>
+
+          <td valign="top" align="right">0</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Edmonton, Alb., Can.</td>
+
+          <td valign="top" align="right">53</td>
+
+          <td valign="top" align="right">34</td>
+
+          <td valign="top" align="right">113</td>
+
+          <td valign="top" align="right">28</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">El Centro, Calif.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">115</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">El Paso, Tex.</td>
+
+          <td valign="top" align="right">31</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">106</td>
+
+          <td valign="top" align="right">29</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Eugene, Ore.</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">3</td>
+
+          <td valign="top" align="right">123</td>
+
+          <td valign="top" align="right">5</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Fargo, N.D.</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">52</td>
+
+          <td valign="top" align="right">96</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Flagstaff, Ariz.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">13</td>
+
+          <td valign="top" align="right">111</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Fort Worth, Tex.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">97</td>
+
+          <td valign="top" align="right">19</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Fresno, Calif.</td>
+
+          <td valign="top" align="right">36</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">119</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Grand Junction, Colo.</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">5</td>
+
+          <td valign="top" align="right">108</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Grand Rapids, Mich.</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">58</td>
+
+          <td valign="top" align="right">85</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Havre, Mont.</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">109</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Helena, Mont.</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">112</td>
+
+          <td valign="top" align="right">2</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Honolulu, Hawaii</td>
+
+          <td valign="top" align="right">21</td>
+
+          <td valign="top" align="right">18</td>
+
+          <td valign="top" align="right">157</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">7:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Hot Springs, Ark.</td>
+
+          <td valign="top" align="right">34</td>
+
+          <td valign="top" align="right">31</td>
+
+          <td valign="top" align="right">93</td>
+
+          <td valign="top" align="right">3</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Houston, Tex.</td>
+
+          <td valign="top" align="right">29</td>
+
+          <td valign="top" align="right">45</td>
+
+          <td valign="top" align="right">95</td>
+
+          <td valign="top" align="right">21</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Idaho Falls, Idaho</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">112</td>
+
+          <td valign="top" align="right">1</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Indianapolis, Ind.</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">86</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Jackson, Miss.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">20</td>
+
+          <td valign="top" align="right">90</td>
+
+          <td valign="top" align="right">12</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Jacksonville, Fla.</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">22</td>
+
+          <td valign="top" align="right">81</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Juneau, Alaska</td>
+
+          <td valign="top" align="right">58</td>
+
+          <td valign="top" align="right">18</td>
+
+          <td valign="top" align="right">134</td>
+
+          <td valign="top" align="right">24</td>
+
+          <td valign="top" align="right">8:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Kansas City, Mo.</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">6</td>
+
+          <td valign="top" align="right">94</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Key West, Fla.</td>
+
+          <td valign="top" align="right">24</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">81</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Kingston, Ont., Can.</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">15</td>
+
+          <td valign="top" align="right">76</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Klamath Falls, Ore.</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">121</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Knoxville, Tenn.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">83</td>
+
+          <td valign="top" align="right">56</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Las Vegas, Nev.</td>
+
+          <td valign="top" align="right">36</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">115</td>
+
+          <td valign="top" align="right">12</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Lewiston, Idaho</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">24</td>
+
+          <td valign="top" align="right">117</td>
+
+          <td valign="top" align="right">2</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Lincoln, Neb.</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">96</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">London, Ont., Can.</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">2</td>
+
+          <td valign="top" align="right">81</td>
+
+          <td valign="top" align="right">34</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Long Beach, Calif.</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">118</td>
+
+          <td valign="top" align="right">11</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Los Angeles, Calif.</td>
+
+          <td valign="top" align="right">34</td>
+
+          <td valign="top" align="right">3</td>
+
+          <td valign="top" align="right">118</td>
+
+          <td valign="top" align="right">15</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Louisville, Ky.</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">15</td>
+
+          <td valign="top" align="right">85</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Manchester, N.H.</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">0</td>
+
+          <td valign="top" align="right">71</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Memphis, Tenn.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">9</td>
+
+          <td valign="top" align="right">90</td>
+
+          <td valign="top" align="right">3</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Miami, Fla.</td>
+
+          <td valign="top" align="right">25</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">80</td>
+
+          <td valign="top" align="right">12</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Milwaukee, Wis.</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">2</td>
+
+          <td valign="top" align="right">87</td>
+
+          <td valign="top" align="right">55</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Minneapolis, Minn.</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">59</td>
+
+          <td valign="top" align="right">93</td>
+
+          <td valign="top" align="right">14</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Mobile, Ala.</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">88</td>
+
+          <td valign="top" align="right">3</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Montgomery, Ala.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">21</td>
+
+          <td valign="top" align="right">86</td>
+
+          <td valign="top" align="right">18</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Montpelier, Vt.</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">15</td>
+
+          <td valign="top" align="right">72</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Montreal, Que., Can.</td>
+
+          <td valign="top" align="right">45</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">73</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Moose Jaw, Sask., Can.</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">105</td>
+
+          <td valign="top" align="right">31</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Nashville, Tenn.</td>
+
+          <td valign="top" align="right">36</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">86</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Nelson, B.C., Can.</td>
+
+          <td valign="top" align="right">49</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">117</td>
+
+          <td valign="top" align="right">17</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Newark, N.J.</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">74</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">New Haven, Conn.</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">19</td>
+
+          <td valign="top" align="right">72</td>
+
+          <td valign="top" align="right">55</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">New Orleans, La.</td>
+
+          <td valign="top" align="right">29</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">90</td>
+
+          <td valign="top" align="right">4</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">New York, N.Y.</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">73</td>
+
+          <td valign="top" align="right">58</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Nome, Alaska</td>
+
+          <td valign="top" align="right">64</td>
+
+          <td valign="top" align="right">25</td>
+
+          <td valign="top" align="right">165</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">8:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Oakland, Calif.</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">122</td>
+
+          <td valign="top" align="right">16</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Oklahoma City, Okla.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">26</td>
+
+          <td valign="top" align="right">97</td>
+
+          <td valign="top" align="right">28</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Omaha, Neb.</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">15</td>
+
+          <td valign="top" align="right">95</td>
+
+          <td valign="top" align="right">56</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Ottawa, Ont., Can.</td>
+
+          <td valign="top" align="right">45</td>
+
+          <td valign="top" align="right">24</td>
+
+          <td valign="top" align="right">75</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Philadelphia, Pa.</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">75</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Phoenix, Ariz.</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">29</td>
+
+          <td valign="top" align="right">112</td>
+
+          <td valign="top" align="right">4</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Pierre, S.D.</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">22</td>
+
+          <td valign="top" align="right">100</td>
+
+          <td valign="top" align="right">21</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Pittsburgh, Pa.</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">27</td>
+
+          <td valign="top" align="right">79</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Portland, Maine</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">70</td>
+
+          <td valign="top" align="right">15</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Portland, Ore.</td>
+
+          <td valign="top" align="right">45</td>
+
+          <td valign="top" align="right">31</td>
+
+          <td valign="top" align="right">122</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Providence, R.I.</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">50</td>
+
+          <td valign="top" align="right">71</td>
+
+          <td valign="top" align="right">24</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Quebec, Que., Can.</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">49</td>
+
+          <td valign="top" align="right">71</td>
+
+          <td valign="top" align="right">11</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Raleigh, N.C.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">78</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Reno, Nev.</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">119</td>
+
+          <td valign="top" align="right">49</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Richfield, Utah</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">112</td>
+
+          <td valign="top" align="right">5</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Richmond, Va.</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">77</td>
+
+          <td valign="top" align="right">29</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Roanoke, Va.</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">17</td>
+
+          <td valign="top" align="right">79</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Sacramento, Calif.</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">121</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">St. John, N.B., Can.</td>
+
+          <td valign="top" align="right">45</td>
+
+          <td valign="top" align="right">18</td>
+
+          <td valign="top" align="right">66</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">1:00 p.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">St. Louis, Mo.</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">90</td>
+
+          <td valign="top" align="right">12</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Salt Lake City, Utah</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">46</td>
+
+          <td valign="top" align="right">111</td>
+
+          <td valign="top" align="right">54</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">San Antonio, Tex.</td>
+
+          <td valign="top" align="right">29</td>
+
+          <td valign="top" align="right">23</td>
+
+          <td valign="top" align="right">98</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">San Diego, Calif.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">117</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">San Francisco, Calif.</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">122</td>
+
+          <td valign="top" align="right">26</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">San Jose, Calif.</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">20</td>
+
+          <td valign="top" align="right">121</td>
+
+          <td valign="top" align="right">53</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">San Juan, P.R.</td>
+
+          <td valign="top" align="right">18</td>
+
+          <td valign="top" align="right">30</td>
+
+          <td valign="top" align="right">66</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">1:00 p.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Santa Fe, N.M.</td>
+
+          <td valign="top" align="right">35</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">105</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">10:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Savannah, Ga.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">5</td>
+
+          <td valign="top" align="right">81</td>
+
+          <td valign="top" align="right">5</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Seattle, Wash.</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">122</td>
+
+          <td valign="top" align="right">20</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Shreveport, La.</td>
+
+          <td valign="top" align="right">32</td>
+
+          <td valign="top" align="right">28</td>
+
+          <td valign="top" align="right">93</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Sioux Falls, S.D.</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">96</td>
+
+          <td valign="top" align="right">44</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Sitka, Alaska</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">10</td>
+
+          <td valign="top" align="right">135</td>
+
+          <td valign="top" align="right">15</td>
+
+          <td valign="top" align="right">8:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Spokane, Wash.</td>
+
+          <td valign="top" align="right">47</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">117</td>
+
+          <td valign="top" align="right">26</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Springfield, Ill.</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">89</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Springfield, Mass.</td>
+
+          <td valign="top" align="right">42</td>
+
+          <td valign="top" align="right">6</td>
+
+          <td valign="top" align="right">72</td>
+
+          <td valign="top" align="right">34</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Springfield, Mo.</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">13</td>
+
+          <td valign="top" align="right">93</td>
+
+          <td valign="top" align="right">17</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Syracuse, N.Y.</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">2</td>
+
+          <td valign="top" align="right">76</td>
+
+          <td valign="top" align="right">8</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Tampa, Fla.</td>
+
+          <td valign="top" align="right">27</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">82</td>
+
+          <td valign="top" align="right">27</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Toledo, Ohio</td>
+
+          <td valign="top" align="right">41</td>
+
+          <td valign="top" align="right">39</td>
+
+          <td valign="top" align="right">83</td>
+
+          <td valign="top" align="right">33</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Toronto, Ont., Can.</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">40</td>
+
+          <td valign="top" align="right">79</td>
+
+          <td valign="top" align="right">24</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Tulsa, Okla.</td>
+
+          <td valign="top" align="right">36</td>
+
+          <td valign="top" align="right">09</td>
+
+          <td valign="top" align="right">95</td>
+
+          <td valign="top" align="right">59</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Vancouver, B.C., Can.</td>
+
+          <td valign="top" align="right">49</td>
+
+          <td valign="top" align="right">13</td>
+
+          <td valign="top" align="right">123</td>
+
+          <td valign="top" align="right">06</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Victoria, B.C., Can.</td>
+
+          <td valign="top" align="right">48</td>
+
+          <td valign="top" align="right">25</td>
+
+          <td valign="top" align="right">123</td>
+
+          <td valign="top" align="right">21</td>
+
+          <td valign="top" align="right">9:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Virginia Beach, Va.</td>
+
+          <td valign="top" align="right">36</td>
+
+          <td valign="top" align="right">51</td>
+
+          <td valign="top" align="right">75</td>
+
+          <td valign="top" align="right">58</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Washington, D.C.</td>
+
+          <td valign="top" align="right">38</td>
+
+          <td valign="top" align="right">53</td>
+
+          <td valign="top" align="right">77</td>
+
+          <td valign="top" align="right">02</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Wichita, Kan.</td>
+
+          <td valign="top" align="right">37</td>
+
+          <td valign="top" align="right">43</td>
+
+          <td valign="top" align="right">97</td>
+
+          <td valign="top" align="right">17</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Wilmington, N.C.</td>
+
+          <td valign="top" align="right">34</td>
+
+          <td valign="top" align="right">14</td>
+
+          <td valign="top" align="right">77</td>
+
+          <td valign="top" align="right">57</td>
+
+          <td valign="top" align="right">12:00 noon</td>
+        </tr>
+
+        <tr>
+          <td valign="top" align="left">Winnipeg, Man., Can.</td>
+
+          <td valign="top" align="right">49</td>
+
+          <td valign="top" align="right">54</td>
+
+          <td valign="top" align="right">97</td>
+
+          <td valign="top" align="right">7</td>
+
+          <td valign="top" align="right">11:00 a.m.</td>
+        </tr>

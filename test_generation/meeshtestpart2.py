@@ -51,7 +51,14 @@ class Commands(object):
         me.setAttribute("y", y)                    
         me.setAttribute("radius", radius)
         return me
-                
+    
+    def do_nearestRoad(self, doc, x, y):
+        me = doc.createElement("nearestRoad")
+        me.setAttribute("x", x)
+        me.setAttribute("y", y)                    
+        return me    
+          
+          
 def main(f):
     doc = _IMPL.createDocument(None, "commands", None)
     id = 1

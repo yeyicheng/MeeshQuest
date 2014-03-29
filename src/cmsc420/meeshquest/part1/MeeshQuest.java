@@ -148,6 +148,8 @@ public class MeeshQuest {
 			command.processRangeCities(commandNode);
 		} else if (name.equals("nearestCity")) {
 			command.processNearestCity(commandNode);
+		} else if (name.equals("nearestRoad")) {
+			command.processNearestRoad(commandNode);			
 		} else if (name.equals("mapRoad")) {		// PART 2
 			command.processMapRoad(commandNode);
 		} else if (name.equals("rangeRoads")) {		// PART 2
