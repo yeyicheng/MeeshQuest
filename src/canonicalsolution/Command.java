@@ -23,9 +23,6 @@ import java.util.TreeSet;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-
-
-
 // Import for intersections
 import canonicalsolution.PRQuadtree.CityAlreadyMappedException;
 import canonicalsolution.PRQuadtree.CityOutOfBoundsException;
@@ -411,9 +408,10 @@ public class Command {
 
 	/**
 	 * Creates a road node containing information about a road
+	 * 
 	 * @param node
 	 * @param road
-	 * @param roadNodeName 
+	 * @param roadNodeName
 	 */
 	private void addRoadNode(final Element node, final Road road) {
 		final Element roadNode = results.createElement("road");
@@ -423,7 +421,6 @@ public class Command {
 
 		node.appendChild(roadNode);
 	}
-	
 
 	/**
 	 * Maps a city to the spatial map.
@@ -596,7 +593,7 @@ public class Command {
 
 				// Appends node roads
 				for (Road r : currentLeaf.roads) {
-					addRoadNode(xmlNode,r);
+					addRoadNode(xmlNode, r);
 				}
 			} else {
 				/* internal node */
@@ -759,10 +756,10 @@ public class Command {
 			InternalNode g = (InternalNode) currNode;
 			for (int i = 0; i < 4; i++) {
 				Node kid = g.children[i];
-				if (kid.getType() == Node.LEAF){
-					if (((LeafNode) kid).getCity() != null){
+				if (kid.getType() == Node.LEAF) {
+					if (((LeafNode) kid).getCity() != null) {
 						q.add(new QuadrantDistance(kid, point));
-					}		
+					}
 				} else if (kid.getType() != Node.EMPTY) {
 					q.add(new QuadrantDistance(kid, point));
 				}
@@ -782,7 +779,7 @@ public class Command {
 			quadtreeNode = node;
 			if (node.getType() == Node.INTERNAL) {
 				InternalNode gray = (InternalNode) node;
-				// Calculates distance from point to gray node quadrant 
+				// Calculates distance from point to gray node quadrant
 				distance = Shape2DDistanceCalculator.distance(pt,
 						new Rectangle2D.Float(gray.origin.x, gray.origin.y,
 								gray.width, gray.height));
@@ -822,7 +819,7 @@ public class Command {
 			}
 		}
 	}
-	
+
 	/**
 	 * Finds the nearest city to a given point.
 	 * 
@@ -851,7 +848,8 @@ public class Command {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
 		} else {
 
-			City n = processNearestIsolatedCityHelper2(prQuadtree.getRoot(), point);
+			City n = processNearestIsolatedCityHelper2(prQuadtree.getRoot(),
+					point);
 			addCityNode(outputNode, n);
 
 			/* add success node to results */
@@ -865,7 +863,8 @@ public class Command {
 	 * @param root
 	 * @param point
 	 */
-	private City processNearestIsolatedCityHelper2(Node root, Point2D.Float point) {
+	private City processNearestIsolatedCityHelper2(Node root,
+			Point2D.Float point) {
 		PriorityQueue<QuadrantDistance> q = new PriorityQueue<QuadrantDistance>();
 		Node currNode = root;
 		while (currNode.getType() != Node.LEAF) {
@@ -873,15 +872,15 @@ public class Command {
 			for (int i = 0; i < 4; i++) {
 				Node kid = g.children[i];
 				// Checks that child is a leaf
-				if (kid.getType() == Node.LEAF){
+				if (kid.getType() == Node.LEAF) {
 					// Checks that Leaf has a city
-					if (((LeafNode) kid).getCity() != null){
+					if (((LeafNode) kid).getCity() != null) {
 						// Checks that Leaf nodes City is Isolated
-						if (((LeafNode) kid).roads.size() == 0){
+						if (((LeafNode) kid).roads.size() == 0) {
 							q.add(new QuadrantDistance(kid, point));
-						}						
-					}	
-				// Check to make sure a gray node
+						}
+					}
+					// Check to make sure a gray node
 				} else if (kid.getType() == Node.INTERNAL) {
 					q.add(new QuadrantDistance(kid, point));
 				}
@@ -892,8 +891,8 @@ public class Command {
 
 		return ((LeafNode) currNode).getCity();
 	}
-	
-	public void processNearestRoad(final Element node){
+
+	public void processNearestRoad(final Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");
 		final Element outputNode = results.createElement("output");
@@ -903,7 +902,7 @@ public class Command {
 		final int y = processIntegerAttribute(node, "y", parametersNode);
 
 		final Point2D.Float point = new Point2D.Float(x, y);
-		
+
 		// Check if there are cities on the map, Must have 2 to have road
 		if (citiesByName.size() <= 1) {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
@@ -922,51 +921,53 @@ public class Command {
 			addSuccessNode(commandNode, parametersNode, outputNode);
 		}
 	}
-		
+
 	private Road processNearestRoadHelper(Node root, Point2D.Float point) {
 		PriorityQueue<RoadQuadrantDistance> q = new PriorityQueue<RoadQuadrantDistance>();
-		Node currNode = root;	
+		Node currNode = root;
 		HashSet<Road> roads_added = new HashSet<Road>();
-		//RoadQuadrantDistance currDistance = new RoadQuadrantDistance(currNode, point);
+		// RoadQuadrantDistance currDistance = new
+		// RoadQuadrantDistance(currNode, point);
 		RoadQuadrantDistance currDistance = null;
-		
+
 		// Iterates until the first node in priority queue is not a gray node
-		while (currNode.getType() == Node.INTERNAL){
+		while (currNode.getType() == Node.INTERNAL) {
 			InternalNode g = (InternalNode) currNode;
-			
+
 			// Looping over children of current gray node
-			for (int i = 0; i < 4; i++){
+			for (int i = 0; i < 4; i++) {
 				Node kid = g.children[i];
-				
+
 				// Check that child is gray
-				if (kid.getType() == Node.INTERNAL){
+				if (kid.getType() == Node.INTERNAL) {
 					q.add(new RoadQuadrantDistance(kid, point));
 
-				} else if (kid.getType() == Node.LEAF){
-					for (Road r : ((LeafNode) kid).roads){
+				} else if (kid.getType() == Node.LEAF) {
+					for (Road r : ((LeafNode) kid).roads) {
 						// Only add a road once
-						
-						if (!roads_added.contains(r)){
+
+						if (!roads_added.contains(r)) {
 							q.add(new RoadQuadrantDistance(r, kid, point));
 							roads_added.add(r);
 						}
-							
+
 					}
 				}
 			}
-			// pops off first closest distance, 
+			// pops off first closest distance,
 			// if its not a gray it will not continue the loop
 			currDistance = q.remove();
 			currNode = currDistance.quadtreeNode;
 		}
 		return currDistance.road;
 	}
-	
-	
+
 	/**
-	 * Calculates distance between a quadrant(gray node) or a road and a specific point
+	 * Calculates distance between a quadrant(gray node) or a road and a
+	 * specific point
+	 * 
 	 * @author Dylan Zingler
-	 *
+	 * 
 	 */
 	class RoadQuadrantDistance implements Comparable<RoadQuadrantDistance> {
 		public Node quadtreeNode;
@@ -975,6 +976,7 @@ public class Command {
 
 		/**
 		 * Constructor that takes in a node and not a road (For Internal Only)
+		 * 
 		 * @param node
 		 * @param pt
 		 */
@@ -983,7 +985,7 @@ public class Command {
 			road = null;
 			if (node.getType() == Node.INTERNAL) {
 				InternalNode gray = (InternalNode) node;
-				// Calculates distance from point to gray node quadrant 
+				// Calculates distance from point to gray node quadrant
 				distance = Shape2DDistanceCalculator.distance(pt,
 						new Rectangle2D.Float(gray.origin.x, gray.origin.y,
 								gray.width, gray.height));
@@ -995,6 +997,7 @@ public class Command {
 
 		/**
 		 * Constructor that takes in a road
+		 * 
 		 * @param r
 		 * @param node
 		 * @param point
@@ -1070,10 +1073,9 @@ public class Command {
 			}
 		}
 	}
-	
 
 	/*
-	*//**
+	 *//**
 	 * Helper Method: Adds road to a Nodes Road list if it intersects
 	 * 
 	 * @param currentNode
@@ -1104,8 +1106,8 @@ public class Command {
 	 * // Recursive call on all 4 children for (int i = 0; i < 4; i++) {
 	 * processMapRoadHelper(currentInternal.getChild(i), road); } } }
 	 */
-	
-	public void processRangeRoads(Element node){
+
+	public void processRangeRoads(Element node) {
 		final Element commandNode = getCommandNode(node);
 		final Element parametersNode = results.createElement("parameters");
 		final Element outputNode = results.createElement("output");
@@ -1117,10 +1119,9 @@ public class Command {
 				parametersNode);
 
 		final Point2D.Float point = new Point2D.Float(x, y);
-		
+
 		HashSet<Road> roads_in_range = new HashSet<Road>();
-		
-		
+
 		// Check if there are cities on the map, Must have 2 to have road
 		if (citiesByName.size() <= 1) {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
@@ -1131,123 +1132,115 @@ public class Command {
 		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
 		} else {
-			roads_in_range = processRangeRoadsHelper(prQuadtree.getRoot(), point, radius);
-			
+			roads_in_range = processRangeRoadsHelper(prQuadtree.getRoot(),
+					point, radius);
+
 			// Must sort roads_in_range First!!!!!
-			
-			for (Road r: roads_in_range){
+
+			for (Road r : roads_in_range) {
 				addRoadNode(outputNode, r);
-				
+
 			}
-			
+
 			addSuccessNode(commandNode, parametersNode, outputNode);
-			
-			
+
 		}
 	}
-	
-	
-	
-	private HashSet<Road> processRangeRoadsHelper(Node root, Float point, int radius) {
+
+	private HashSet<Road> processRangeRoadsHelper(Node root, Float point,
+			int radius) {
 		PriorityQueue<RoadQuadrantDistance> q = new PriorityQueue<RoadQuadrantDistance>();
 		Node currNode = root;
 		HashSet<Road> roads_added = new HashSet<Road>();
 		HashSet<Road> roads_in_range = new HashSet<Road>();
 
 		RoadQuadrantDistance currDistance = null;
-		
+
 		// Iterates until the first node in priority queue is not a gray node
-		while (currNode.getType() == Node.INTERNAL){
+		while (currNode.getType() == Node.INTERNAL) {
 			InternalNode g = (InternalNode) currNode;
-			
+
 			// Looping over children of current gray node
-			for (int i = 0; i < 4; i++){
+			for (int i = 0; i < 4; i++) {
 				Node kid = g.children[i];
-				
+
 				// Check that child is gray
-				if (kid.getType() == Node.INTERNAL){
+				if (kid.getType() == Node.INTERNAL) {
 					q.add(new RoadQuadrantDistance(kid, point));
 
-				} else if (kid.getType() == Node.LEAF){
-					for (Road r : ((LeafNode) kid).roads){
+				} else if (kid.getType() == Node.LEAF) {
+					for (Road r : ((LeafNode) kid).roads) {
 						// Only add a road once
-						
-						if (!roads_added.contains(r)){
+
+						if (!roads_added.contains(r)) {
 							q.add(new RoadQuadrantDistance(r, kid, point));
 							roads_added.add(r);
 						}
-							
+
 					}
 				}
 			}
-			
+
 			// Removes Leaf nodes from beginning of priority queue
-			while (q.peek() != null && q.peek().quadtreeNode.getType() == Node.LEAF){
+			while (q.peek() != null
+					&& q.peek().quadtreeNode.getType() == Node.LEAF) {
 				currDistance = q.remove();
-				if (currDistance.distance <= radius){
+				if (currDistance.distance <= radius) {
 					roads_in_range.add(currDistance.road);
 				}
 			}
 			// Removing a gray node
-			if (q.peek() != null){
+			if (q.peek() != null) {
 				currDistance = q.remove();
 				currNode = currDistance.quadtreeNode;
-				if (currDistance.distance > radius){
+				if (currDistance.distance > radius) {
 					break;
 				}
 			} else {
 				break;
 			}
-			
+
 		}
 		return roads_in_range;
 	}
 
-	
-
-/*	public void processRangeRoads(Element node) {
-		final Element commandNode = getCommandNode(node);
-		final Element parametersNode = results.createElement("parameters");
-		final Element outputNode = results.createElement("output");
-
-		// Gathers info from attributes
-		final int x = processIntegerAttribute(node, "x", parametersNode);
-		final int y = processIntegerAttribute(node, "y", parametersNode);
-		final int radius = processIntegerAttribute(node, "radius",
-				parametersNode);
-
-		// Creates Circle or area in question for road intersection
-		final Point2D.Double pt = new Point2D.Double(x, y);
-		final Circle2D.Double circle = new Circle2D.Double(pt, radius);
-
-		Set<Road> road_intersections = new HashSet<Road>();
-		
-		// Looping over Roads (Might have to do this recursively DFS)
-		for (Road r : prQuadtree.roads) {
-
-			ArrayList<Point2D> intersections = (ArrayList<Point2D>) CircleLine
-					.getCircleLineIntersectionPoint(r.getLine().getP1(), r
-							.getLine().getP2(), pt, radius);
-
-			System.out.println(intersections.toString());
-
-			
-			for (Point2D p : intersections){
-				if (r.point_close_enough(p)){
-					road_intersections.add(r);
-				}
-				
-//				if (r.getLine().contains(p.getX(), p.getY())){
-//					road_intersections.add(r);
-//				}
-			}
-		}
-		
-		System.out.println(road_intersections.toString());
-
-	}
-
-*/	public void processPrintAvlTree(Element commandNode) {
+	/*
+	 * public void processRangeRoads(Element node) { final Element commandNode =
+	 * getCommandNode(node); final Element parametersNode =
+	 * results.createElement("parameters"); final Element outputNode =
+	 * results.createElement("output");
+	 * 
+	 * // Gathers info from attributes final int x =
+	 * processIntegerAttribute(node, "x", parametersNode); final int y =
+	 * processIntegerAttribute(node, "y", parametersNode); final int radius =
+	 * processIntegerAttribute(node, "radius", parametersNode);
+	 * 
+	 * // Creates Circle or area in question for road intersection final
+	 * Point2D.Double pt = new Point2D.Double(x, y); final Circle2D.Double
+	 * circle = new Circle2D.Double(pt, radius);
+	 * 
+	 * Set<Road> road_intersections = new HashSet<Road>();
+	 * 
+	 * // Looping over Roads (Might have to do this recursively DFS) for (Road r
+	 * : prQuadtree.roads) {
+	 * 
+	 * ArrayList<Point2D> intersections = (ArrayList<Point2D>) CircleLine
+	 * .getCircleLineIntersectionPoint(r.getLine().getP1(), r
+	 * .getLine().getP2(), pt, radius);
+	 * 
+	 * System.out.println(intersections.toString());
+	 * 
+	 * 
+	 * for (Point2D p : intersections){ if (r.point_close_enough(p)){
+	 * road_intersections.add(r); }
+	 * 
+	 * // if (r.getLine().contains(p.getX(), p.getY())){ //
+	 * road_intersections.add(r); // } } }
+	 * 
+	 * System.out.println(road_intersections.toString());
+	 * 
+	 * }
+	 */public void processPrintAvlTree(Element commandNode) {
 		// TODO Auto-generated method stub
 
 	}

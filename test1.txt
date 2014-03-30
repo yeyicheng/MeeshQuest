@@ -4,29 +4,29 @@
     <command name="createCity"/>
     <parameters>
       <name value="Dylan"/>
+      <x value="40"/>
+      <y value="38"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="Noah"/>
+      <x value="24"/>
+      <y value="26"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="pasta"/>
       <x value="48"/>
-      <y value="48"/>
-      <radius value="5"/>
-      <color value="black"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="createCity"/>
-    <parameters>
-      <name value="Furrigson"/>
-      <x value="10"/>
-      <y value="8"/>
-      <radius value="5"/>
-      <color value="black"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="createCity"/>
-    <parameters>
-      <name value="Boo"/>
-      <x value="25"/>
       <y value="25"/>
       <radius value="5"/>
       <color value="black"/>
@@ -36,11 +36,61 @@
   <success>
     <command name="createCity"/>
     <parameters>
-      <name value="Lafayette"/>
-      <x value="53"/>
-      <y value="44"/>
+      <name value="rice"/>
+      <x value="19"/>
+      <y value="19"/>
       <radius value="5"/>
       <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="pizza"/>
+      <x value="1"/>
+      <y value="62"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="cheese"/>
+      <x value="62"/>
+      <y value="1"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="pasta"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="rice"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="pizza"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="cheese"/>
     </parameters>
     <output/>
   </success>
@@ -54,21 +104,7 @@
   <success>
     <command name="mapCity"/>
     <parameters>
-      <name value="Furrigson"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="Boo"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="Lafayette"/>
+      <name value="Noah"/>
     </parameters>
     <output/>
   </success>
@@ -76,52 +112,94 @@
     <command name="mapRoad"/>
     <parameters>
       <start value="Dylan"/>
-      <end value="Furrigson"/>
+      <end value="Noah"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="mapRoad"/>
     <parameters>
-      <start value="Boo"/>
-      <end value="Lafayette"/>
+      <start value="Dylan"/>
+      <end value="pasta"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="mapRoad"/>
     <parameters>
-      <start value="Boo"/>
-      <end value="Dylan"/>
+      <start value="Dylan"/>
+      <end value="rice"/>
     </parameters>
     <output/>
   </success>
   <success>
     <command name="mapRoad"/>
     <parameters>
-      <start value="Lafayette"/>
-      <end value="Furrigson"/>
+      <start value="Dylan"/>
+      <end value="pizza"/>
     </parameters>
     <output/>
   </success>
   <success>
-    <command name="rangeRoads"/>
+    <command name="mapRoad"/>
     <parameters>
-      <x value="32"/>
-      <y value="32"/>
-      <radius value="20"/>
+      <start value="Dylan"/>
+      <end value="cheese"/>
     </parameters>
-    <output>
-      <road end="Dylan(48.0, 48.0)" start="Boo(25.0, 25.0)"/>
-      <road end="Lafayette(53.0, 44.0)" start="Boo(25.0, 25.0)"/>
-      <road end="Furrigson(10.0, 8.0)" start="Dylan(48.0, 48.0)"/>
-      <road end="Furrigson(10.0, 8.0)" start="Lafayette(53.0, 44.0)"/>
-    </output>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="pasta"/>
+      <end value="rice"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="rice"/>
+      <end value="cheese"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="cheese"/>
+      <end value="pasta"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="Noah"/>
+      <end value="rice"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="Noah"/>
+      <end value="cheese"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="rice"/>
+      <end value="pizza"/>
+    </parameters>
+    <output/>
   </success>
   <success>
     <command name="saveMap"/>
     <parameters>
-      <name value="Image1"/>
+      <name value="roads_in_range"/>
     </parameters>
     <output/>
   </success>
