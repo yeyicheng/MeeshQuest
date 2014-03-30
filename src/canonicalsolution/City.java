@@ -14,7 +14,7 @@ import java.awt.geom.Point2D;
  * @author Ben Zoller
  * @version 1.0, 19 Feb 2007
  */
-public class City {
+public class City implements Comparable<City>{
 	/** name of this city */
 	protected String name;
 
@@ -157,5 +157,11 @@ public class City {
 	
 	public String toString() {
 		return name + "(" + pt.x + ", " + pt.y + ")";
+	}
+
+	// Compares only on name lexographically
+	public int compareTo(City o) {
+		return name.compareTo(o.name);
+		
 	}
 }

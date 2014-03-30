@@ -6,6 +6,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.Rectangle2D.Float;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.TreeMap;
 
 import cmsc420.drawing.CanvasPlus;
 import cmsc420.geom.Circle2D;
@@ -41,6 +42,9 @@ public class PRQuadtree {
 
 	/** graphical representation of spatial map */
 	protected CanvasPlus canvas;
+	
+	// Adjacency List structure
+	TreeMap<City,HashSet<City>> adjacency_list = new TreeMap<City,HashSet<City>>();
 
 	/**
 	 * Constructs an empty PR Quadtree.
@@ -291,6 +295,51 @@ public class PRQuadtree {
 			super(message);
 		}
 	}
+	
+	/**
+	 * Updates adjacency_list with a given roads information (adds a bidirectional link)
+	 * @param road
+	 */
+	public void update_adjacency_list(Road road){
+		
+		if (adjacency_list.isEmpty()){
+			HashSet<City> next_to = new HashSet<City>();
+			next_to.add(road.getCities()[0]);
+			HashSet<City> next_to2 = new HashSet<City>();
+			next_to2.add(road.getCities()[1]);
+			
+			// Adds both cities to list and creates hashmaps for them
+			adjacency_list.put(road.getCities()[0], next_to2);
+			adjacency_list.put(road.getCities()[1], next_to);
+		} else {
+			// If start city is in adj_list already, add end city to starts list of adj cities
+			if (adjacency_list.containsKey(road.getCities()[0])){
+				HashSet<City> new_set = adjacency_list.get(road.getCities()[0]);
+				new_set.add(road.getCities()[1]);
+				adjacency_list.put(road.getCities()[0], new_set);
+				
+			} else { // if the start city is not in the adj list yet
+				HashSet<City> new_set = new HashSet<City>();
+				new_set.add(road.getCities()[1]);
+				adjacency_list.put(road.getCities()[0], new_set);				
+			}
+			
+			// If end city is in adj_list already, add start city to ends list of adj cities
+			if (adjacency_list.containsKey(road.getCities()[1])){
+				HashSet<City> new_set = adjacency_list.get(road.getCities()[1]);
+				new_set.add(road.getCities()[0]);
+				adjacency_list.put(road.getCities()[1], new_set);
+				
+			} else { // If the end city is not in adj list yet
+				HashSet<City> new_set = new HashSet<City>();
+				new_set.add(road.getCities()[0]);
+				adjacency_list.put(road.getCities()[1], new_set);				
+			}	
+			
+			
+		}
+		
+	}
 
 	/**
 	 * Node abstract class for a PR Quadtree. A node can either be an empty
@@ -431,7 +480,6 @@ public class PRQuadtree {
 		 */
 		public LeafNode() {
 			super(Node.LEAF);
-
 		}
 
 		/**
@@ -466,6 +514,7 @@ public class PRQuadtree {
 		public Node add(Road road, java.awt.geom.Point2D.Float origin,
 				int width, int height) {
 			roads.add(road);
+			update_adjacency_list(road);
 			
 			/*
 			// TODO Highlights Region that road passes through (FOR TESTING)

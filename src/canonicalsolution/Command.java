@@ -1198,7 +1198,7 @@ public class Command {
 		}
 		return roads_in_range;
 	}
-
+	
 	/*
 	 * public void processRangeRoads(Element node) { final Element commandNode =
 	 * getCommandNode(node); final Element parametersNode =
