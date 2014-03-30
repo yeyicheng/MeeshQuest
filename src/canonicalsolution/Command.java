@@ -1022,12 +1022,7 @@ public class Command {
 					}
 				} else if (quadtreeNode.getType() == Node.LEAF) {
 					// both are leaves
-					return ((LeafNode) quadtreeNode)
-							.getCity()
-							.getName()
-							.compareTo(
-									((LeafNode) qd.quadtreeNode).getCity()
-											.getName());
+					return (road.compareTo(qd.road));
 				} else {
 					// both are internals
 					return 0;

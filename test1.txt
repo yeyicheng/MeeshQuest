@@ -203,4 +203,16 @@
     </parameters>
     <output/>
   </success>
+  <success>
+    <command name="rangeRoads"/>
+    <parameters>
+      <x value="32"/>
+      <y value="32"/>
+      <radius value="5"/>
+    </parameters>
+    <output>
+      <road end="Noah(24.0, 26.0)" start="Dylan(40.0, 38.0)"/>
+      <road end="rice(19.0, 19.0)" start="Dylan(40.0, 38.0)"/>
+    </output>
+  </success>
 </results>
