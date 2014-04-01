@@ -1,0 +1,11 @@
+64 64 1 4
+city theRink 48 48
+city laxField 16 48
+city home 48 16
+mapCity theRink
+mapCity laxField
+mapCity home
+road theRink laxField
+road theRink home
+savemap roads_in_range
+rangeRoads 32 32 25

@@ -1,29 +1,23 @@
-<?xml version="1.0" ?>
-<commands g="4" pmOrder="1" spatialHeight="64" spatialWidth="64" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="part2in.xsd">
-	<createCity color="black" id="1" name="Dylan" radius="5" x="40" y="38"/>
-	<createCity color="black" id="2" name="Noah" radius="5" x="24" y="26"/>
-	<createCity color="black" id="3" name="pasta" radius="5" x="48" y="25"/>
-	<createCity color="black" id="4" name="rice" radius="5" x="19" y="19"/>
-	<createCity color="black" id="5" name="pizza" radius="5" x="1" y="62"/>
-	<createCity color="black" id="6" name="cheese" radius="5" x="62" y="1"/>
-	<mapCity id="7" name="pasta"/>
-	<mapCity id="8" name="rice"/>
-	<mapCity id="9" name="pizza"/>
-	<mapCity id="10" name="cheese"/>
-	<mapCity id="11" name="Dylan"/>
-	<mapCity id="12" name="Noah"/>
-	<mapRoad end="Noah" id="13" start="Dylan"/>
-	<mapRoad end="pasta" id="14" start="Dylan"/>
-	<mapRoad end="rice" id="15" start="Dylan"/>
-	<mapRoad end="pizza" id="16" start="Dylan"/>
-	<mapRoad end="cheese" id="17" start="Dylan"/>
-	<mapRoad end="rice" id="18" start="pasta"/>
-	<mapRoad end="cheese" id="19" start="rice"/>
-	<mapRoad end="pasta" id="20" start="cheese"/>
-	<mapRoad end="rice" id="21" start="Noah"/>
-	<mapRoad end="cheese" id="22" start="Noah"/>
-	<mapRoad end="pizza" id="23" start="rice"/>
-	<saveMap id="24" name="roads_in_range"/>
-	<rangeRoads id="25" radius="5" x="32" y="32"/>
-</commands>
+<commands
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="part2in.xsd"
+ 	spatialWidth="512"
+ 	spatialHeight="512"
+ 	pmOrder="3"
+ 	g="1">
+ <createCity id="1" name="Seattle" y="470" x="124" radius="30" color="black"/>
+ <createCity id="2" name="Palo_Alto" x="47" y="128" radius="35"  color="black"/>
+ <createCity id="3" name="Boulder" x="311" y="23" radius="40"  color="black"/>
+ <createCity id="4" name="New_York" x="420" y="324" radius="80"  color="black"/>
 
+ <mapRoad id="33"  start="Palo_Alto" end="Boulder"/>
+ <mapRoad id="34"  start="Seattle" end="Boulder"/>
+ <mapRoad id="35"  start="Palo_Alto" end="Seattle"/>
+ 
+ <mapCity id="60" name="New_York"/>
+ 
+ <printPMQuadtree id="999"/>
+ 
+ <saveMap name="part2.public.pm"/>
+ 
+</commands>

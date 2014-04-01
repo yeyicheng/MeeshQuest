@@ -1,4 +1,4 @@
-package canonicalsolution;
+package cmsc420.meeshquest.part2;
 
 import java.awt.Color;
 import java.awt.geom.Point2D;
@@ -7,6 +7,7 @@ import java.awt.geom.Rectangle2D.Float;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import cmsc420.drawing.CanvasPlus;
 import cmsc420.geom.Circle2D;
@@ -35,7 +36,7 @@ public class PRQuadtree {
 	protected HashSet<String> cityNames;
 
 	/** Used to store all of the roads in the spatial map */
-	protected HashSet<Road> roads;
+	protected TreeSet<Road> roads;
 
 	/** empty PR Quadtree node */
 	protected EmptyNode emptyNode = new EmptyNode();
@@ -52,7 +53,7 @@ public class PRQuadtree {
 	public PRQuadtree() {
 		root = emptyNode;
 		cityNames = new HashSet<String>();
-		roads = new HashSet<Road>();
+		roads = new TreeSet<Road>();
 		spatialOrigin = new Point2D.Float(0, 0);
 	}
 

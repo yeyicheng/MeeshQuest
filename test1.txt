@@ -3,10 +3,10 @@
   <success>
     <command name="createCity"/>
     <parameters>
-      <name value="Dylan"/>
-      <x value="40"/>
-      <y value="38"/>
-      <radius value="5"/>
+      <name value="Seattle"/>
+      <x value="124"/>
+      <y value="470"/>
+      <radius value="30"/>
       <color value="black"/>
     </parameters>
     <output/>
@@ -14,10 +14,10 @@
   <success>
     <command name="createCity"/>
     <parameters>
-      <name value="Noah"/>
-      <x value="24"/>
-      <y value="26"/>
-      <radius value="5"/>
+      <name value="Palo_Alto"/>
+      <x value="47"/>
+      <y value="128"/>
+      <radius value="35"/>
       <color value="black"/>
     </parameters>
     <output/>
@@ -25,10 +25,10 @@
   <success>
     <command name="createCity"/>
     <parameters>
-      <name value="pasta"/>
-      <x value="48"/>
-      <y value="25"/>
-      <radius value="5"/>
+      <name value="Boulder"/>
+      <x value="311"/>
+      <y value="23"/>
+      <radius value="40"/>
       <color value="black"/>
     </parameters>
     <output/>
@@ -36,183 +36,78 @@
   <success>
     <command name="createCity"/>
     <parameters>
-      <name value="rice"/>
-      <x value="19"/>
-      <y value="19"/>
-      <radius value="5"/>
+      <name value="New_York"/>
+      <x value="420"/>
+      <y value="324"/>
+      <radius value="80"/>
       <color value="black"/>
     </parameters>
     <output/>
   </success>
   <success>
-    <command name="createCity"/>
+    <command name="mapRoad"/>
     <parameters>
-      <name value="pizza"/>
-      <x value="1"/>
-      <y value="62"/>
-      <radius value="5"/>
-      <color value="black"/>
+      <start value="Palo_Alto"/>
+      <end value="Boulder"/>
     </parameters>
     <output/>
   </success>
   <success>
-    <command name="createCity"/>
+    <command name="mapRoad"/>
     <parameters>
-      <name value="cheese"/>
-      <x value="62"/>
-      <y value="1"/>
-      <radius value="5"/>
-      <color value="black"/>
+      <start value="Seattle"/>
+      <end value="Boulder"/>
     </parameters>
     <output/>
   </success>
   <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="Palo_Alto"/>
+      <end value="Seattle"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityAlreadyMapped">
     <command name="mapCity"/>
     <parameters>
-      <name value="pasta"/>
+      <name value="New_York"/>
     </parameters>
-    <output/>
-  </success>
+  </error>
   <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="rice"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="pizza"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="cheese"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="Dylan"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapCity"/>
-    <parameters>
-      <name value="Noah"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Dylan"/>
-      <end value="Noah"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Dylan"/>
-      <end value="pasta"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Dylan"/>
-      <end value="rice"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Dylan"/>
-      <end value="pizza"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Dylan"/>
-      <end value="cheese"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="pasta"/>
-      <end value="rice"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="rice"/>
-      <end value="cheese"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="cheese"/>
-      <end value="pasta"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Noah"/>
-      <end value="rice"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="Noah"/>
-      <end value="cheese"/>
-    </parameters>
-    <output/>
-  </success>
-  <success>
-    <command name="mapRoad"/>
-    <parameters>
-      <start value="rice"/>
-      <end value="pizza"/>
-    </parameters>
-    <output/>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="256" y="256">
+          <black cardinality="3">
+            <city color="black" name="Seattle" radius="30" x="124" y="470"/>
+            <road end="Seattle" start="Boulder"/>
+            <road end="Palo_Alto" start="Seattle"/>
+          </black>
+          <black cardinality="1">
+            <isolatedCity color="black" name="New_York" radius="80" x="420" y="324"/>
+          </black>
+          <black cardinality="4">
+            <city color="black" name="Palo_Alto" radius="35" x="47" y="128"/>
+            <road end="Palo_Alto" start="Boulder"/>
+            <road end="Seattle" start="Boulder"/>
+            <road end="Palo_Alto" start="Seattle"/>
+          </black>
+          <black cardinality="3">
+            <city color="black" name="Boulder" radius="40" x="311" y="23"/>
+            <road end="Palo_Alto" start="Boulder"/>
+            <road end="Seattle" start="Boulder"/>
+          </black>
+        </gray>
+      </quadtree>
+    </output>
   </success>
   <success>
     <command name="saveMap"/>
     <parameters>
-      <name value="roads_in_range"/>
+      <name value="part2.public.pm"/>
     </parameters>
     <output/>
-  </success>
-  <success>
-    <command name="rangeRoads"/>
-    <parameters>
-      <x value="32"/>
-      <y value="32"/>
-      <radius value="5"/>
-    </parameters>
-    <output>
-      <road end="Noah(24.0, 26.0)" start="Dylan(40.0, 38.0)"/>
-      <road end="rice(19.0, 19.0)" start="Dylan(40.0, 38.0)"/>
-    </output>
   </success>
 </results>

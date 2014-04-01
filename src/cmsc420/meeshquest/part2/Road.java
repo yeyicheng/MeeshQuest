@@ -1,4 +1,4 @@
-package canonicalsolution;
+package cmsc420.meeshquest.part2;
 
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
@@ -64,9 +64,16 @@ public class Road implements Comparable<Road>{
 		
 	}
 
-	@Override
+	/**
+	 * Compares based on the start city, tie break goes to end city
+	 */
 	public int compareTo(Road o) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (cities[0].compareTo(o.cities[0]) == 1){
+			return 1;
+		} else if (cities[0].compareTo(o.cities[0]) == -1){
+			return -1;
+		} else {
+			return cities[1].compareTo(cities[1]);
+		}
 	}
 }

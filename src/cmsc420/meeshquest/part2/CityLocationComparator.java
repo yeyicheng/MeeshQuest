@@ -1,4 +1,4 @@
-package canonicalsolution ;
+package cmsc420.meeshquest.part2 ;
 
 
 import java.util.Comparator;

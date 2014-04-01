@@ -1,4 +1,4 @@
-package canonicalsolution ;
+package cmsc420.meeshquest.part2 ;
 
 
 import java.awt.geom.Point2D;
@@ -156,7 +156,7 @@ public class City implements Comparable<City>{
 	}
 	
 	public String toString() {
-		return name + "(" + pt.x + ", " + pt.y + ")";
+		return name; // + "(" + pt.x + ", " + pt.y + ")";
 	}
 
 	// Compares only on name lexographically

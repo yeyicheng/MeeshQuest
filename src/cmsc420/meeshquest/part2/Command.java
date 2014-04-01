@@ -5,7 +5,7 @@
  * All rights reserved. Permission is granted for use and modification in CMSC420 
  * at the University of Maryland.
  */
-package canonicalsolution;
+package cmsc420.meeshquest.part2;
 
 import java.awt.Color;
 import java.awt.geom.Point2D;
@@ -23,17 +23,30 @@ import java.util.TreeSet;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+
+
 // Import for intersections
-import canonicalsolution.PRQuadtree.CityAlreadyMappedException;
-import canonicalsolution.PRQuadtree.CityOutOfBoundsException;
-import canonicalsolution.PRQuadtree.InternalNode;
-import canonicalsolution.PRQuadtree.LeafNode;
-import canonicalsolution.PRQuadtree.EmptyNode;
-import canonicalsolution.PRQuadtree.Node;
+
+
+
+
+
+
+
+
+
+
+
 import cmsc420.drawing.CanvasPlus;
 import cmsc420.drawing.Drawable2D;
 import cmsc420.geom.Circle2D;
 import cmsc420.geom.Inclusive2DIntersectionVerifier;
+import cmsc420.meeshquest.part2.PRQuadtree.CityAlreadyMappedException;
+import cmsc420.meeshquest.part2.PRQuadtree.CityOutOfBoundsException;
+import cmsc420.meeshquest.part2.PRQuadtree.EmptyNode;
+import cmsc420.meeshquest.part2.PRQuadtree.InternalNode;
+import cmsc420.meeshquest.part2.PRQuadtree.LeafNode;
+import cmsc420.meeshquest.part2.PRQuadtree.Node;
 
 /**
  * Processes each command in the MeeshQuest program. Takes in an XML command
@@ -262,6 +275,17 @@ public class Command {
 		} else {
 			final Element outputNode = results.createElement("output");
 
+			/* insert city into PR Quadtree */
+			try {
+				prQuadtree.add(city);
+			} catch (CityAlreadyMappedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (CityOutOfBoundsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			/* add city to dictionary */
 			citiesByName.put(name, city);
 			citiesByLocation.add(city);
@@ -371,58 +395,6 @@ public class Command {
 	}
 
 	/**
-	 * Creates a city node containing information about a city. Appends the city
-	 * node to the passed in node.
-	 * 
-	 * @param node
-	 *            node which the city node will be appended to
-	 * @param cityNodeName
-	 *            name of city node
-	 * @param city
-	 *            city which the city node will describe
-	 */
-	private void addCityNode(final Element node, final String cityNodeName,
-			final City city) {
-		final Element cityNode = results.createElement(cityNodeName);
-		cityNode.setAttribute("name", city.getName());
-		cityNode.setAttribute("x", Integer.toString((int) city.getX()));
-		cityNode.setAttribute("y", Integer.toString((int) city.getY()));
-		cityNode.setAttribute("radius",
-				Integer.toString((int) city.getRadius()));
-		cityNode.setAttribute("color", city.getColor());
-		node.appendChild(cityNode);
-	}
-
-	/**
-	 * Creates a city node containing information about a city. Appends the city
-	 * node to the passed in node.
-	 * 
-	 * @param node
-	 *            node which the city node will be appended to
-	 * @param city
-	 *            city which the city node will describe
-	 */
-	private void addCityNode(final Element node, final City city) {
-		addCityNode(node, "city", city);
-	}
-
-	/**
-	 * Creates a road node containing information about a road
-	 * 
-	 * @param node
-	 * @param road
-	 * @param roadNodeName
-	 */
-	private void addRoadNode(final Element node, final Road road) {
-		final Element roadNode = results.createElement("road");
-
-		roadNode.setAttribute("end", road.getCities()[1].toString());
-		roadNode.setAttribute("start", road.getCities()[0].toString());
-
-		node.appendChild(roadNode);
-	}
-
-	/**
 	 * Maps a city to the spatial map.
 	 * 
 	 * @param node
@@ -442,9 +414,6 @@ public class Command {
 			addErrorNode("cityAlreadyMapped", commandNode, parametersNode);
 		} else {
 			City city = citiesByName.get(name);
-			try {
-				/* insert city into PR Quadtree */
-				prQuadtree.add(city);
 
 				/* add city to canvas */
 				canvas.addPoint(city.getName(), city.getX(), city.getY(),
@@ -452,11 +421,6 @@ public class Command {
 
 				/* add success node to results */
 				addSuccessNode(commandNode, parametersNode, outputNode);
-			} catch (CityAlreadyMappedException e) {
-				addErrorNode("cityAlreadyMapped", commandNode, parametersNode);
-			} catch (CityOutOfBoundsException e) {
-				addErrorNode("cityOutOfBounds", commandNode, parametersNode);
-			}
 		}
 	}
 
@@ -516,6 +480,111 @@ public class Command {
 		addSuccessNode(commandNode, parametersNode, outputNode);
 	}
 
+	
+	/**
+	 * Creates a city node containing information about a city. Appends the city
+	 * node to the passed in node.
+	 * 
+	 * @param node
+	 *            node which the city node will be appended to
+	 * @param cityNodeName
+	 *            name of city node
+	 * @param city
+	 *            city which the city node will describe
+	 */
+	private void addCityNode(final Element node, final String cityNodeName,
+			final City city) {
+		final Element cityNode = results.createElement(cityNodeName);
+		cityNode.setAttribute("name", city.getName());
+		cityNode.setAttribute("x", Integer.toString((int) city.getX()));
+		cityNode.setAttribute("y", Integer.toString((int) city.getY()));
+		cityNode.setAttribute("radius",
+				Integer.toString((int) city.getRadius()));
+		cityNode.setAttribute("color", city.getColor());
+		node.appendChild(cityNode);
+	}
+
+	/**
+	 * Creates a city node containing information about a city. Appends the city
+	 * node to the passed in node.
+	 * 
+	 * @param node
+	 *            node which the city node will be appended to
+	 * @param city
+	 *            city which the city node will describe
+	 */
+	private void addCityNode(final Element node, final City city) {
+		addCityNode(node, "city", city);
+	}
+
+	/**
+	 * Creates a road node containing information about a road
+	 * 
+	 * @param node
+	 * @param road
+	 * @param roadNodeName
+	 */
+	private void addRoadNode(final Element node, final Road road) {
+		final Element roadNode = results.createElement("road");
+
+		roadNode.setAttribute("start", road.getCities()[1].toString());
+		roadNode.setAttribute("end", road.getCities()[0].toString());
+
+		node.appendChild(roadNode);
+	}
+	
+	private void addLeafNode(final Element node, final LeafNode leaf){
+		
+		final Element blacknode = results.createElement("black");
+		
+		// Check to see if leaf has City
+		if (leaf.city == null){
+			
+			// cardinality
+			blacknode.setAttribute("cardinality",
+					String.valueOf(leaf.roads.size()));
+		} else {
+			
+			// cardinality with city
+			blacknode.setAttribute("cardinality",
+					String.valueOf(1 + leaf.roads.size()));
+		
+			// Adding city node. Isolated or not
+			if (leaf.roads.size() == 0){
+				addCityNode(blacknode, "isolatedCity", leaf.city);
+			} else {
+				addCityNode(blacknode, leaf.city);
+			}
+		}
+		
+		// Appends node roads
+		for (Road r : leaf.roads) {
+			addRoadNode(blacknode, r);
+		}
+		
+		node.appendChild(blacknode);
+		
+
+	}
+	
+	private void addEmptyNode(final Element node, EmptyNode empty){
+		final Element emptynode = results.createElement("white");
+		node.appendChild(emptynode);
+	}
+	
+	private void addInternalNode(final Element node, InternalNode internal){
+		//final InternalNode currentInternal = (InternalNode) currentNode;
+		final Element gray = results.createElement("gray");
+		gray.setAttribute("x",
+				Integer.toString((int) internal.getCenterX()));
+		gray.setAttribute("y",
+				Integer.toString((int) internal.getCenterY()));
+		for (int i = 0; i < 4; i++) {
+			printPRQuadtreeHelper(internal.getChild(i), gray);
+		}
+		node.appendChild(gray);
+	}
+	
 	/**
 	 * Prints out the structure of the PR Quadtree in a human-readable format.
 	 * 
@@ -558,55 +627,16 @@ public class Command {
 		final Element city;
 		final Element node;
 		if (currentNode.getType() == Node.EMPTY) {
-			node = results.createElement("white");
-			xmlNode.appendChild(node);
+			addEmptyNode(xmlNode, (EmptyNode) currentNode);
 
 		} else {
 			if (currentNode.getType() == Node.LEAF) {
 				/* leaf node */
-				final LeafNode currentLeaf = (LeafNode) currentNode;
-
-				node = results.createElement("black");
-				node.setAttribute("cardinality",
-						String.valueOf(1 + currentLeaf.roads.size()));
-				xmlNode.appendChild(node);
-
-				// Isolated city
-				if (currentLeaf.roads.size() == 0) {
-					city = results.createElement("isolatedCity");
-				} else {
-					// City tag
-					city = results.createElement("city");
-				}
-
-				city.setAttribute("color", "black");
-				city.setAttribute("name", currentLeaf.getCity().getName());
-				city.setAttribute("radius",
-						String.valueOf(currentLeaf.getCity().radius));
-				city.setAttribute("x",
-						Integer.toString((int) currentLeaf.getCity().getX()));
-				city.setAttribute("y",
-						Integer.toString((int) currentLeaf.getCity().getY()));
-
-				// Appends black node city
-				xmlNode.appendChild(city);
-
-				// Appends node roads
-				for (Road r : currentLeaf.roads) {
-					addRoadNode(xmlNode, r);
-				}
+				addLeafNode(xmlNode, (LeafNode)currentNode);
+				
 			} else {
 				/* internal node */
-				final InternalNode currentInternal = (InternalNode) currentNode;
-				final Element gray = results.createElement("gray");
-				gray.setAttribute("x",
-						Integer.toString((int) currentInternal.getCenterX()));
-				gray.setAttribute("y",
-						Integer.toString((int) currentInternal.getCenterY()));
-				for (int i = 0; i < 4; i++) {
-					printPRQuadtreeHelper(currentInternal.getChild(i), gray);
-				}
-				xmlNode.appendChild(gray);
+				addInternalNode(xmlNode, (InternalNode) currentNode);
 			}
 		}
 	}
