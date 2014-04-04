@@ -21,8 +21,14 @@ public class Road implements Comparable<Road>{
 	private Line2D line;
 
 	public Road(City s_city, City e_city) {
-		cities[0] = s_city;
-		cities[1] = e_city;
+		if (s_city.compareTo(e_city) <= 0){
+			cities[0] = s_city;
+			cities[1] = e_city;
+		} else {
+			cities[1] = s_city;
+			cities[0] = e_city;	
+		}
+		
 
 		line = new java.awt.geom.Line2D.Double(s_city.getX(), s_city.getY(),
 				e_city.getX(), e_city.getY());
@@ -64,16 +70,25 @@ public class Road implements Comparable<Road>{
 		
 	}
 
+/*	@Override
+	public boolean equals(Road rd) {
+		if (cities[0].compareTo(rd.cities[0]) == 0 && cities[1].compareTo(cities[1]) == 0){
+			return true;
+		} else {
+			return false;
+		}
+	}*/
+
 	/**
 	 * Compares based on the start city, tie break goes to end city
 	 */
-	public int compareTo(Road o) {
-		if (cities[0].compareTo(o.cities[0]) == 1){
+	public int compareTo(Road o) {	
+		if (cities[0].compareTo(o.cities[0]) > 0){
 			return 1;
-		} else if (cities[0].compareTo(o.cities[0]) == -1){
+		} else if (cities[0].compareTo(o.cities[0]) < 0){
 			return -1;
 		} else {
-			return cities[1].compareTo(cities[1]);
+			return cities[1].compareTo(o.cities[1]);
 		}
 	}
 }

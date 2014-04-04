@@ -515,6 +515,11 @@ public class PRQuadtree {
 		public Node add(Road road, java.awt.geom.Point2D.Float origin,
 				int width, int height) {
 			roads.add(road);
+			City[] cities = road.getCities();
+			
+			cities[0].addRoad(road);
+			cities[1].addRoad(road);
+			
 			update_adjacency_list(road);
 			
 			/*
@@ -560,6 +565,8 @@ public class PRQuadtree {
 
 		/** height of the rectangular bounds of this node */
 		protected int height;
+		
+		protected Rectangle2D.Float rect;
 
 		/** half of the width of the rectangular bounds of this node */
 		protected int halfWidth;
@@ -580,6 +587,8 @@ public class PRQuadtree {
 		public InternalNode(Point2D.Float origin, int width, int height) {
 			super(Node.INTERNAL);
 
+			rect = new Rectangle2D.Float(origin.x, origin.y,width, height);
+			
 			this.origin = origin;
 
 			children = new Node[4];
@@ -804,6 +813,13 @@ public class PRQuadtree {
 		 */
 		public int getHalfHeight() {
 			return halfHeight;
+		}
+		
+		/**
+		 * Returns the rectangle
+		 */
+		public Rectangle2D.Float getRect(){
+			return rect;
 		}
 	}
 }

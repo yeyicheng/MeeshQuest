@@ -23,19 +23,7 @@ import java.util.TreeSet;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-
-
 // Import for intersections
-
-
-
-
-
-
-
-
-
-
 
 import cmsc420.drawing.CanvasPlus;
 import cmsc420.drawing.Drawable2D;
@@ -67,6 +55,17 @@ public class Command {
 	 * command)
 	 */
 	protected final TreeMap<String, City> citiesByName = new TreeMap<String, City>();
+
+	/**
+	 * Mapped cities
+	 */
+	protected TreeSet<City> mappedCities = new TreeSet<City>(
+			new CityLocationComparator());
+
+	/**
+	 * Mapped Roads
+	 */
+	protected TreeSet<Road> mappedRoads = new TreeSet<Road>();
 
 	/**
 	 * stores created cities sorted by their locations (used with listCities
@@ -116,6 +115,14 @@ public class Command {
 	 */
 	private Element getCommandNode(final Element node) {
 		final Element commandNode = results.createElement("command");
+
+		String id = node.getAttribute("id");
+
+		if (!id.equals("")) {
+			commandNode.setAttribute("id", id);
+		}
+
+		// commandNode.setAttribute("id", node.get);
 		commandNode.setAttribute("name", node.getNodeName());
 		return commandNode;
 	}
@@ -275,17 +282,6 @@ public class Command {
 		} else {
 			final Element outputNode = results.createElement("output");
 
-			/* insert city into PR Quadtree */
-			try {
-				prQuadtree.add(city);
-			} catch (CityAlreadyMappedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (CityOutOfBoundsException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
 			/* add city to dictionary */
 			citiesByName.put(name, city);
 			citiesByLocation.add(city);
@@ -410,17 +406,31 @@ public class Command {
 
 		if (!citiesByName.containsKey(name)) {
 			addErrorNode("nameNotInDictionary", commandNode, parametersNode);
-		} else if (prQuadtree.contains(name)) {
-			addErrorNode("cityAlreadyMapped", commandNode, parametersNode);
-		} else {
+			/*
+			 * } else if (prQuadtree.contains(name)) {
+			 * addErrorNode("cityAlreadyMapped", commandNode, parametersNode);
+			 */} else {
 			City city = citiesByName.get(name);
 
+			/* insert city into PR Quadtree */
+			try {
+				prQuadtree.add(city);
 				/* add city to canvas */
 				canvas.addPoint(city.getName(), city.getX(), city.getY(),
 						Color.BLACK);
 
+				mappedCities.add(city);
+
 				/* add success node to results */
 				addSuccessNode(commandNode, parametersNode, outputNode);
+			} catch (CityAlreadyMappedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (CityOutOfBoundsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 	}
 
@@ -452,6 +462,8 @@ public class Command {
 			canvas.removePoint(city.getName(), city.getX(), city.getY(),
 					Color.BLACK);
 
+			mappedCities.remove(city);
+
 			/* add success node to results */
 			addSuccessNode(commandNode, parametersNode, outputNode);
 		}
@@ -480,7 +492,6 @@ public class Command {
 		addSuccessNode(commandNode, parametersNode, outputNode);
 	}
 
-	
 	/**
 	 * Creates a city node containing information about a city. Appends the city
 	 * node to the passed in node.
@@ -527,64 +538,61 @@ public class Command {
 	private void addRoadNode(final Element node, final Road road) {
 		final Element roadNode = results.createElement("road");
 
-		roadNode.setAttribute("start", road.getCities()[1].toString());
-		roadNode.setAttribute("end", road.getCities()[0].toString());
+		roadNode.setAttribute("end", road.getCities()[1].toString());
+		roadNode.setAttribute("start", road.getCities()[0].toString());
 
 		node.appendChild(roadNode);
 	}
-	
-	private void addLeafNode(final Element node, final LeafNode leaf){
-		
+
+	private void addLeafNode(final Element node, final LeafNode leaf) {
+
 		final Element blacknode = results.createElement("black");
-		
+
 		// Check to see if leaf has City
-		if (leaf.city == null){
-			
+		if (leaf.city == null) {
+
 			// cardinality
 			blacknode.setAttribute("cardinality",
 					String.valueOf(leaf.roads.size()));
 		} else {
-			
+
 			// cardinality with city
 			blacknode.setAttribute("cardinality",
 					String.valueOf(1 + leaf.roads.size()));
-		
+
 			// Adding city node. Isolated or not
-			if (leaf.roads.size() == 0){
+			if (leaf.roads.size() == 0) {
 				addCityNode(blacknode, "isolatedCity", leaf.city);
 			} else {
 				addCityNode(blacknode, leaf.city);
 			}
 		}
-		
+
 		// Appends node roads
 		for (Road r : leaf.roads) {
 			addRoadNode(blacknode, r);
 		}
-		
+
 		node.appendChild(blacknode);
-		
 
 	}
-	
-	private void addEmptyNode(final Element node, EmptyNode empty){
+
+	private void addEmptyNode(final Element node, EmptyNode empty) {
 		final Element emptynode = results.createElement("white");
 		node.appendChild(emptynode);
 	}
-	
-	private void addInternalNode(final Element node, InternalNode internal){
-		//final InternalNode currentInternal = (InternalNode) currentNode;
+
+	private void addInternalNode(final Element node, InternalNode internal) {
+		// final InternalNode currentInternal = (InternalNode) currentNode;
 		final Element gray = results.createElement("gray");
-		gray.setAttribute("x",
-				Integer.toString((int) internal.getCenterX()));
-		gray.setAttribute("y",
-				Integer.toString((int) internal.getCenterY()));
+		gray.setAttribute("x", Integer.toString((int) internal.getCenterX()));
+		gray.setAttribute("y", Integer.toString((int) internal.getCenterY()));
 		for (int i = 0; i < 4; i++) {
 			printPRQuadtreeHelper(internal.getChild(i), gray);
 		}
 		node.appendChild(gray);
 	}
-	
+
 	/**
 	 * Prints out the structure of the PR Quadtree in a human-readable format.
 	 * 
@@ -632,8 +640,8 @@ public class Command {
 		} else {
 			if (currentNode.getType() == Node.LEAF) {
 				/* leaf node */
-				addLeafNode(xmlNode, (LeafNode)currentNode);
-				
+				addLeafNode(xmlNode, (LeafNode) currentNode);
+
 			} else {
 				/* internal node */
 				addInternalNode(xmlNode, (InternalNode) currentNode);
@@ -737,6 +745,22 @@ public class Command {
 		}
 	}
 
+	public class NoNearestException extends Throwable {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		public NoNearestException() {
+		}
+
+		public NoNearestException(String message) {
+			super(message);
+		}
+
+	}
+
 	/**
 	 * Finds the nearest city to a given point.
 	 * 
@@ -756,20 +780,26 @@ public class Command {
 
 		// Check if there are cities on the map
 		if (citiesByName.size() <= 0) {
-			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			addErrorNode("cityNotFound", commandNode, parametersNode);
 			return;
 		}
 
 		// Check to see if root is empty
 		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
-			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			addErrorNode("cityNotFound", commandNode, parametersNode);
 		} else {
 
-			City n = nearestCityHelper2(prQuadtree.getRoot(), point);
-			addCityNode(outputNode, n);
+			Node n = null;
+			try {
+				n = nearestCityHelper2(prQuadtree.getRoot(), point);
+				addCityNode(outputNode, ((LeafNode) n).getCity());
 
-			/* add success node to results */
-			addSuccessNode(commandNode, parametersNode, outputNode);
+				/* add success node to results */
+				addSuccessNode(commandNode, parametersNode, outputNode);
+			} catch (NoNearestException e) {
+				// No city was found
+				addErrorNode("cityNotFound", commandNode, parametersNode);
+			}
 		}
 	}
 
@@ -778,8 +808,10 @@ public class Command {
 	 * 
 	 * @param root
 	 * @param point
+	 * @throws NoNearestCityException
 	 */
-	private City nearestCityHelper2(Node root, Point2D.Float point) {
+	private Node nearestCityHelper2(Node root, Point2D.Float point)
+			throws NoNearestException {
 		PriorityQueue<QuadrantDistance> q = new PriorityQueue<QuadrantDistance>();
 		Node currNode = root;
 		while (currNode.getType() != Node.LEAF) {
@@ -787,17 +819,23 @@ public class Command {
 			for (int i = 0; i < 4; i++) {
 				Node kid = g.children[i];
 				if (kid.getType() == Node.LEAF) {
-					if (((LeafNode) kid).getCity() != null) {
+					if (((LeafNode) kid).getCity() != null
+							&& ((LeafNode) kid).roads.size() != 0) {
 						q.add(new QuadrantDistance(kid, point));
 					}
 				} else if (kid.getType() != Node.EMPTY) {
 					q.add(new QuadrantDistance(kid, point));
 				}
 			}
+
+			if (q.peek() == null) {
+				throw new NoNearestException();
+			}
+
 			currNode = q.remove().quadtreeNode;
 		}
 
-		return ((LeafNode) currNode).getCity();
+		return (currNode);
 	}
 
 	// Says that you are a certain distance from a quadrant or a city
@@ -878,12 +916,19 @@ public class Command {
 			addErrorNode("mapIsEmpty", commandNode, parametersNode);
 		} else {
 
-			City n = processNearestIsolatedCityHelper2(prQuadtree.getRoot(),
-					point);
-			addCityNode(outputNode, n);
+			City n;
+			try {
+				n = processNearestIsolatedCityHelper2(prQuadtree.getRoot(),
+						point);
+				addCityNode(outputNode, n);
 
-			/* add success node to results */
-			addSuccessNode(commandNode, parametersNode, outputNode);
+				/* add success node to results */
+				addSuccessNode(commandNode, parametersNode, outputNode);
+
+			} catch (NoNearestException e) {
+				addErrorNode("cityNotFound", commandNode, parametersNode);
+
+			}
 		}
 	}
 
@@ -894,7 +939,7 @@ public class Command {
 	 * @param point
 	 */
 	private City processNearestIsolatedCityHelper2(Node root,
-			Point2D.Float point) {
+			Point2D.Float point) throws NoNearestException {
 		PriorityQueue<QuadrantDistance> q = new PriorityQueue<QuadrantDistance>();
 		Node currNode = root;
 		while (currNode.getType() != Node.LEAF) {
@@ -916,6 +961,11 @@ public class Command {
 				}
 				// Does not add empty nodes to priority queue
 			}
+
+			if (q.peek() == null) {
+				throw new NoNearestException();
+			}
+
 			currNode = q.remove().quadtreeNode;
 		}
 
@@ -1074,6 +1124,8 @@ public class Command {
 		final String end_city = processStringAttribute(node, "end",
 				parametersNode);
 		final Element outputNode = results.createElement("output");
+		
+		boolean canMapRoad = true;
 
 		if (!citiesByName.containsKey(start_city)
 				|| !citiesByName.containsKey(end_city)) {
@@ -1087,16 +1139,93 @@ public class Command {
 					e_city.getY(), Color.CYAN);
 
 			// Check to make sure root is gray, if not you can't have a road
-			if (prQuadtree.getRoot().getType() != Node.INTERNAL) {
+			/*if (prQuadtree.getRoot().getType() != Node.INTERNAL) {
 				addErrorNode("cannotHaveARoad", commandNode, parametersNode);
-			} else { // Root is gray. Check what quadrants the road hits
+			} else {*/ // Root is gray. Check what quadrants the road hits
 
-				prQuadtree.add(road);
-
-				// processMapRoadHelper(prQuadtree.getRoot(), road);
-				addSuccessNode(commandNode, parametersNode, outputNode);
+				// road already mapped
+				if (mappedRoads.contains(road)){
+					canMapRoad = false;
+				}
+				
+				// Start city is isolated
+				if (mappedCities.contains(s_city) && s_city.roads.size() == 0){
+					canMapRoad = false;
+				}
+				
+				// End city is isolated
+				if (mappedCities.contains(e_city) && e_city.roads.size() == 0){
+					canMapRoad = false;
+				}
+				
+				if (canMapRoad){
+				
+					Rectangle2D.Float map = new Rectangle2D.Float(0,0,spatialWidth, spatialHeight);
+					
+					if (map.contains(s_city.toPoint2D())){
+						// Maps start city
+						if (!mappedCities.contains(s_city)){
+							try {
+								prQuadtree.add(s_city);
+							} catch (CityAlreadyMappedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (CityOutOfBoundsException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							/* add city to canvas */
+							canvas.addPoint(s_city.getName(), s_city.getX(), s_city.getY(),
+									Color.BLACK);
+		
+							mappedCities.add(s_city);
+							//addCityNode(outputNode, s_city);
+						}
+					}
+					
+					
+					if (map.contains(s_city.toPoint2D())){
+					// Maps end city
+						if (!mappedCities.contains(e_city)){
+							try {
+								prQuadtree.add(e_city);
+							} catch (CityAlreadyMappedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (CityOutOfBoundsException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							/* add city to canvas */
+							canvas.addPoint(e_city.getName(), e_city.getX(), e_city.getY(),
+									Color.BLACK);
+		
+							mappedCities.add(e_city);
+							
+							//addCityNode(outputNode, e_city);
+						}
+					}
+										
+					prQuadtree.add(road);
+	
+					mappedRoads.add(road);
+	
+					// processMapRoadHelper(prQuadtree.getRoot(), road);
+	
+					final Element roadsuccess = results
+							.createElement("roadCreated");
+					roadsuccess.setAttribute("start", start_city);
+					roadsuccess.setAttribute("end", end_city);
+	
+					outputNode.appendChild(roadsuccess);
+					addSuccessNode(commandNode, parametersNode, outputNode);
+	
+				} else {
+					addErrorNode("cannotHaveARoad", commandNode, parametersNode);
+	
+				}		
 			}
-		}
+		//}
 	}
 
 	/*
@@ -1228,7 +1357,7 @@ public class Command {
 		}
 		return roads_in_range;
 	}
-	
+
 	/*
 	 * public void processRangeRoads(Element node) { final Element commandNode =
 	 * getCommandNode(node); final Element parametersNode =

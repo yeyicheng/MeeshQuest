@@ -1,0 +1,45 @@
+<commands
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="part2in.xsd"
+    spatialWidth="256"
+    spatialHeight="256"
+    g="1"
+    pmOrder="3">
+    
+    <createCity id="1" name="a1" x="0" y="0" radius="7" color="black" />
+    <createCity id="2" name="a2" x="0" y="256" radius="7" color="black" />
+    <createCity id="3" name="a3" x="256" y="0" radius="7" color="black" />
+    <createCity id="4" name="a4" x="256" y="256" radius="7" color="black" />
+    
+    <nearestCity id="111" x="128" y="128" />
+    <mapRoad start="a4" end="a3" />
+    <nearestCity x="128" y="128" />
+    <nearestCity x="130" y="140" />
+    <mapRoad start="a3" end="a2" />
+    <nearestCity x="128" y="128" />
+    <nearestCity x="0" y="0" />
+    <mapRoad start="a4" end="a2" />
+    <nearestCity x="128" y="128" />
+    <mapRoad start="a2" end="a1" />
+    <nearestCity x="128" y="128" />
+    <nearestCity x="0" y="0" />
+    
+	<saveMap name="dan.nearestcity21" />
+    <printPMQuadtree />
+    
+    <clearAll />
+    
+    <createCity id="5" name="a5" x="-200" y="128" radius="7" color="black" />
+    <createCity id="6" name="a6" x="400" y="128" radius="7" color="black" />
+    <createCity id="7" name="a7" x="128" y="257" radius="7" color="black" />
+    
+    <nearestCity id="112" x="128" y="128" />
+    <mapRoad start="a5" end="a6" />
+    <nearestCity x="128" y="128" />
+    <mapRoad start="a7" end="a6" />
+    <nearestCityToRoad start="a6" end="a7" />
+    
+    <printPMQuadtree />
+    <saveMap name="dan.nearestcity22" />
+	
+</commands>

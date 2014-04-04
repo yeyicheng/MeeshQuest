@@ -1,0 +1,6 @@
+<commands xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="part2in.xsd" pmOrder="3" g="1" spatialWidth="128" spatialHeight="128">
+<createCity name="c1" x="35" y="30" radius="50" color="red"/>
+<createCity name="c2" x="80" y="105" radius="50" color="red"/>
+<mapRoad start="c1" end="c2"/>
+<rangeRoads x="20" y="90" radius="10" saveMap="testImageRange"/>
+</commands>

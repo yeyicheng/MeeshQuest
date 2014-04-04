@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<results>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c1"/>
+      <x value="35"/>
+      <y value="30"/>
+      <radius value="50"/>
+      <color value="red"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c2"/>
+      <x value="80"/>
+      <y value="105"/>
+      <radius value="50"/>
+      <color value="red"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="c1"/>
+      <end value="c2"/>
+    </parameters>
+    <output>
+      <roadCreated end="c2" start="c1"/>
+    </output>
+  </success>
+  <error type="noRoadsExistInRange">
+    <command name="rangeRoads"/>
+    <parameters>
+      <x value="20"/>
+      <y value="90"/>
+      <radius value="10"/>
+      <saveMap value="testImageRange"/>
+    </parameters>
+  </error>
+</results>

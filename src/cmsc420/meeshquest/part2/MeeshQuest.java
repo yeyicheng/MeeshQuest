@@ -105,11 +105,11 @@ public class MeeshQuest {
 			} catch (TransformerException e) {
 				System.exit(-1);
 			}
-/*			// UNCOMMENT THIS TO TEST WITH FILES
+			/*// UNCOMMENT THIS TO TEST WITH FILES
 			 catch (FileNotFoundException e) {
 				e.printStackTrace();
-			}
-*/		}
+			}*/
+		}
 	}
 
 	private void addFatalError() {

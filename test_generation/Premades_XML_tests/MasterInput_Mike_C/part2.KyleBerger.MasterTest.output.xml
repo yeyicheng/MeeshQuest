@@ -1,0 +1,2715 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<results>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a1"/>
+      <x value="0"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a2"/>
+      <x value="127"/>
+      <y value="127"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a3"/>
+      <x value="128"/>
+      <y value="128"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a4"/>
+      <x value="64"/>
+      <y value="64"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a5"/>
+      <x value="0"/>
+      <y value="127"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a6"/>
+      <x value="127"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a7"/>
+      <x value="96"/>
+      <y value="96"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a8"/>
+      <x value="32"/>
+      <y value="96"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a9"/>
+      <x value="96"/>
+      <y value="32"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a10"/>
+      <x value="32"/>
+      <y value="32"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="mapIsEmpty">
+    <command name="printPMQuadtree"/>
+    <parameters/>
+  </error>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a11"/>
+      <x value="0"/>
+      <y value="5"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a12"/>
+      <x value="0"/>
+      <y value="10"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a13"/>
+      <x value="0"/>
+      <y value="17"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a14"/>
+      <x value="0"/>
+      <y value="23"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a15"/>
+      <x value="0"/>
+      <y value="30"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a16"/>
+      <x value="0"/>
+      <y value="45"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a17"/>
+      <x value="0"/>
+      <y value="60"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a18"/>
+      <x value="0"/>
+      <y value="85"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a19"/>
+      <x value="0"/>
+      <y value="107"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b20"/>
+      <x value="119"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b21"/>
+      <x value="5"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b22"/>
+      <x value="10"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b23"/>
+      <x value="17"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b24"/>
+      <x value="23"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b25"/>
+      <x value="30"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b26"/>
+      <x value="45"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b27"/>
+      <x value="60"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b28"/>
+      <x value="85"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b29"/>
+      <x value="107"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="duplicateCityCoordinates">
+    <command name="createCity"/>
+    <parameters>
+      <name value="b30"/>
+      <x value="119"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a0"/>
+      <x value="307"/>
+      <y value="200"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a00"/>
+      <x value="-319"/>
+      <y value="-200"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b31"/>
+      <x value="5"/>
+      <y value="5"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b32"/>
+      <x value="10"/>
+      <y value="10"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b33"/>
+      <x value="17"/>
+      <y value="17"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b34"/>
+      <x value="23"/>
+      <y value="23"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b35"/>
+      <x value="30"/>
+      <y value="30"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b36"/>
+      <x value="45"/>
+      <y value="45"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b37"/>
+      <x value="60"/>
+      <y value="60"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b38"/>
+      <x value="85"/>
+      <y value="85"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b39"/>
+      <x value="107"/>
+      <y value="107"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b40"/>
+      <x value="119"/>
+      <y value="119"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a0"/>
+      <end value="a3"/>
+    </parameters>
+    <output>
+      <roadCreated end="a3" start="a0"/>
+    </output>
+  </success>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <black cardinality="2">
+          <city color="black" name="a3" radius="5" x="128" y="128"/>
+          <road end="a3" start="a0"/>
+        </black>
+      </quadtree>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a2"/>
+      <end value="a5"/>
+    </parameters>
+    <output>
+      <roadCreated end="a5" start="a2"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a1"/>
+      <end value="a4"/>
+    </parameters>
+    <output>
+      <roadCreated end="a4" start="a1"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a3"/>
+      <end value="a6"/>
+    </parameters>
+    <output>
+      <roadCreated end="a6" start="a3"/>
+    </output>
+  </success>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="64" y="64">
+          <gray x="32" y="96">
+            <black cardinality="2">
+              <city color="black" name="a5" radius="5" x="0" y="127"/>
+              <road end="a5" start="a2"/>
+            </black>
+            <black cardinality="1">
+              <road end="a5" start="a2"/>
+            </black>
+            <white/>
+            <black cardinality="2">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+            </black>
+          </gray>
+          <gray x="96" y="96">
+            <black cardinality="1">
+              <road end="a5" start="a2"/>
+            </black>
+            <gray x="112" y="112">
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <gray x="120" y="120">
+                <black cardinality="1">
+                  <road end="a5" start="a2"/>
+                </black>
+                <gray x="124" y="124">
+                  <black cardinality="1">
+                    <road end="a5" start="a2"/>
+                  </black>
+                  <gray x="126" y="126">
+                    <black cardinality="1">
+                      <road end="a5" start="a2"/>
+                    </black>
+                    <gray x="127" y="127">
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <gray x="127" y="127">
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                      </gray>
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <black cardinality="3">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                        <road end="a6" start="a3"/>
+                      </black>
+                    </gray>
+                    <white/>
+                    <black cardinality="1">
+                      <road end="a6" start="a3"/>
+                    </black>
+                  </gray>
+                  <white/>
+                  <black cardinality="1">
+                    <road end="a6" start="a3"/>
+                  </black>
+                </gray>
+                <white/>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+              </gray>
+              <white/>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="1">
+              <road end="a6" start="a3"/>
+            </black>
+          </gray>
+          <gray x="32" y="32">
+            <black cardinality="1">
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="2">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="2">
+              <city color="black" name="a1" radius="5" x="0" y="0"/>
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="1">
+              <road end="a4" start="a1"/>
+            </black>
+          </gray>
+          <gray x="96" y="32">
+            <black cardinality="2">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="1">
+              <road end="a6" start="a3"/>
+            </black>
+            <white/>
+            <black cardinality="2">
+              <city color="black" name="a6" radius="5" x="127" y="0"/>
+              <road end="a6" start="a3"/>
+            </black>
+          </gray>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a8"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a3"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a12"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="64" y="64">
+          <gray x="32" y="96">
+            <gray x="16" y="112">
+              <black cardinality="2">
+                <city color="black" name="a5" radius="5" x="0" y="127"/>
+                <road end="a5" start="a2"/>
+              </black>
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <white/>
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              <road end="a5" start="a2"/>
+            </black>
+            <black cardinality="1">
+              <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+            </black>
+            <gray x="48" y="80">
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="2">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+              </black>
+            </gray>
+          </gray>
+          <gray x="96" y="96">
+            <black cardinality="1">
+              <road end="a5" start="a2"/>
+            </black>
+            <gray x="112" y="112">
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <gray x="120" y="120">
+                <black cardinality="1">
+                  <road end="a5" start="a2"/>
+                </black>
+                <gray x="124" y="124">
+                  <black cardinality="1">
+                    <road end="a5" start="a2"/>
+                  </black>
+                  <gray x="126" y="126">
+                    <black cardinality="1">
+                      <road end="a5" start="a2"/>
+                    </black>
+                    <gray x="127" y="127">
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <gray x="127" y="127">
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                      </gray>
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <black cardinality="3">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                        <road end="a6" start="a3"/>
+                      </black>
+                    </gray>
+                    <white/>
+                    <black cardinality="1">
+                      <road end="a6" start="a3"/>
+                    </black>
+                  </gray>
+                  <white/>
+                  <black cardinality="1">
+                    <road end="a6" start="a3"/>
+                  </black>
+                </gray>
+                <white/>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+              </gray>
+              <white/>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="1">
+              <road end="a6" start="a3"/>
+            </black>
+          </gray>
+          <gray x="32" y="32">
+            <black cardinality="1">
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="2">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+            </black>
+            <gray x="16" y="16">
+              <black cardinality="1">
+                <road end="a4" start="a1"/>
+              </black>
+              <black cardinality="1">
+                <road end="a4" start="a1"/>
+              </black>
+              <gray x="8" y="8">
+                <black cardinality="2">
+                  <isolatedCity color="black" name="a12" radius="5" x="0" y="10"/>
+                  <road end="a4" start="a1"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a4" start="a1"/>
+                </black>
+                <black cardinality="2">
+                  <city color="black" name="a1" radius="5" x="0" y="0"/>
+                  <road end="a4" start="a1"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a4" start="a1"/>
+                </black>
+              </gray>
+              <black cardinality="1">
+                <road end="a4" start="a1"/>
+              </black>
+            </gray>
+            <black cardinality="1">
+              <road end="a4" start="a1"/>
+            </black>
+          </gray>
+          <gray x="96" y="32">
+            <black cardinality="2">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="1">
+              <road end="a6" start="a3"/>
+            </black>
+            <white/>
+            <black cardinality="2">
+              <city color="black" name="a6" radius="5" x="127" y="0"/>
+              <road end="a6" start="a3"/>
+            </black>
+          </gray>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
+  <error type="startOrEndIsIsolated">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a5"/>
+      <end value="a8"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a4"/>
+      <end value="a7"/>
+    </parameters>
+    <output>
+      <roadCreated end="a7" start="a4"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a6"/>
+      <end value="a9"/>
+    </parameters>
+    <output>
+      <roadCreated end="a9" start="a6"/>
+    </output>
+  </success>
+  <error type="startOrEndIsIsolated">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a8"/>
+      <end value="a10"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b20"/>
+      <end value="a11"/>
+    </parameters>
+    <output>
+      <roadCreated end="a11" start="b20"/>
+    </output>
+  </success>
+  <error type="startPointDoesNotExist">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b30"/>
+      <end value="a5"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="64" y="64">
+          <gray x="32" y="96">
+            <gray x="16" y="112">
+              <black cardinality="2">
+                <city color="black" name="a5" radius="5" x="0" y="127"/>
+                <road end="a5" start="a2"/>
+              </black>
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <white/>
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              <road end="a5" start="a2"/>
+            </black>
+            <black cardinality="1">
+              <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+            </black>
+            <gray x="48" y="80">
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+            </gray>
+          </gray>
+          <gray x="96" y="96">
+            <black cardinality="3">
+              <city color="black" name="a7" radius="5" x="96" y="96"/>
+              <road end="a5" start="a2"/>
+              <road end="a7" start="a4"/>
+            </black>
+            <gray x="112" y="112">
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <gray x="120" y="120">
+                <black cardinality="1">
+                  <road end="a5" start="a2"/>
+                </black>
+                <gray x="124" y="124">
+                  <black cardinality="1">
+                    <road end="a5" start="a2"/>
+                  </black>
+                  <gray x="126" y="126">
+                    <black cardinality="1">
+                      <road end="a5" start="a2"/>
+                    </black>
+                    <gray x="127" y="127">
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <gray x="127" y="127">
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                      </gray>
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <black cardinality="3">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                        <road end="a6" start="a3"/>
+                      </black>
+                    </gray>
+                    <white/>
+                    <black cardinality="1">
+                      <road end="a6" start="a3"/>
+                    </black>
+                  </gray>
+                  <white/>
+                  <black cardinality="1">
+                    <road end="a6" start="a3"/>
+                  </black>
+                </gray>
+                <white/>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+              </gray>
+              <black cardinality="2">
+                <city color="black" name="a7" radius="5" x="96" y="96"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+            </gray>
+            <gray x="80" y="80">
+              <black cardinality="1">
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="2">
+                <city color="black" name="a7" radius="5" x="96" y="96"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="1">
+                <road end="a7" start="a4"/>
+              </black>
+            </gray>
+            <black cardinality="3">
+              <city color="black" name="a7" radius="5" x="96" y="96"/>
+              <road end="a6" start="a3"/>
+              <road end="a7" start="a4"/>
+            </black>
+          </gray>
+          <gray x="32" y="32">
+            <black cardinality="1">
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="3">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+              <road end="a7" start="a4"/>
+            </black>
+            <gray x="16" y="16">
+              <black cardinality="1">
+                <road end="a4" start="a1"/>
+              </black>
+              <black cardinality="1">
+                <road end="a4" start="a1"/>
+              </black>
+              <gray x="8" y="8">
+                <black cardinality="2">
+                  <isolatedCity color="black" name="a12" radius="5" x="0" y="10"/>
+                  <road end="a4" start="a1"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a4" start="a1"/>
+                </black>
+                <gray x="4" y="4">
+                  <black cardinality="3">
+                    <city color="black" name="a11" radius="5" x="0" y="5"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b20" start="a11"/>
+                  </black>
+                  <black cardinality="2">
+                    <road end="a4" start="a1"/>
+                    <road end="b20" start="a11"/>
+                  </black>
+                  <black cardinality="2">
+                    <city color="black" name="a1" radius="5" x="0" y="0"/>
+                    <road end="a4" start="a1"/>
+                  </black>
+                  <black cardinality="1">
+                    <road end="a4" start="a1"/>
+                  </black>
+                </gray>
+                <black cardinality="2">
+                  <road end="a4" start="a1"/>
+                  <road end="b20" start="a11"/>
+                </black>
+              </gray>
+              <black cardinality="2">
+                <road end="a4" start="a1"/>
+                <road end="b20" start="a11"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <road end="a4" start="a1"/>
+              <road end="b20" start="a11"/>
+            </black>
+          </gray>
+          <gray x="96" y="32">
+            <gray x="80" y="48">
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+            </gray>
+            <black cardinality="3">
+              <city color="black" name="a9" radius="5" x="96" y="32"/>
+              <road end="a6" start="a3"/>
+              <road end="a9" start="a6"/>
+            </black>
+            <black cardinality="3">
+              <city color="black" name="a9" radius="5" x="96" y="32"/>
+              <road end="b20" start="a11"/>
+              <road end="a9" start="a6"/>
+            </black>
+            <gray x="112" y="16">
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+              <black cardinality="2">
+                <road end="b20" start="a11"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <gray x="120" y="8">
+                <black cardinality="1">
+                  <road end="a9" start="a6"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="b20" radius="5" x="119" y="0"/>
+                  <road end="b20" start="a11"/>
+                  <road end="a9" start="a6"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="a6" radius="5" x="127" y="0"/>
+                  <road end="a6" start="a3"/>
+                  <road end="a9" start="a6"/>
+                </black>
+              </gray>
+            </gray>
+          </gray>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a19"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a11"/>
+    </parameters>
+  </error>
+  <error type="startOrEndIsIsolated">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a00"/>
+      <end value="a19"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b22"/>
+      <end value="a13"/>
+    </parameters>
+    <output>
+      <roadCreated end="a13" start="b22"/>
+    </output>
+  </success>
+  <error type="startPointDoesNotExist">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a2000"/>
+      <end value="b3"/>
+    </parameters>
+  </error>
+  <error type="endPointDoesNotExist">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a10"/>
+      <end value="b30"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a15"/>
+      <end value="b23"/>
+    </parameters>
+    <output>
+      <roadCreated end="b23" start="a15"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a11"/>
+      <end value="b33"/>
+    </parameters>
+    <output>
+      <roadCreated end="b33" start="a11"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b34"/>
+      <end value="a13"/>
+    </parameters>
+    <output>
+      <roadCreated end="a13" start="b34"/>
+    </output>
+  </success>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="64" y="64">
+          <gray x="32" y="96">
+            <gray x="16" y="112">
+              <black cardinality="2">
+                <city color="black" name="a5" radius="5" x="0" y="127"/>
+                <road end="a5" start="a2"/>
+              </black>
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <black cardinality="1">
+                <isolatedCity color="black" name="a19" radius="5" x="0" y="107"/>
+              </black>
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              <road end="a5" start="a2"/>
+            </black>
+            <black cardinality="1">
+              <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+            </black>
+            <gray x="48" y="80">
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+            </gray>
+          </gray>
+          <gray x="96" y="96">
+            <black cardinality="3">
+              <city color="black" name="a7" radius="5" x="96" y="96"/>
+              <road end="a5" start="a2"/>
+              <road end="a7" start="a4"/>
+            </black>
+            <gray x="112" y="112">
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <gray x="120" y="120">
+                <black cardinality="1">
+                  <road end="a5" start="a2"/>
+                </black>
+                <gray x="124" y="124">
+                  <black cardinality="1">
+                    <road end="a5" start="a2"/>
+                  </black>
+                  <gray x="126" y="126">
+                    <black cardinality="1">
+                      <road end="a5" start="a2"/>
+                    </black>
+                    <gray x="127" y="127">
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <gray x="127" y="127">
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                      </gray>
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <black cardinality="3">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                        <road end="a6" start="a3"/>
+                      </black>
+                    </gray>
+                    <white/>
+                    <black cardinality="1">
+                      <road end="a6" start="a3"/>
+                    </black>
+                  </gray>
+                  <white/>
+                  <black cardinality="1">
+                    <road end="a6" start="a3"/>
+                  </black>
+                </gray>
+                <white/>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+              </gray>
+              <black cardinality="2">
+                <city color="black" name="a7" radius="5" x="96" y="96"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+            </gray>
+            <gray x="80" y="80">
+              <black cardinality="1">
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="2">
+                <city color="black" name="a7" radius="5" x="96" y="96"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="1">
+                <road end="a7" start="a4"/>
+              </black>
+            </gray>
+            <black cardinality="3">
+              <city color="black" name="a7" radius="5" x="96" y="96"/>
+              <road end="a6" start="a3"/>
+              <road end="a7" start="a4"/>
+            </black>
+          </gray>
+          <gray x="32" y="32">
+            <black cardinality="1">
+              <road end="a4" start="a1"/>
+            </black>
+            <black cardinality="3">
+              <city color="black" name="a4" radius="5" x="64" y="64"/>
+              <road end="a4" start="a1"/>
+              <road end="a7" start="a4"/>
+            </black>
+            <gray x="16" y="16">
+              <gray x="8" y="24">
+                <black cardinality="2">
+                  <city color="black" name="a15" radius="5" x="0" y="30"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <white/>
+                <black cardinality="4">
+                  <city color="black" name="a13" radius="5" x="0" y="17"/>
+                  <road end="b22" start="a13"/>
+                  <road end="b34" start="a13"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <black cardinality="3">
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b34" start="a13"/>
+                </black>
+              </gray>
+              <gray x="24" y="24">
+                <black cardinality="1">
+                  <road end="a4" start="a1"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a4" start="a1"/>
+                </black>
+                <gray x="20" y="20">
+                  <black cardinality="2">
+                    <road end="a4" start="a1"/>
+                    <road end="b34" start="a13"/>
+                  </black>
+                  <black cardinality="3">
+                    <city color="black" name="b34" radius="5" x="23" y="23"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b34" start="a13"/>
+                  </black>
+                  <black cardinality="3">
+                    <city color="black" name="b33" radius="5" x="17" y="17"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b33" start="a11"/>
+                  </black>
+                  <black cardinality="1">
+                    <road end="a4" start="a1"/>
+                  </black>
+                </gray>
+                <black cardinality="1">
+                  <road end="a4" start="a1"/>
+                </black>
+              </gray>
+              <gray x="8" y="8">
+                <black cardinality="5">
+                  <isolatedCity color="black" name="a12" radius="5" x="0" y="10"/>
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b22" start="a13"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <black cardinality="3">
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <gray x="4" y="4">
+                  <black cardinality="4">
+                    <city color="black" name="a11" radius="5" x="0" y="5"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b20" start="a11"/>
+                    <road end="b33" start="a11"/>
+                  </black>
+                  <black cardinality="4">
+                    <road end="a4" start="a1"/>
+                    <road end="b20" start="a11"/>
+                    <road end="b33" start="a11"/>
+                    <road end="b22" start="a13"/>
+                  </black>
+                  <black cardinality="2">
+                    <city color="black" name="a1" radius="5" x="0" y="0"/>
+                    <road end="a4" start="a1"/>
+                  </black>
+                  <black cardinality="2">
+                    <road end="a4" start="a1"/>
+                    <road end="b22" start="a13"/>
+                  </black>
+                </gray>
+                <black cardinality="5">
+                  <city color="black" name="b22" radius="5" x="10" y="0"/>
+                  <road end="a4" start="a1"/>
+                  <road end="b20" start="a11"/>
+                  <road end="b22" start="a13"/>
+                  <road end="b23" start="a15"/>
+                </black>
+              </gray>
+              <black cardinality="4">
+                <city color="black" name="b23" radius="5" x="17" y="0"/>
+                <road end="a4" start="a1"/>
+                <road end="b20" start="a11"/>
+                <road end="b23" start="a15"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <road end="a4" start="a1"/>
+              <road end="b20" start="a11"/>
+            </black>
+          </gray>
+          <gray x="96" y="32">
+            <gray x="80" y="48">
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+            </gray>
+            <black cardinality="3">
+              <city color="black" name="a9" radius="5" x="96" y="32"/>
+              <road end="a6" start="a3"/>
+              <road end="a9" start="a6"/>
+            </black>
+            <black cardinality="3">
+              <city color="black" name="a9" radius="5" x="96" y="32"/>
+              <road end="b20" start="a11"/>
+              <road end="a9" start="a6"/>
+            </black>
+            <gray x="112" y="16">
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+              <black cardinality="2">
+                <road end="b20" start="a11"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <gray x="120" y="8">
+                <black cardinality="1">
+                  <road end="a9" start="a6"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="b20" radius="5" x="119" y="0"/>
+                  <road end="b20" start="a11"/>
+                  <road end="a9" start="a6"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="a6" radius="5" x="127" y="0"/>
+                  <road end="a6" start="a3"/>
+                  <road end="a9" start="a6"/>
+                </black>
+              </gray>
+            </gray>
+          </gray>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b39"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b40"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b26"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b36"/>
+      <end value="a14"/>
+    </parameters>
+    <output>
+      <roadCreated end="a14" start="b36"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b27"/>
+      <end value="a5"/>
+    </parameters>
+    <output>
+      <roadCreated end="a5" start="b27"/>
+    </output>
+  </success>
+  <error type="endPointDoesNotExist">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b27"/>
+      <end value="b30"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b25"/>
+      <end value="b35"/>
+    </parameters>
+    <output>
+      <roadCreated end="b35" start="b25"/>
+    </output>
+  </success>
+  <error type="endPointDoesNotExist">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="b31"/>
+      <end value="b30"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a18"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a8"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a16"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a13"/>
+    </parameters>
+  </error>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a14"/>
+    </parameters>
+  </error>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a15"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="64" y="64">
+          <gray x="32" y="96">
+            <gray x="16" y="112">
+              <black cardinality="3">
+                <city color="black" name="a5" radius="5" x="0" y="127"/>
+                <road end="a5" start="a2"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <black cardinality="2">
+                <isolatedCity color="black" name="a19" radius="5" x="0" y="107"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              <road end="a5" start="a2"/>
+            </black>
+            <gray x="16" y="80">
+              <black cardinality="2">
+                <isolatedCity color="black" name="a18" radius="5" x="0" y="85"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="2">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <white/>
+              <black cardinality="1">
+                <road end="b27" start="a5"/>
+              </black>
+            </gray>
+            <gray x="48" y="80">
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+            </gray>
+          </gray>
+          <gray x="96" y="96">
+            <black cardinality="3">
+              <city color="black" name="a7" radius="5" x="96" y="96"/>
+              <road end="a5" start="a2"/>
+              <road end="a7" start="a4"/>
+            </black>
+            <gray x="112" y="112">
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <gray x="120" y="120">
+                <black cardinality="1">
+                  <road end="a5" start="a2"/>
+                </black>
+                <gray x="124" y="124">
+                  <black cardinality="1">
+                    <road end="a5" start="a2"/>
+                  </black>
+                  <gray x="126" y="126">
+                    <black cardinality="1">
+                      <road end="a5" start="a2"/>
+                    </black>
+                    <gray x="127" y="127">
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <gray x="127" y="127">
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                      </gray>
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <black cardinality="3">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                        <road end="a6" start="a3"/>
+                      </black>
+                    </gray>
+                    <white/>
+                    <black cardinality="1">
+                      <road end="a6" start="a3"/>
+                    </black>
+                  </gray>
+                  <white/>
+                  <black cardinality="1">
+                    <road end="a6" start="a3"/>
+                  </black>
+                </gray>
+                <black cardinality="1">
+                  <isolatedCity color="black" name="b40" radius="5" x="119" y="119"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+              </gray>
+              <gray x="104" y="104">
+                <white/>
+                <black cardinality="1">
+                  <isolatedCity color="black" name="b39" radius="5" x="107" y="107"/>
+                </black>
+                <black cardinality="2">
+                  <city color="black" name="a7" radius="5" x="96" y="96"/>
+                  <road end="a7" start="a4"/>
+                </black>
+                <white/>
+              </gray>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+            </gray>
+            <gray x="80" y="80">
+              <black cardinality="1">
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="2">
+                <city color="black" name="a7" radius="5" x="96" y="96"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="1">
+                <road end="a7" start="a4"/>
+              </black>
+            </gray>
+            <black cardinality="3">
+              <city color="black" name="a7" radius="5" x="96" y="96"/>
+              <road end="a6" start="a3"/>
+              <road end="a7" start="a4"/>
+            </black>
+          </gray>
+          <gray x="32" y="32">
+            <black cardinality="4">
+              <isolatedCity color="black" name="a16" radius="5" x="0" y="45"/>
+              <road end="a4" start="a1"/>
+              <road end="b36" start="a14"/>
+              <road end="b27" start="a5"/>
+            </black>
+            <gray x="48" y="48">
+              <black cardinality="2">
+                <road end="a4" start="a1"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="4">
+                <city color="black" name="b36" radius="5" x="45" y="45"/>
+                <road end="a4" start="a1"/>
+                <road end="b36" start="a14"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="1">
+                <road end="a4" start="a1"/>
+              </black>
+            </gray>
+            <gray x="16" y="16">
+              <gray x="8" y="24">
+                <black cardinality="3">
+                  <city color="black" name="a15" radius="5" x="0" y="30"/>
+                  <road end="b36" start="a14"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <black cardinality="1">
+                  <road end="b36" start="a14"/>
+                </black>
+                <gray x="4" y="20">
+                  <black cardinality="3">
+                    <city color="black" name="a14" radius="5" x="0" y="23"/>
+                    <road end="b36" start="a14"/>
+                    <road end="b23" start="a15"/>
+                  </black>
+                  <black cardinality="1">
+                    <road end="b23" start="a15"/>
+                  </black>
+                  <black cardinality="3">
+                    <city color="black" name="a13" radius="5" x="0" y="17"/>
+                    <road end="b22" start="a13"/>
+                    <road end="b34" start="a13"/>
+                  </black>
+                  <black cardinality="2">
+                    <road end="b34" start="a13"/>
+                    <road end="b23" start="a15"/>
+                  </black>
+                </gray>
+                <black cardinality="3">
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b34" start="a13"/>
+                </black>
+              </gray>
+              <gray x="24" y="24">
+                <black cardinality="2">
+                  <road end="a4" start="a1"/>
+                  <road end="b36" start="a14"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="b35" radius="5" x="30" y="30"/>
+                  <road end="a4" start="a1"/>
+                  <road end="b35" start="b25"/>
+                </black>
+                <gray x="20" y="20">
+                  <black cardinality="2">
+                    <road end="a4" start="a1"/>
+                    <road end="b34" start="a13"/>
+                  </black>
+                  <black cardinality="3">
+                    <city color="black" name="b34" radius="5" x="23" y="23"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b34" start="a13"/>
+                  </black>
+                  <black cardinality="3">
+                    <city color="black" name="b33" radius="5" x="17" y="17"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b33" start="a11"/>
+                  </black>
+                  <black cardinality="1">
+                    <road end="a4" start="a1"/>
+                  </black>
+                </gray>
+                <black cardinality="2">
+                  <road end="a4" start="a1"/>
+                  <road end="b35" start="b25"/>
+                </black>
+              </gray>
+              <gray x="8" y="8">
+                <black cardinality="5">
+                  <isolatedCity color="black" name="a12" radius="5" x="0" y="10"/>
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b22" start="a13"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <black cardinality="3">
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <gray x="4" y="4">
+                  <black cardinality="4">
+                    <city color="black" name="a11" radius="5" x="0" y="5"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b20" start="a11"/>
+                    <road end="b33" start="a11"/>
+                  </black>
+                  <black cardinality="4">
+                    <road end="a4" start="a1"/>
+                    <road end="b20" start="a11"/>
+                    <road end="b33" start="a11"/>
+                    <road end="b22" start="a13"/>
+                  </black>
+                  <black cardinality="2">
+                    <city color="black" name="a1" radius="5" x="0" y="0"/>
+                    <road end="a4" start="a1"/>
+                  </black>
+                  <black cardinality="2">
+                    <road end="a4" start="a1"/>
+                    <road end="b22" start="a13"/>
+                  </black>
+                </gray>
+                <black cardinality="5">
+                  <city color="black" name="b22" radius="5" x="10" y="0"/>
+                  <road end="a4" start="a1"/>
+                  <road end="b20" start="a11"/>
+                  <road end="b22" start="a13"/>
+                  <road end="b23" start="a15"/>
+                </black>
+              </gray>
+              <gray x="24" y="8">
+                <black cardinality="1">
+                  <road end="a4" start="a1"/>
+                </black>
+                <black cardinality="1">
+                  <road end="b35" start="b25"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="b23" radius="5" x="17" y="0"/>
+                  <road end="b20" start="a11"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="b25" radius="5" x="30" y="0"/>
+                  <road end="b20" start="a11"/>
+                  <road end="b35" start="b25"/>
+                </black>
+              </gray>
+            </gray>
+            <gray x="48" y="16">
+              <black cardinality="2">
+                <road end="a4" start="a1"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="1">
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="2">
+                <isolatedCity color="black" name="b26" radius="5" x="45" y="0"/>
+                <road end="b20" start="a11"/>
+              </black>
+              <black cardinality="3">
+                <city color="black" name="b27" radius="5" x="60" y="0"/>
+                <road end="b20" start="a11"/>
+                <road end="b27" start="a5"/>
+              </black>
+            </gray>
+          </gray>
+          <gray x="96" y="32">
+            <gray x="80" y="48">
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+            </gray>
+            <black cardinality="3">
+              <city color="black" name="a9" radius="5" x="96" y="32"/>
+              <road end="a6" start="a3"/>
+              <road end="a9" start="a6"/>
+            </black>
+            <black cardinality="3">
+              <city color="black" name="a9" radius="5" x="96" y="32"/>
+              <road end="b20" start="a11"/>
+              <road end="a9" start="a6"/>
+            </black>
+            <gray x="112" y="16">
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+              <black cardinality="2">
+                <road end="b20" start="a11"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <gray x="120" y="8">
+                <black cardinality="1">
+                  <road end="a9" start="a6"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="b20" radius="5" x="119" y="0"/>
+                  <road end="b20" start="a11"/>
+                  <road end="a9" start="a6"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="a6" radius="5" x="127" y="0"/>
+                  <road end="a6" start="a3"/>
+                  <road end="a9" start="a6"/>
+                </black>
+              </gray>
+            </gray>
+          </gray>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b28"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b38"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b27"/>
+    </parameters>
+  </error>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b22"/>
+    </parameters>
+  </error>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b23"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="b24"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityAlreadyMapped">
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a18"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="64" y="64">
+          <gray x="32" y="96">
+            <gray x="16" y="112">
+              <black cardinality="3">
+                <city color="black" name="a5" radius="5" x="0" y="127"/>
+                <road end="a5" start="a2"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <black cardinality="2">
+                <isolatedCity color="black" name="a19" radius="5" x="0" y="107"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+            </gray>
+            <black cardinality="2">
+              <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              <road end="a5" start="a2"/>
+            </black>
+            <gray x="16" y="80">
+              <black cardinality="2">
+                <isolatedCity color="black" name="a18" radius="5" x="0" y="85"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="2">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <white/>
+              <black cardinality="1">
+                <road end="b27" start="a5"/>
+              </black>
+            </gray>
+            <gray x="48" y="80">
+              <black cardinality="1">
+                <isolatedCity color="black" name="a8" radius="5" x="32" y="96"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+            </gray>
+          </gray>
+          <gray x="96" y="96">
+            <black cardinality="3">
+              <city color="black" name="a7" radius="5" x="96" y="96"/>
+              <road end="a5" start="a2"/>
+              <road end="a7" start="a4"/>
+            </black>
+            <gray x="112" y="112">
+              <black cardinality="1">
+                <road end="a5" start="a2"/>
+              </black>
+              <gray x="120" y="120">
+                <black cardinality="1">
+                  <road end="a5" start="a2"/>
+                </black>
+                <gray x="124" y="124">
+                  <black cardinality="1">
+                    <road end="a5" start="a2"/>
+                  </black>
+                  <gray x="126" y="126">
+                    <black cardinality="1">
+                      <road end="a5" start="a2"/>
+                    </black>
+                    <gray x="127" y="127">
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <gray x="127" y="127">
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                        <black cardinality="2">
+                          <city color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a5" start="a2"/>
+                        </black>
+                      </gray>
+                      <black cardinality="2">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                      </black>
+                      <black cardinality="3">
+                        <city color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a5" start="a2"/>
+                        <road end="a6" start="a3"/>
+                      </black>
+                    </gray>
+                    <white/>
+                    <black cardinality="1">
+                      <road end="a6" start="a3"/>
+                    </black>
+                  </gray>
+                  <white/>
+                  <black cardinality="1">
+                    <road end="a6" start="a3"/>
+                  </black>
+                </gray>
+                <black cardinality="1">
+                  <isolatedCity color="black" name="b40" radius="5" x="119" y="119"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+              </gray>
+              <gray x="104" y="104">
+                <white/>
+                <black cardinality="1">
+                  <isolatedCity color="black" name="b39" radius="5" x="107" y="107"/>
+                </black>
+                <black cardinality="2">
+                  <city color="black" name="a7" radius="5" x="96" y="96"/>
+                  <road end="a7" start="a4"/>
+                </black>
+                <white/>
+              </gray>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+            </gray>
+            <gray x="80" y="80">
+              <black cardinality="1">
+                <road end="a7" start="a4"/>
+              </black>
+              <gray x="88" y="88">
+                <black cardinality="1">
+                  <road end="a7" start="a4"/>
+                </black>
+                <black cardinality="2">
+                  <city color="black" name="a7" radius="5" x="96" y="96"/>
+                  <road end="a7" start="a4"/>
+                </black>
+                <black cardinality="2">
+                  <isolatedCity color="black" name="b38" radius="5" x="85" y="85"/>
+                  <road end="a7" start="a4"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a7" start="a4"/>
+                </black>
+              </gray>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="1">
+                <road end="a7" start="a4"/>
+              </black>
+            </gray>
+            <black cardinality="3">
+              <city color="black" name="a7" radius="5" x="96" y="96"/>
+              <road end="a6" start="a3"/>
+              <road end="a7" start="a4"/>
+            </black>
+          </gray>
+          <gray x="32" y="32">
+            <black cardinality="4">
+              <isolatedCity color="black" name="a16" radius="5" x="0" y="45"/>
+              <road end="a4" start="a1"/>
+              <road end="b36" start="a14"/>
+              <road end="b27" start="a5"/>
+            </black>
+            <gray x="48" y="48">
+              <black cardinality="2">
+                <road end="a4" start="a1"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <black cardinality="4">
+                <city color="black" name="b36" radius="5" x="45" y="45"/>
+                <road end="a4" start="a1"/>
+                <road end="b36" start="a14"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="1">
+                <road end="a4" start="a1"/>
+              </black>
+            </gray>
+            <gray x="16" y="16">
+              <gray x="8" y="24">
+                <black cardinality="3">
+                  <city color="black" name="a15" radius="5" x="0" y="30"/>
+                  <road end="b36" start="a14"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <black cardinality="1">
+                  <road end="b36" start="a14"/>
+                </black>
+                <gray x="4" y="20">
+                  <black cardinality="3">
+                    <city color="black" name="a14" radius="5" x="0" y="23"/>
+                    <road end="b36" start="a14"/>
+                    <road end="b23" start="a15"/>
+                  </black>
+                  <black cardinality="1">
+                    <road end="b23" start="a15"/>
+                  </black>
+                  <black cardinality="3">
+                    <city color="black" name="a13" radius="5" x="0" y="17"/>
+                    <road end="b22" start="a13"/>
+                    <road end="b34" start="a13"/>
+                  </black>
+                  <black cardinality="2">
+                    <road end="b34" start="a13"/>
+                    <road end="b23" start="a15"/>
+                  </black>
+                </gray>
+                <black cardinality="3">
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b34" start="a13"/>
+                </black>
+              </gray>
+              <gray x="24" y="24">
+                <black cardinality="2">
+                  <road end="a4" start="a1"/>
+                  <road end="b36" start="a14"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="b35" radius="5" x="30" y="30"/>
+                  <road end="a4" start="a1"/>
+                  <road end="b35" start="b25"/>
+                </black>
+                <gray x="20" y="20">
+                  <black cardinality="2">
+                    <road end="a4" start="a1"/>
+                    <road end="b34" start="a13"/>
+                  </black>
+                  <black cardinality="3">
+                    <city color="black" name="b34" radius="5" x="23" y="23"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b34" start="a13"/>
+                  </black>
+                  <black cardinality="3">
+                    <city color="black" name="b33" radius="5" x="17" y="17"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b33" start="a11"/>
+                  </black>
+                  <black cardinality="1">
+                    <road end="a4" start="a1"/>
+                  </black>
+                </gray>
+                <black cardinality="2">
+                  <road end="a4" start="a1"/>
+                  <road end="b35" start="b25"/>
+                </black>
+              </gray>
+              <gray x="8" y="8">
+                <black cardinality="5">
+                  <isolatedCity color="black" name="a12" radius="5" x="0" y="10"/>
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b22" start="a13"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <black cardinality="3">
+                  <road end="a4" start="a1"/>
+                  <road end="b33" start="a11"/>
+                  <road end="b23" start="a15"/>
+                </black>
+                <gray x="4" y="4">
+                  <black cardinality="4">
+                    <city color="black" name="a11" radius="5" x="0" y="5"/>
+                    <road end="a4" start="a1"/>
+                    <road end="b20" start="a11"/>
+                    <road end="b33" start="a11"/>
+                  </black>
+                  <black cardinality="4">
+                    <road end="a4" start="a1"/>
+                    <road end="b20" start="a11"/>
+                    <road end="b33" start="a11"/>
+                    <road end="b22" start="a13"/>
+                  </black>
+                  <black cardinality="2">
+                    <city color="black" name="a1" radius="5" x="0" y="0"/>
+                    <road end="a4" start="a1"/>
+                  </black>
+                  <black cardinality="2">
+                    <road end="a4" start="a1"/>
+                    <road end="b22" start="a13"/>
+                  </black>
+                </gray>
+                <black cardinality="5">
+                  <city color="black" name="b22" radius="5" x="10" y="0"/>
+                  <road end="a4" start="a1"/>
+                  <road end="b20" start="a11"/>
+                  <road end="b22" start="a13"/>
+                  <road end="b23" start="a15"/>
+                </black>
+              </gray>
+              <gray x="24" y="8">
+                <black cardinality="1">
+                  <road end="a4" start="a1"/>
+                </black>
+                <black cardinality="1">
+                  <road end="b35" start="b25"/>
+                </black>
+                <gray x="20" y="4">
+                  <black cardinality="1">
+                    <road end="b20" start="a11"/>
+                  </black>
+                  <black cardinality="1">
+                    <road end="b20" start="a11"/>
+                  </black>
+                  <black cardinality="2">
+                    <city color="black" name="b23" radius="5" x="17" y="0"/>
+                    <road end="b23" start="a15"/>
+                  </black>
+                  <black cardinality="2">
+                    <isolatedCity color="black" name="b24" radius="5" x="23" y="0"/>
+                    <road end="b20" start="a11"/>
+                  </black>
+                </gray>
+                <black cardinality="3">
+                  <city color="black" name="b25" radius="5" x="30" y="0"/>
+                  <road end="b20" start="a11"/>
+                  <road end="b35" start="b25"/>
+                </black>
+              </gray>
+            </gray>
+            <gray x="48" y="16">
+              <black cardinality="2">
+                <road end="a4" start="a1"/>
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="1">
+                <road end="b27" start="a5"/>
+              </black>
+              <black cardinality="2">
+                <isolatedCity color="black" name="b26" radius="5" x="45" y="0"/>
+                <road end="b20" start="a11"/>
+              </black>
+              <black cardinality="3">
+                <city color="black" name="b27" radius="5" x="60" y="0"/>
+                <road end="b20" start="a11"/>
+                <road end="b27" start="a5"/>
+              </black>
+            </gray>
+          </gray>
+          <gray x="96" y="32">
+            <gray x="80" y="48">
+              <black cardinality="3">
+                <city color="black" name="a4" radius="5" x="64" y="64"/>
+                <road end="a4" start="a1"/>
+                <road end="a7" start="a4"/>
+              </black>
+              <white/>
+              <white/>
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+            </gray>
+            <black cardinality="3">
+              <city color="black" name="a9" radius="5" x="96" y="32"/>
+              <road end="a6" start="a3"/>
+              <road end="a9" start="a6"/>
+            </black>
+            <gray x="80" y="16">
+              <white/>
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <black cardinality="1">
+                <road end="b20" start="a11"/>
+              </black>
+              <black cardinality="2">
+                <isolatedCity color="black" name="b28" radius="5" x="85" y="0"/>
+                <road end="b20" start="a11"/>
+              </black>
+            </gray>
+            <gray x="112" y="16">
+              <black cardinality="2">
+                <city color="black" name="a9" radius="5" x="96" y="32"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <black cardinality="1">
+                <road end="a6" start="a3"/>
+              </black>
+              <black cardinality="2">
+                <road end="b20" start="a11"/>
+                <road end="a9" start="a6"/>
+              </black>
+              <gray x="120" y="8">
+                <black cardinality="1">
+                  <road end="a9" start="a6"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a6" start="a3"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="b20" radius="5" x="119" y="0"/>
+                  <road end="b20" start="a11"/>
+                  <road end="a9" start="a6"/>
+                </black>
+                <black cardinality="3">
+                  <city color="black" name="a6" radius="5" x="127" y="0"/>
+                  <road end="a6" start="a3"/>
+                  <road end="a9" start="a6"/>
+                </black>
+              </gray>
+            </gray>
+          </gray>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="part2.public.nearest"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="clearAll"/>
+    <parameters/>
+    <output/>
+  </success>
+  <error type="mapIsEmpty">
+    <command name="printPMQuadtree"/>
+    <parameters/>
+  </error>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a1"/>
+      <x value="0"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a2"/>
+      <x value="127"/>
+      <y value="127"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a3"/>
+      <x value="128"/>
+      <y value="128"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a3"/>
+      <end value="a1"/>
+    </parameters>
+    <output>
+      <roadCreated end="a1" start="a3"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapCity"/>
+    <parameters>
+      <name value="a2"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="roadAlreadyMapped">
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a1"/>
+      <end value="a3"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="64" y="64">
+          <black cardinality="1">
+            <road end="a3" start="a1"/>
+          </black>
+          <gray x="96" y="96">
+            <black cardinality="1">
+              <road end="a3" start="a1"/>
+            </black>
+            <gray x="112" y="112">
+              <black cardinality="1">
+                <road end="a3" start="a1"/>
+              </black>
+              <gray x="120" y="120">
+                <black cardinality="1">
+                  <road end="a3" start="a1"/>
+                </black>
+                <gray x="124" y="124">
+                  <black cardinality="1">
+                    <road end="a3" start="a1"/>
+                  </black>
+                  <gray x="126" y="126">
+                    <black cardinality="1">
+                      <road end="a3" start="a1"/>
+                    </black>
+                    <gray x="127" y="127">
+                      <black cardinality="2">
+                        <isolatedCity color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a3" start="a1"/>
+                      </black>
+                      <gray x="127" y="127">
+                        <black cardinality="2">
+                          <isolatedCity color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a3" start="a1"/>
+                        </black>
+                        <black cardinality="2">
+                          <isolatedCity color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a3" start="a1"/>
+                        </black>
+                        <black cardinality="2">
+                          <isolatedCity color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a3" start="a1"/>
+                        </black>
+                        <black cardinality="2">
+                          <isolatedCity color="black" name="a2" radius="5" x="127" y="127"/>
+                          <road end="a3" start="a1"/>
+                        </black>
+                      </gray>
+                      <black cardinality="2">
+                        <isolatedCity color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a3" start="a1"/>
+                      </black>
+                      <black cardinality="2">
+                        <isolatedCity color="black" name="a2" radius="5" x="127" y="127"/>
+                        <road end="a3" start="a1"/>
+                      </black>
+                    </gray>
+                    <black cardinality="1">
+                      <road end="a3" start="a1"/>
+                    </black>
+                    <black cardinality="1">
+                      <road end="a3" start="a1"/>
+                    </black>
+                  </gray>
+                  <black cardinality="1">
+                    <road end="a3" start="a1"/>
+                  </black>
+                  <black cardinality="1">
+                    <road end="a3" start="a1"/>
+                  </black>
+                </gray>
+                <black cardinality="1">
+                  <road end="a3" start="a1"/>
+                </black>
+                <black cardinality="1">
+                  <road end="a3" start="a1"/>
+                </black>
+              </gray>
+              <black cardinality="1">
+                <road end="a3" start="a1"/>
+              </black>
+              <black cardinality="1">
+                <road end="a3" start="a1"/>
+              </black>
+            </gray>
+            <black cardinality="1">
+              <road end="a3" start="a1"/>
+            </black>
+            <black cardinality="1">
+              <road end="a3" start="a1"/>
+            </black>
+          </gray>
+          <black cardinality="2">
+            <city color="black" name="a1" radius="5" x="0" y="0"/>
+            <road end="a3" start="a1"/>
+          </black>
+          <black cardinality="1">
+            <road end="a3" start="a1"/>
+          </black>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
+</results>

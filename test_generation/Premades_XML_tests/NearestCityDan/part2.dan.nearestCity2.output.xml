@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<results>
+  <success>
+    <command id="1" name="createCity"/>
+    <parameters>
+      <name value="a1"/>
+      <x value="0"/>
+      <y value="0"/>
+      <radius value="7"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command id="2" name="createCity"/>
+    <parameters>
+      <name value="a2"/>
+      <x value="0"/>
+      <y value="256"/>
+      <radius value="7"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command id="3" name="createCity"/>
+    <parameters>
+      <name value="a3"/>
+      <x value="256"/>
+      <y value="0"/>
+      <radius value="7"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command id="4" name="createCity"/>
+    <parameters>
+      <name value="a4"/>
+      <x value="256"/>
+      <y value="256"/>
+      <radius value="7"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityNotFound">
+    <command id="111" name="nearestCity"/>
+    <parameters>
+      <x value="128"/>
+      <y value="128"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a4"/>
+      <end value="a3"/>
+    </parameters>
+    <output>
+      <roadCreated end="a3" start="a4"/>
+    </output>
+  </success>
+  <success>
+    <command name="nearestCity"/>
+    <parameters>
+      <x value="128"/>
+      <y value="128"/>
+    </parameters>
+    <output>
+      <city color="black" name="a3" radius="7" x="256" y="0"/>
+    </output>
+  </success>
+  <success>
+    <command name="nearestCity"/>
+    <parameters>
+      <x value="130"/>
+      <y value="140"/>
+    </parameters>
+    <output>
+      <city color="black" name="a4" radius="7" x="256" y="256"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a3"/>
+      <end value="a2"/>
+    </parameters>
+    <output>
+      <roadCreated end="a2" start="a3"/>
+    </output>
+  </success>
+  <success>
+    <command name="nearestCity"/>
+    <parameters>
+      <x value="128"/>
+      <y value="128"/>
+    </parameters>
+    <output>
+      <city color="black" name="a2" radius="7" x="0" y="256"/>
+    </output>
+  </success>
+  <success>
+    <command name="nearestCity"/>
+    <parameters>
+      <x value="0"/>
+      <y value="0"/>
+    </parameters>
+    <output>
+      <city color="black" name="a2" radius="7" x="0" y="256"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a4"/>
+      <end value="a2"/>
+    </parameters>
+    <output>
+      <roadCreated end="a2" start="a4"/>
+    </output>
+  </success>
+  <success>
+    <command name="nearestCity"/>
+    <parameters>
+      <x value="128"/>
+      <y value="128"/>
+    </parameters>
+    <output>
+      <city color="black" name="a2" radius="7" x="0" y="256"/>
+    </output>
+  </success>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a2"/>
+      <end value="a1"/>
+    </parameters>
+    <output>
+      <roadCreated end="a1" start="a2"/>
+    </output>
+  </success>
+  <success>
+    <command name="nearestCity"/>
+    <parameters>
+      <x value="128"/>
+      <y value="128"/>
+    </parameters>
+    <output>
+      <city color="black" name="a1" radius="7" x="0" y="0"/>
+    </output>
+  </success>
+  <success>
+    <command name="nearestCity"/>
+    <parameters>
+      <x value="0"/>
+      <y value="0"/>
+    </parameters>
+    <output>
+      <city color="black" name="a1" radius="7" x="0" y="0"/>
+    </output>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="dan.nearestcity21"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <gray x="128" y="128">
+          <black cardinality="4">
+            <city color="black" name="a2" radius="7" x="0" y="256"/>
+            <road end="a2" start="a1"/>
+            <road end="a3" start="a2"/>
+            <road end="a4" start="a2"/>
+          </black>
+          <black cardinality="4">
+            <city color="black" name="a4" radius="7" x="256" y="256"/>
+            <road end="a3" start="a2"/>
+            <road end="a4" start="a2"/>
+            <road end="a4" start="a3"/>
+          </black>
+          <black cardinality="3">
+            <city color="black" name="a1" radius="7" x="0" y="0"/>
+            <road end="a2" start="a1"/>
+            <road end="a3" start="a2"/>
+          </black>
+          <black cardinality="3">
+            <city color="black" name="a3" radius="7" x="256" y="0"/>
+            <road end="a3" start="a2"/>
+            <road end="a4" start="a3"/>
+          </black>
+        </gray>
+      </quadtree>
+    </output>
+  </success>
+  <success>
+    <command name="clearAll"/>
+    <parameters/>
+    <output/>
+  </success>
+  <success>
+    <command id="5" name="createCity"/>
+    <parameters>
+      <name value="a5"/>
+      <x value="-200"/>
+      <y value="128"/>
+      <radius value="7"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command id="6" name="createCity"/>
+    <parameters>
+      <name value="a6"/>
+      <x value="400"/>
+      <y value="128"/>
+      <radius value="7"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command id="7" name="createCity"/>
+    <parameters>
+      <name value="a7"/>
+      <x value="128"/>
+      <y value="257"/>
+      <radius value="7"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="cityNotFound">
+    <command id="112" name="nearestCity"/>
+    <parameters>
+      <x value="128"/>
+      <y value="128"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a5"/>
+      <end value="a6"/>
+    </parameters>
+    <output>
+      <roadCreated end="a6" start="a5"/>
+    </output>
+  </success>
+  <error type="cityNotFound">
+    <command name="nearestCity"/>
+    <parameters>
+      <x value="128"/>
+      <y value="128"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="mapRoad"/>
+    <parameters>
+      <start value="a7"/>
+      <end value="a6"/>
+    </parameters>
+    <output>
+      <roadCreated end="a6" start="a7"/>
+    </output>
+  </success>
+  <error type="noOtherCitiesMapped">
+    <command name="nearestCityToRoad"/>
+    <parameters>
+      <start value="a6"/>
+      <end value="a7"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="printPMQuadtree"/>
+    <parameters/>
+    <output>
+      <quadtree order="3">
+        <black cardinality="2">
+          <road end="a6" start="a5"/>
+          <road end="a7" start="a6"/>
+        </black>
+      </quadtree>
+    </output>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="dan.nearestcity22"/>
+    </parameters>
+    <output/>
+  </success>
+</results>

@@ -1,0 +1,111 @@
+<commands
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="part2in.xsd"
+	spatialWidth="128"
+	spatialHeight="128"
+	g="3"
+	pmOrder="3">
+ <createCity name="a1" x="0" y="0" radius="5" color="black"/>
+ <createCity name="a2" x="127" y="127" radius="5" color="black"/>
+ <createCity name="a3" x="128" y="128" radius="5" color="black"/>
+ <createCity name="a4" x="64" y="64" radius="5" color="black"/>
+ <createCity name="a5" x="0" y="127" radius="5" color="black"/>
+ <createCity name="a6" x="127" y="0" radius="5" color="black"/>
+ <createCity name="a7" x="96" y="96" radius="5" color="black"/>
+ <createCity name="a8" x="32" y="96" radius="5" color="black"/>
+ <createCity name="a9" x="96" y="32" radius="5" color="black"/>
+ <createCity name="a10" x="32" y="32" radius="5" color="black"/>
+ <printPMQuadtree/>
+ <createCity name="a11" x="0" y="5" radius="5" color="black"/>
+ <createCity name="a12" x="0" y="10" radius="5" color="black"/>
+ <createCity name="a13" x="0" y="17" radius="5" color="black"/>
+ <createCity name="a14" x="0" y="23" radius="5" color="black"/>
+ <createCity name="a15" x="0" y="30" radius="5" color="black"/>
+ <createCity name="a16" x="0" y="45" radius="5" color="black"/>
+ <createCity name="a17" x="0" y="60" radius="5" color="black"/>
+ <createCity name="a18" x="0" y="85" radius="5" color="black"/>
+ <createCity name="a19" x="0" y="107" radius="5" color="black"/>
+ <createCity name="b20" y="0" x="119" radius="5" color="black"/> 
+ <createCity name="b21" y="0" x="5" radius="5" color="black"/>
+ <createCity name="b22" y="0" x="10" radius="5" color="black"/>
+ <createCity name="b23" y="0" x="17" radius="5" color="black"/>
+ <createCity name="b24" y="0" x="23" radius="5" color="black"/>
+ <createCity name="b25" y="0" x="30" radius="5" color="black"/>
+ <createCity name="b26" y="0" x="45" radius="5" color="black"/>
+ <createCity name="b27" y="0" x="60" radius="5" color="black"/>
+ <createCity name="b28" y="0" x="85" radius="5" color="black"/>
+ <createCity name="b29" y="0" x="107" radius="5" color="black"/>
+ <createCity name="b30" y="0" x="119" radius="5" color="black"/>
+ <createCity name="a0" y="200" x="307" radius="5" color="black"/>
+ <createCity name="a00" y="-200" x="-319" radius="5" color="black"/>
+ <createCity name="b31" y="5" x="5" radius="5" color="black"/>
+ <createCity name="b32" y="10" x="10" radius="5" color="black"/>
+ <createCity name="b33" y="17" x="17" radius="5" color="black"/>
+ <createCity name="b34" y="23" x="23" radius="5" color="black"/>
+ <createCity name="b35" y="30" x="30" radius="5" color="black"/>
+ <createCity name="b36" y="45" x="45" radius="5" color="black"/>
+ <createCity name="b37" y="60" x="60" radius="5" color="black"/>
+ <createCity name="b38" y="85" x="85" radius="5" color="black"/>
+ <createCity name="b39" y="107" x="107" radius="5" color="black"/>
+ <createCity name="b40" y="119" x="119" radius="5" color="black"/>
+ <mapRoad start="a0" end="a3"/>
+ <printPMQuadtree/>
+ <mapRoad start="a2" end="a5"/>
+ <mapRoad start="a1" end="a4"/>
+ <mapRoad start="a3" end="a6"/>
+ <printPMQuadtree/>
+ <mapCity name="a8"/>
+ <mapCity name="a3"/>
+ <mapCity name="a12"/>
+ <printPMQuadtree/>
+ <mapRoad start="a5" end="a8"/>
+ <mapRoad start="a4" end="a7"/>
+ <mapRoad start="a6" end="a9"/>
+ <mapRoad start="a8" end="a10"/>
+ <mapRoad start="b20" end="a11"/>
+ <mapRoad start="b30" end="a5"/>
+ <printPMQuadtree/>
+ <mapCity name="a19"/>
+ <mapCity name="a11"/>
+ <mapRoad start="a00" end="a19"/>
+ <mapRoad start="b22" end="a13"/>
+ <mapRoad start="a2000" end="b3"/>
+ <mapRoad start="a10" end="b30"/>
+ <mapRoad start="a15" end="b23"/>
+ <mapRoad start="a11" end="b33"/>
+ <mapRoad start="b34" end="a13"/>
+ <printPMQuadtree/>
+ <mapCity name="b39"/>
+ <mapCity name="b40"/>
+ <mapCity name="b26"/>
+ <mapRoad start="b36" end="a14"/>
+ <mapRoad start="b27" end="a5"/>
+ <mapRoad start="b27" end="b30"/>
+ <mapRoad start="b25" end="b35"/>
+ <mapRoad start="b31" end="b30"/>
+ <mapCity name="a18"/>
+ <mapCity name="a8"/>
+ <mapCity name="a16"/>
+ <mapCity name="a13"/>
+ <mapCity name="a14"/>
+ <mapCity name="a15"/>
+ <printPMQuadtree/>
+ <mapCity name="b28"/>
+ <mapCity name="b38"/>
+ <mapCity name="b27"/>
+ <mapCity name="b22"/>
+ <mapCity name="b23"/>
+ <mapCity name="b24"/>
+ <mapCity name="a18"/>
+ <printPMQuadtree/>
+ <saveMap name="part2.public.nearest"/>
+ <clearAll/>
+ <printPMQuadtree/>
+ <createCity name="a1" x="0" y="0" radius="5" color="black"/>
+ <createCity name="a2" x="127" y="127" radius="5" color="black"/>
+ <createCity name="a3" x="128" y="128" radius="5" color="black"/>
+ <mapRoad end="a1" start="a3"/>
+ <mapCity name="a2"/>
+ <mapRoad end="a3" start="a1"/>
+ <printPMQuadtree/>
+</commands>

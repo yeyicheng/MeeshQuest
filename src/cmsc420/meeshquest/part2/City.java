@@ -2,6 +2,7 @@ package cmsc420.meeshquest.part2 ;
 
 
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
 /**
  * City class is an analogue to a real-world city in 2D space. Each city
@@ -27,6 +28,9 @@ public class City implements Comparable<City>{
 	/** color of this city */
 	protected String color;
 
+	public ArrayList<Road> roads = new ArrayList<Road>();
+	
+	
 	/**
 	 * Constructs a city.
 	 * 
@@ -162,6 +166,11 @@ public class City implements Comparable<City>{
 	// Compares only on name lexographically
 	public int compareTo(City o) {
 		return name.compareTo(o.name);
+		
+	}
+
+	public void addRoad(Road road) {
+		roads.add(road);
 		
 	}
 }
