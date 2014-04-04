@@ -14,6 +14,7 @@ import java.awt.geom.Point2D.Float;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -24,6 +25,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 // Import for intersections
+
 
 import cmsc420.drawing.CanvasPlus;
 import cmsc420.drawing.Drawable2D;
@@ -340,6 +342,8 @@ public class Command {
 		/* clear data structures */
 		citiesByName.clear();
 		citiesByLocation.clear();
+		mappedCities.clear();
+		mappedRoads.clear();
 		prQuadtree.clear();
 
 		/* clear canvas */
@@ -406,12 +410,23 @@ public class Command {
 
 		if (!citiesByName.containsKey(name)) {
 			addErrorNode("nameNotInDictionary", commandNode, parametersNode);
-			/*
-			 * } else if (prQuadtree.contains(name)) {
-			 * addErrorNode("cityAlreadyMapped", commandNode, parametersNode);
-			 */} else {
+			
+		} else {
 			City city = citiesByName.get(name);
 
+			Rectangle2D.Float map = new Rectangle2D.Float(0,0,spatialWidth, spatialHeight);					
+
+			
+			if (mappedCities.contains(city)) {
+				addErrorNode("cityAlreadyMapped", commandNode, parametersNode);
+				return;
+			}
+			
+			if (!GeoHelper.intersects(map, city.getPt())){
+				addErrorNode("cityOutOfBounds", commandNode, parametersNode);
+				return;
+			}
+			
 			/* insert city into PR Quadtree */
 			try {
 				prQuadtree.add(city);
@@ -569,6 +584,7 @@ public class Command {
 		}
 
 		// Appends node roads
+		Collections.sort(leaf.roads);
 		for (Road r : leaf.roads) {
 			addRoadNode(blacknode, r);
 		}
@@ -779,7 +795,7 @@ public class Command {
 		final Point2D.Float point = new Point2D.Float(x, y);
 
 		// Check if there are cities on the map
-		if (citiesByName.size() <= 0) {
+		if (mappedCities.size() <= 0) {
 			addErrorNode("cityNotFound", commandNode, parametersNode);
 			return;
 		}
@@ -902,20 +918,18 @@ public class Command {
 		/* extract attribute values from command */
 		final int x = processIntegerAttribute(node, "x", parametersNode);
 		final int y = processIntegerAttribute(node, "y", parametersNode);
-
 		final Point2D.Float point = new Point2D.Float(x, y);
 
 		// Check if there are cities on the map
-		if (citiesByName.size() <= 0) {
-			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+		if (mappedCities.size() <= 0) {
+			addErrorNode("cityNotFound", commandNode, parametersNode);
 			return;
 		}
 
 		// Check to see if root is empty
 		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
-			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			addErrorNode("cityNotFound", commandNode, parametersNode);
 		} else {
-
 			City n;
 			try {
 				n = processNearestIsolatedCityHelper2(prQuadtree.getRoot(),
@@ -961,14 +975,11 @@ public class Command {
 				}
 				// Does not add empty nodes to priority queue
 			}
-
 			if (q.peek() == null) {
 				throw new NoNearestException();
 			}
-
 			currNode = q.remove().quadtreeNode;
 		}
-
 		return ((LeafNode) currNode).getCity();
 	}
 
@@ -985,13 +996,13 @@ public class Command {
 
 		// Check if there are cities on the map, Must have 2 to have road
 		if (citiesByName.size() <= 1) {
-			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			addErrorNode("roadNotFound", commandNode, parametersNode);
 			return;
 		}
 
 		// Check to see if root is empty
 		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
-			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			addErrorNode("roadNotFound", commandNode, parametersNode);
 		} else {
 
 			Road n = processNearestRoadHelper(prQuadtree.getRoot(), point);
@@ -1126,13 +1137,22 @@ public class Command {
 		final Element outputNode = results.createElement("output");
 		
 		boolean canMapRoad = true;
+		
+		CityLocationComparator comp = new CityLocationComparator();
 
-		if (!citiesByName.containsKey(start_city)
-				|| !citiesByName.containsKey(end_city)) {
-			addErrorNode("nameNotInDictionary", commandNode, parametersNode);
-		} else {
+		if (!citiesByName.containsKey(start_city)) {
+			addErrorNode("startPointDoesNotExist", commandNode, parametersNode);
+		} else if (!citiesByName.containsKey(end_city)){
+			addErrorNode("endPointDoesNotExist", commandNode, parametersNode);
+		}  else {
 			City s_city = citiesByName.get(start_city);
 			City e_city = citiesByName.get(end_city);
+			
+			if (comp.compare(s_city, e_city) == 0){
+				addErrorNode("startEqualsEnd", commandNode, parametersNode);
+				return;
+			}
+			
 			Road road = new Road(s_city, e_city);
 
 			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(),
@@ -1146,6 +1166,8 @@ public class Command {
 				// road already mapped
 				if (mappedRoads.contains(road)){
 					canMapRoad = false;
+					addErrorNode("roadAlreadyMapped", commandNode, parametersNode);
+					return;
 				}
 				
 				// Start city is isolated
@@ -1158,11 +1180,17 @@ public class Command {
 					canMapRoad = false;
 				}
 				
-				if (canMapRoad){
+				if (!canMapRoad){
+					addErrorNode("startOrEndIsIsolated", commandNode, parametersNode);
+					return;
+				}
 				
-					Rectangle2D.Float map = new Rectangle2D.Float(0,0,spatialWidth, spatialHeight);
+				if (canMapRoad){
 					
-					if (map.contains(s_city.toPoint2D())){
+					Rectangle2D.Float map = new Rectangle2D.Float(0,0,spatialWidth, spatialHeight);					
+					
+					
+					if (GeoHelper.intersects(map, s_city.getPt())){
 						// Maps start city
 						if (!mappedCities.contains(s_city)){
 							try {
@@ -1184,7 +1212,7 @@ public class Command {
 					}
 					
 					
-					if (map.contains(s_city.toPoint2D())){
+					if (GeoHelper.intersects(map, e_city.getPt())){
 					// Maps end city
 						if (!mappedCities.contains(e_city)){
 							try {
@@ -1205,13 +1233,11 @@ public class Command {
 							//addCityNode(outputNode, e_city);
 						}
 					}
-										
+								
+					// Adds to data structures
 					prQuadtree.add(road);
-	
 					mappedRoads.add(road);
-	
-					// processMapRoadHelper(prQuadtree.getRoot(), road);
-	
+		
 					final Element roadsuccess = results
 							.createElement("roadCreated");
 					roadsuccess.setAttribute("start", start_city);

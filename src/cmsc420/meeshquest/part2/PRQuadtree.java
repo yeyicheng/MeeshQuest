@@ -137,8 +137,8 @@ public class PRQuadtree {
 		/* check bounds */
 		int x = (int) city.getX();
 		int y = (int) city.getY();
-		if (x < spatialOrigin.x || x >= spatialWidth || y < spatialOrigin.y
-				|| y >= spatialHeight) {
+		if (x < spatialOrigin.x || x > spatialWidth || y < spatialOrigin.y
+				|| y > spatialHeight) {
 			/* city out of bounds */
 			throw new CityOutOfBoundsException();
 		}
@@ -182,6 +182,8 @@ public class PRQuadtree {
 	public void clear() {
 		root = emptyNode;
 		cityNames.clear();
+		roads.clear();
+		adjacency_list.clear();
 	}
 
 	/**
@@ -205,8 +207,8 @@ public class PRQuadtree {
 	 *         otherwise
 	 */
 	protected boolean intersects(Point2D point, Rectangle2D rect) {
-		return (point.getX() >= rect.getMinX() && point.getX() < rect.getMaxX()
-				&& point.getY() >= rect.getMinY() && point.getY() < rect
+		return (point.getX() >= rect.getMinX() && point.getX() <= rect.getMaxX()
+				&& point.getY() >= rect.getMinY() && point.getY() <= rect
 				.getMaxY());
 	}
 
@@ -638,7 +640,7 @@ public class PRQuadtree {
 				if (intersects(cityLocation, regions[i])) {
 					children[i] = children[i].add(city, origins[i], halfWidth,
 							halfHeight);
-					break;
+					//break;
 				}
 			}
 			return this;

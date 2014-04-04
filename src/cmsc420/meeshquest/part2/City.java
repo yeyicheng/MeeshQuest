@@ -4,6 +4,8 @@ package cmsc420.meeshquest.part2 ;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
+import cmsc420.geom.Circle2D;
+
 /**
  * City class is an analogue to a real-world city in 2D space. Each city
  * contains a location ((x,y) coordinates), name, radius, and color.
@@ -24,6 +26,20 @@ public class City implements Comparable<City>{
 
 	/** radius of this city */
 	protected int radius;
+	
+	/**
+	 * Gets the cities point
+	 * @return
+	 */
+	public Point2D.Float getPt() {
+		return pt;
+	}
+
+	public void setPt(Point2D.Float pt) {
+		this.pt = pt;
+	}
+
+	protected Circle2D.Float circle;
 
 	/** color of this city */
 	protected String color;
@@ -50,7 +66,16 @@ public class City implements Comparable<City>{
 		this.name = name;
 		pt = new Point2D.Float(x, y);
 		this.radius = radius;
+		circle = new Circle2D.Float(pt, radius);
 		this.color = color;
+	}
+
+	public Circle2D.Float getCircle() {
+		return circle;
+	}
+
+	public void setCircle(Circle2D.Float circle) {
+		this.circle = circle;
 	}
 
 	/**
