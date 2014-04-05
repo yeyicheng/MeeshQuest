@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeMap;
@@ -25,6 +26,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 // Import for intersections
+
 
 
 import cmsc420.drawing.CanvasPlus;
@@ -576,7 +578,7 @@ public class Command {
 					String.valueOf(1 + leaf.roads.size()));
 
 			// Adding city node. Isolated or not
-			if (leaf.roads.size() == 0) {
+			if (leaf.getCity().roads.size() == 0) {
 				addCityNode(blacknode, "isolatedCity", leaf.city);
 			} else {
 				addCityNode(blacknode, leaf.city);
@@ -693,6 +695,8 @@ public class Command {
 
 		if (radius == 0) {
 			addErrorNode("noCitiesExistInRange", commandNode, parametersNode);
+		} else if (prQuadtree.getRoot().getType() == Node.EMPTY){
+			addErrorNode("noCitiesExistInRange", commandNode, parametersNode);
 		} else {
 			/* get cities within range */
 			final Point2D.Double point = new Point2D.Double(x, y);
@@ -741,6 +745,9 @@ public class Command {
 			final int radius, final Node node, final TreeSet<City> citiesInRange) {
 		if (node.getType() == Node.LEAF) {
 			final LeafNode leaf = (LeafNode) node;
+			if (leaf.city == null){
+				return;
+			}
 			final double distance = point.distance(leaf.getCity().toPoint2D());
 			if (distance <= radius) {
 				/* city is in range */
@@ -965,7 +972,7 @@ public class Command {
 					// Checks that Leaf has a city
 					if (((LeafNode) kid).getCity() != null) {
 						// Checks that Leaf nodes City is Isolated
-						if (((LeafNode) kid).roads.size() == 0) {
+						if (((LeafNode) kid).getCity().roads.size() == 0) {
 							q.add(new QuadrantDistance(kid, point));
 						}
 					}
@@ -1138,6 +1145,11 @@ public class Command {
 		
 		boolean canMapRoad = true;
 		
+		Rectangle2D.Float map = new Rectangle2D.Float(0,0,spatialWidth, spatialHeight);
+		
+		
+
+		
 		CityLocationComparator comp = new CityLocationComparator();
 
 		if (!citiesByName.containsKey(start_city)) {
@@ -1184,10 +1196,15 @@ public class Command {
 					addErrorNode("startOrEndIsIsolated", commandNode, parametersNode);
 					return;
 				}
+
+				if (!Inclusive2DIntersectionVerifier.intersects(road.getLine(), map)){
+					addErrorNode("roadOutOfBounds", commandNode, parametersNode);
+					return;
+				}
+				
 				
 				if (canMapRoad){
 					
-					Rectangle2D.Float map = new Rectangle2D.Float(0,0,spatialWidth, spatialHeight);					
 					
 					
 					if (GeoHelper.intersects(map, s_city.getPt())){
@@ -1297,42 +1314,59 @@ public class Command {
 		final int y = processIntegerAttribute(node, "y", parametersNode);
 		final int radius = processIntegerAttribute(node, "radius",
 				parametersNode);
+		
+		String pathFile = "";
+		if (node.getAttribute("saveMap").compareTo("") != 0) {
+			pathFile = processStringAttribute(node, "saveMap", parametersNode);
+		}
 
 		final Point2D.Float point = new Point2D.Float(x, y);
 
-		HashSet<Road> roads_in_range = new HashSet<Road>();
+		ArrayList<Road> roads_in_range = new ArrayList<Road>();
 
-		// Check if there are cities on the map, Must have 2 to have road
-		if (citiesByName.size() <= 1) {
-			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+		// Check if there any roads on map
+		if (mappedRoads.size() == 0) {
+			addErrorNode("noRoadsExistInRange", commandNode, parametersNode);
 			return;
 		}
 
 		// Check to see if root is empty
 		if (prQuadtree.getRoot().getType() == Node.EMPTY) {
-			addErrorNode("mapIsEmpty", commandNode, parametersNode);
+			addErrorNode("noRoadsExistInRange", commandNode, parametersNode);
 		} else {
 			roads_in_range = processRangeRoadsHelper(prQuadtree.getRoot(),
 					point, radius);
 
 			// Must sort roads_in_range First!!!!!
-
+			
+			Collections.sort(roads_in_range);
+			
+			if (roads_in_range.size() == 0){
+				addErrorNode("noRoadsExistInRange", commandNode, parametersNode);
+				return;
+			}
+			
+			final Element roadlist = results
+					.createElement("roadList");
+			
 			for (Road r : roads_in_range) {
-				addRoadNode(outputNode, r);
+				addRoadNode(roadlist, r);
 
 			}
+			
+			outputNode.appendChild(roadlist);
 
 			addSuccessNode(commandNode, parametersNode, outputNode);
 
 		}
 	}
 
-	private HashSet<Road> processRangeRoadsHelper(Node root, Float point,
+	private ArrayList<Road> processRangeRoadsHelper(Node root, Float point,
 			int radius) {
 		PriorityQueue<RoadQuadrantDistance> q = new PriorityQueue<RoadQuadrantDistance>();
 		Node currNode = root;
 		HashSet<Road> roads_added = new HashSet<Road>();
-		HashSet<Road> roads_in_range = new HashSet<Road>();
+		ArrayList<Road> roads_in_range = new ArrayList<Road>();
 
 		RoadQuadrantDistance currDistance = null;
 

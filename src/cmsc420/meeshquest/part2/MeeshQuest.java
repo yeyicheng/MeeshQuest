@@ -23,14 +23,14 @@ import cmsc420.xml.XmlUtility;
 public class MeeshQuest {
 
 	/* input stream/file */
-	//private final InputStream xmlInput = System.in;
+	private final InputStream xmlInput = System.in;
 	
 	
 	// UNCOMMENT THIS TO TEST WITH FILES
 	//private File xmlInput = new File("part1.rangeCitiesAndSaveMap.input.xml");
-	private File xmlOutput = new File("test1.txt");
+	//private File xmlOutput = new File("test1.txt");
 
-	private File xmlInput = new File("dyLand2.xml");
+	//private File xmlInput = new File("dyLand2.xml");
 	
 	
 
@@ -99,16 +99,16 @@ public class MeeshQuest {
 				/* print results to XML */
 				
 				// UNCOMMENT THIS TO TEST WITH FILES
-				XmlUtility.write(results, xmlOutput);
+				//XmlUtility.write(results, xmlOutput);
 				
 				XmlUtility.print(results);
 			} catch (TransformerException e) {
 				System.exit(-1);
 			}
-			// UNCOMMENT THIS TO TEST WITH FILES
-			 catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
+//			// UNCOMMENT THIS TO TEST WITH FILES
+//			 catch (FileNotFoundException e) {
+//				e.printStackTrace();
+//			}
 		}
 	}
 
