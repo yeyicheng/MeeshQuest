@@ -1,0 +1,9 @@
+32 32 1 4
+city noah 1 17
+city char 17 1
+city bad 23 5
+city nogood 19 3
+road noah bad
+road nogood char
+savemap nearestCity_equalDist
+nearestCity 1 1

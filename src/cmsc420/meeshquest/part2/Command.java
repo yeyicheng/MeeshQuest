@@ -27,8 +27,6 @@ import org.w3c.dom.Element;
 
 // Import for intersections
 
-
-
 import cmsc420.drawing.CanvasPlus;
 import cmsc420.drawing.Drawable2D;
 import cmsc420.geom.Circle2D;
@@ -412,23 +410,23 @@ public class Command {
 
 		if (!citiesByName.containsKey(name)) {
 			addErrorNode("nameNotInDictionary", commandNode, parametersNode);
-			
+
 		} else {
 			City city = citiesByName.get(name);
 
-			Rectangle2D.Float map = new Rectangle2D.Float(0,0,spatialWidth, spatialHeight);					
+			Rectangle2D.Float map = new Rectangle2D.Float(0, 0, spatialWidth,
+					spatialHeight);
 
-			
 			if (mappedCities.contains(city)) {
 				addErrorNode("cityAlreadyMapped", commandNode, parametersNode);
 				return;
 			}
-			
-			if (!GeoHelper.intersects(map, city.getPt())){
+
+			if (!GeoHelper.intersects(map, city.getPt())) {
 				addErrorNode("cityOutOfBounds", commandNode, parametersNode);
 				return;
 			}
-			
+
 			/* insert city into PR Quadtree */
 			try {
 				prQuadtree.add(city);
@@ -695,7 +693,7 @@ public class Command {
 
 		if (radius == 0) {
 			addErrorNode("noCitiesExistInRange", commandNode, parametersNode);
-		} else if (prQuadtree.getRoot().getType() == Node.EMPTY){
+		} else if (prQuadtree.getRoot().getType() == Node.EMPTY) {
 			addErrorNode("noCitiesExistInRange", commandNode, parametersNode);
 		} else {
 			/* get cities within range */
@@ -745,7 +743,7 @@ public class Command {
 			final int radius, final Node node, final TreeSet<City> citiesInRange) {
 		if (node.getType() == Node.LEAF) {
 			final LeafNode leaf = (LeafNode) node;
-			if (leaf.city == null){
+			if (leaf.city == null) {
 				return;
 			}
 			final double distance = point.distance(leaf.getCity().toPoint2D());
@@ -812,10 +810,10 @@ public class Command {
 			addErrorNode("cityNotFound", commandNode, parametersNode);
 		} else {
 
-			Node n = null;
+			City n = null;
 			try {
 				n = nearestCityHelper2(prQuadtree.getRoot(), point);
-				addCityNode(outputNode, ((LeafNode) n).getCity());
+				addCityNode(outputNode, n);
 
 				/* add success node to results */
 				addSuccessNode(commandNode, parametersNode, outputNode);
@@ -833,7 +831,7 @@ public class Command {
 	 * @param point
 	 * @throws NoNearestCityException
 	 */
-	private Node nearestCityHelper2(Node root, Point2D.Float point)
+	private City nearestCityHelper2(Node root, Point2D.Float point)
 			throws NoNearestException {
 		PriorityQueue<QuadrantDistance> q = new PriorityQueue<QuadrantDistance>();
 		Node currNode = root;
@@ -855,10 +853,26 @@ public class Command {
 				throw new NoNearestException();
 			}
 
-			currNode = q.remove().quadtreeNode;
+			QuadrantDistance closest = q.remove();
+			
+			
+			TreeSet<City> same_distance = new TreeSet<City>(new CityNameComparator()); 
+			// Checking for consecutive leaves of the same distance
+			if (closest.quadtreeNode.getType() == Node.LEAF) {
+				same_distance.add(((LeafNode)closest.quadtreeNode).getCity());
+
+				
+				while (q.peek() != null
+						&& q.peek().quadtreeNode.getType() == Node.LEAF
+						&& closest.distance == q.peek().distance) {
+					same_distance.add(((LeafNode)q.remove().quadtreeNode).getCity());
+				}
+				return same_distance.pollFirst();
+			}
+			currNode = closest.quadtreeNode;
 		}
 
-		return (currNode);
+		return (((LeafNode)currNode).getCity());
 	}
 
 	// Says that you are a certain distance from a quadrant or a city
@@ -1142,133 +1156,131 @@ public class Command {
 		final String end_city = processStringAttribute(node, "end",
 				parametersNode);
 		final Element outputNode = results.createElement("output");
-		
-		boolean canMapRoad = true;
-		
-		Rectangle2D.Float map = new Rectangle2D.Float(0,0,spatialWidth, spatialHeight);
-		
-		
 
-		
+		boolean canMapRoad = true;
+
+		Rectangle2D.Float map = new Rectangle2D.Float(0, 0, spatialWidth,
+				spatialHeight);
+
 		CityLocationComparator comp = new CityLocationComparator();
 
 		if (!citiesByName.containsKey(start_city)) {
 			addErrorNode("startPointDoesNotExist", commandNode, parametersNode);
-		} else if (!citiesByName.containsKey(end_city)){
+		} else if (!citiesByName.containsKey(end_city)) {
 			addErrorNode("endPointDoesNotExist", commandNode, parametersNode);
-		}  else {
+		} else {
 			City s_city = citiesByName.get(start_city);
 			City e_city = citiesByName.get(end_city);
-			
-			if (comp.compare(s_city, e_city) == 0){
+
+			if (comp.compare(s_city, e_city) == 0) {
 				addErrorNode("startEqualsEnd", commandNode, parametersNode);
 				return;
 			}
-			
+
 			Road road = new Road(s_city, e_city);
 
 			canvas.addLine(s_city.getX(), s_city.getY(), e_city.getX(),
 					e_city.getY(), Color.CYAN);
 
 			// Check to make sure root is gray, if not you can't have a road
-			/*if (prQuadtree.getRoot().getType() != Node.INTERNAL) {
-				addErrorNode("cannotHaveARoad", commandNode, parametersNode);
-			} else {*/ // Root is gray. Check what quadrants the road hits
+			/*
+			 * if (prQuadtree.getRoot().getType() != Node.INTERNAL) {
+			 * addErrorNode("cannotHaveARoad", commandNode, parametersNode); }
+			 * else {
+			 */// Root is gray. Check what quadrants the road hits
 
-				// road already mapped
-				if (mappedRoads.contains(road)){
-					canMapRoad = false;
-					addErrorNode("roadAlreadyMapped", commandNode, parametersNode);
-					return;
-				}
-				
-				// Start city is isolated
-				if (mappedCities.contains(s_city) && s_city.roads.size() == 0){
-					canMapRoad = false;
-				}
-				
-				// End city is isolated
-				if (mappedCities.contains(e_city) && e_city.roads.size() == 0){
-					canMapRoad = false;
-				}
-				
-				if (!canMapRoad){
-					addErrorNode("startOrEndIsIsolated", commandNode, parametersNode);
-					return;
-				}
-
-				if (!Inclusive2DIntersectionVerifier.intersects(road.getLine(), map)){
-					addErrorNode("roadOutOfBounds", commandNode, parametersNode);
-					return;
-				}
-				
-				
-				if (canMapRoad){
-					
-					
-					
-					if (GeoHelper.intersects(map, s_city.getPt())){
-						// Maps start city
-						if (!mappedCities.contains(s_city)){
-							try {
-								prQuadtree.add(s_city);
-							} catch (CityAlreadyMappedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							} catch (CityOutOfBoundsException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							/* add city to canvas */
-							canvas.addPoint(s_city.getName(), s_city.getX(), s_city.getY(),
-									Color.BLACK);
-		
-							mappedCities.add(s_city);
-							//addCityNode(outputNode, s_city);
-						}
-					}
-					
-					
-					if (GeoHelper.intersects(map, e_city.getPt())){
-					// Maps end city
-						if (!mappedCities.contains(e_city)){
-							try {
-								prQuadtree.add(e_city);
-							} catch (CityAlreadyMappedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							} catch (CityOutOfBoundsException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							/* add city to canvas */
-							canvas.addPoint(e_city.getName(), e_city.getX(), e_city.getY(),
-									Color.BLACK);
-		
-							mappedCities.add(e_city);
-							
-							//addCityNode(outputNode, e_city);
-						}
-					}
-								
-					// Adds to data structures
-					prQuadtree.add(road);
-					mappedRoads.add(road);
-		
-					final Element roadsuccess = results
-							.createElement("roadCreated");
-					roadsuccess.setAttribute("start", start_city);
-					roadsuccess.setAttribute("end", end_city);
-	
-					outputNode.appendChild(roadsuccess);
-					addSuccessNode(commandNode, parametersNode, outputNode);
-	
-				} else {
-					addErrorNode("cannotHaveARoad", commandNode, parametersNode);
-	
-				}		
+			// road already mapped
+			if (mappedRoads.contains(road)) {
+				canMapRoad = false;
+				addErrorNode("roadAlreadyMapped", commandNode, parametersNode);
+				return;
 			}
-		//}
+
+			// Start city is isolated
+			if (mappedCities.contains(s_city) && s_city.roads.size() == 0) {
+				canMapRoad = false;
+			}
+
+			// End city is isolated
+			if (mappedCities.contains(e_city) && e_city.roads.size() == 0) {
+				canMapRoad = false;
+			}
+
+			if (!canMapRoad) {
+				addErrorNode("startOrEndIsIsolated", commandNode,
+						parametersNode);
+				return;
+			}
+
+			if (!Inclusive2DIntersectionVerifier
+					.intersects(road.getLine(), map)) {
+				addErrorNode("roadOutOfBounds", commandNode, parametersNode);
+				return;
+			}
+
+			if (canMapRoad) {
+
+				if (GeoHelper.intersects(map, s_city.getPt())) {
+					// Maps start city
+					if (!mappedCities.contains(s_city)) {
+						try {
+							prQuadtree.add(s_city);
+						} catch (CityAlreadyMappedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (CityOutOfBoundsException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						/* add city to canvas */
+						canvas.addPoint(s_city.getName(), s_city.getX(),
+								s_city.getY(), Color.BLACK);
+
+						mappedCities.add(s_city);
+						// addCityNode(outputNode, s_city);
+					}
+				}
+
+				if (GeoHelper.intersects(map, e_city.getPt())) {
+					// Maps end city
+					if (!mappedCities.contains(e_city)) {
+						try {
+							prQuadtree.add(e_city);
+						} catch (CityAlreadyMappedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (CityOutOfBoundsException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						/* add city to canvas */
+						canvas.addPoint(e_city.getName(), e_city.getX(),
+								e_city.getY(), Color.BLACK);
+
+						mappedCities.add(e_city);
+
+						// addCityNode(outputNode, e_city);
+					}
+				}
+
+				// Adds to data structures
+				prQuadtree.add(road);
+				mappedRoads.add(road);
+
+				final Element roadsuccess = results
+						.createElement("roadCreated");
+				roadsuccess.setAttribute("start", start_city);
+				roadsuccess.setAttribute("end", end_city);
+
+				outputNode.appendChild(roadsuccess);
+				addSuccessNode(commandNode, parametersNode, outputNode);
+
+			} else {
+				addErrorNode("cannotHaveARoad", commandNode, parametersNode);
+
+			}
+		}
+		// }
 	}
 
 	/*
@@ -1314,7 +1326,7 @@ public class Command {
 		final int y = processIntegerAttribute(node, "y", parametersNode);
 		final int radius = processIntegerAttribute(node, "radius",
 				parametersNode);
-		
+
 		String pathFile = "";
 		if (node.getAttribute("saveMap").compareTo("") != 0) {
 			pathFile = processStringAttribute(node, "saveMap", parametersNode);
@@ -1338,22 +1350,21 @@ public class Command {
 					point, radius);
 
 			// Must sort roads_in_range First!!!!!
-			
+
 			Collections.sort(roads_in_range);
-			
-			if (roads_in_range.size() == 0){
+
+			if (roads_in_range.size() == 0) {
 				addErrorNode("noRoadsExistInRange", commandNode, parametersNode);
 				return;
 			}
-			
-			final Element roadlist = results
-					.createElement("roadList");
-			
+
+			final Element roadlist = results.createElement("roadList");
+
 			for (Road r : roads_in_range) {
 				addRoadNode(roadlist, r);
 
 			}
-			
+
 			outputNode.appendChild(roadlist);
 
 			addSuccessNode(commandNode, parametersNode, outputNode);
@@ -1418,8 +1429,7 @@ public class Command {
 		return roads_in_range;
 	}
 
-
-	 public void processPrintAvlTree(Element commandNode) {
+	public void processPrintAvlTree(Element commandNode) {
 		// TODO Auto-generated method stub
 
 	}
@@ -1436,6 +1446,7 @@ public class Command {
 
 	/**
 	 * Gets the nearest city to the road, Not either of the endpoints
+	 * 
 	 * @param commandNode
 	 */
 	public void processNearestCityToRoad(Element node) {
@@ -1444,49 +1455,51 @@ public class Command {
 		final Element outputNode = results.createElement("output");
 
 		// Gathers info from attributes
-		final String start_city = processStringAttribute(node, "start", parametersNode);
-		final String end_city = processStringAttribute(node, "end", parametersNode);
-		
+		final String start_city = processStringAttribute(node, "start",
+				parametersNode);
+		final String end_city = processStringAttribute(node, "end",
+				parametersNode);
+
 		City s_city = citiesByName.get(start_city);
 		City e_city = citiesByName.get(end_city);
-		
-		if (s_city == null || e_city == null){
+
+		if (s_city == null || e_city == null) {
 			addErrorNode("roadIsNotMapped", commandNode, parametersNode);
 			return;
 		}
-		
+
 		PriorityQueue<Distance_to_Road> closest = new PriorityQueue<Distance_to_Road>();
-		
+
 		Road road = new Road(s_city, e_city);
-		
+
 		// the road is not even mapped
-		if (!mappedRoads.contains(road)){
+		if (!mappedRoads.contains(road)) {
 			addErrorNode("roadIsNotMapped", commandNode, parametersNode);
 			return;
 		}
 
 		// Checking the distance of each city
-		for (City c : mappedCities){
-			if (!c.getPt().equals(s_city.getPt()) && !c.getPt().equals(e_city.getPt())){
+		for (City c : mappedCities) {
+			if (!c.getPt().equals(s_city.getPt())
+					&& !c.getPt().equals(e_city.getPt())) {
 				double distance = road.getLine().ptSegDist(c.toPoint2D());
 				Distance_to_Road c_to_r = new Distance_to_Road(c, distance);
 				closest.add(c_to_r);
 			}
 		}
-		
+
 		// No other cities are mapped other than the ones on the road
-		if (closest.peek() == null){
+		if (closest.peek() == null) {
 			addErrorNode("noOtherCitiesMapped", commandNode, parametersNode);
 			return;
 		}
-		
+
 		addCityNode(outputNode, closest.remove().city);
 		addSuccessNode(commandNode, parametersNode, outputNode);
 
-	
 	}
-	
-	class Distance_to_Road implements Comparable<Distance_to_Road>{
+
+	class Distance_to_Road implements Comparable<Distance_to_Road> {
 		@Override
 		public String toString() {
 			return "Distance_to_Road [city=" + city + ", distance=" + distance
@@ -1495,25 +1508,23 @@ public class Command {
 
 		public City city;
 		public double distance;
-		
-		public Distance_to_Road(City c, double d){
+
+		public Distance_to_Road(City c, double d) {
 			city = c;
 			distance = d;
 		}
 
 		@Override
 		public int compareTo(Distance_to_Road arg0) {
-			if (distance == arg0.distance){
+			if (distance == arg0.distance) {
 				return city.compareTo(arg0.city);
-			} else if (distance > arg0.distance){
+			} else if (distance > arg0.distance) {
 				return 1;
 			} else {
 				return -1;
 			}
 		}
-		
-		
+
 	}
-	
 
 }
