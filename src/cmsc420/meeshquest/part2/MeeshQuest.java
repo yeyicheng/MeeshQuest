@@ -151,6 +151,8 @@ public class MeeshQuest {
 			command.processNearestIsolatedCity(commandNode);
 		} else if (name.equals("nearestRoad")) {	// Part 2 
 			command.processNearestRoad(commandNode);			
+		} else if (name.equals("nearestCityToRoad")) {	// Part 2 
+			command.processNearestCityToRoad(commandNode);			
 		} else if (name.equals("mapRoad")) {		// PART 2
 			command.processMapRoad(commandNode);
 		} else if (name.equals("rangeRoads")) {		// PART 2

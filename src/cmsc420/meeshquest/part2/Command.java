@@ -1418,43 +1418,8 @@ public class Command {
 		return roads_in_range;
 	}
 
-	/*
-	 * public void processRangeRoads(Element node) { final Element commandNode =
-	 * getCommandNode(node); final Element parametersNode =
-	 * results.createElement("parameters"); final Element outputNode =
-	 * results.createElement("output");
-	 * 
-	 * // Gathers info from attributes final int x =
-	 * processIntegerAttribute(node, "x", parametersNode); final int y =
-	 * processIntegerAttribute(node, "y", parametersNode); final int radius =
-	 * processIntegerAttribute(node, "radius", parametersNode);
-	 * 
-	 * // Creates Circle or area in question for road intersection final
-	 * Point2D.Double pt = new Point2D.Double(x, y); final Circle2D.Double
-	 * circle = new Circle2D.Double(pt, radius);
-	 * 
-	 * Set<Road> road_intersections = new HashSet<Road>();
-	 * 
-	 * // Looping over Roads (Might have to do this recursively DFS) for (Road r
-	 * : prQuadtree.roads) {
-	 * 
-	 * ArrayList<Point2D> intersections = (ArrayList<Point2D>) CircleLine
-	 * .getCircleLineIntersectionPoint(r.getLine().getP1(), r
-	 * .getLine().getP2(), pt, radius);
-	 * 
-	 * System.out.println(intersections.toString());
-	 * 
-	 * 
-	 * for (Point2D p : intersections){ if (r.point_close_enough(p)){
-	 * road_intersections.add(r); }
-	 * 
-	 * // if (r.getLine().contains(p.getX(), p.getY())){ //
-	 * road_intersections.add(r); // } } }
-	 * 
-	 * System.out.println(road_intersections.toString());
-	 * 
-	 * }
-	 */public void processPrintAvlTree(Element commandNode) {
+
+	 public void processPrintAvlTree(Element commandNode) {
 		// TODO Auto-generated method stub
 
 	}
@@ -1468,4 +1433,87 @@ public class Command {
 		// TODO Auto-generated method stub
 
 	}
+
+	/**
+	 * Gets the nearest city to the road, Not either of the endpoints
+	 * @param commandNode
+	 */
+	public void processNearestCityToRoad(Element node) {
+		final Element commandNode = getCommandNode(node);
+		final Element parametersNode = results.createElement("parameters");
+		final Element outputNode = results.createElement("output");
+
+		// Gathers info from attributes
+		final String start_city = processStringAttribute(node, "start", parametersNode);
+		final String end_city = processStringAttribute(node, "end", parametersNode);
+		
+		City s_city = citiesByName.get(start_city);
+		City e_city = citiesByName.get(end_city);
+		
+		if (s_city == null || e_city == null){
+			addErrorNode("roadIsNotMapped", commandNode, parametersNode);
+			return;
+		}
+		
+		PriorityQueue<Distance_to_Road> closest = new PriorityQueue<Distance_to_Road>();
+		
+		Road road = new Road(s_city, e_city);
+		
+		// the road is not even mapped
+		if (!mappedRoads.contains(road)){
+			addErrorNode("roadIsNotMapped", commandNode, parametersNode);
+			return;
+		}
+
+		// Checking the distance of each city
+		for (City c : mappedCities){
+			if (!c.getPt().equals(s_city.getPt()) && !c.getPt().equals(e_city.getPt())){
+				double distance = road.getLine().ptSegDist(c.toPoint2D());
+				Distance_to_Road c_to_r = new Distance_to_Road(c, distance);
+				closest.add(c_to_r);
+			}
+		}
+		
+		// No other cities are mapped other than the ones on the road
+		if (closest.peek() == null){
+			addErrorNode("noOtherCitiesMapped", commandNode, parametersNode);
+			return;
+		}
+		
+		addCityNode(outputNode, closest.remove().city);
+		addSuccessNode(commandNode, parametersNode, outputNode);
+
+	
+	}
+	
+	class Distance_to_Road implements Comparable<Distance_to_Road>{
+		@Override
+		public String toString() {
+			return "Distance_to_Road [city=" + city + ", distance=" + distance
+					+ "]";
+		}
+
+		public City city;
+		public double distance;
+		
+		public Distance_to_Road(City c, double d){
+			city = c;
+			distance = d;
+		}
+
+		@Override
+		public int compareTo(Distance_to_Road arg0) {
+			if (distance == arg0.distance){
+				return city.compareTo(arg0.city);
+			} else if (distance > arg0.distance){
+				return 1;
+			} else {
+				return -1;
+			}
+		}
+		
+		
+	}
+	
+
 }
