@@ -1430,8 +1430,8 @@ public class Command {
 	}
 
 	public void processPrintAvlTree(Element commandNode) {
-		// TODO Auto-generated method stub
-
+		
+		
 	}
 
 	public void processPrintPMQuadtree(Element commandNode) {

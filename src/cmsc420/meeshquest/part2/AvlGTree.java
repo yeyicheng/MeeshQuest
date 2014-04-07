@@ -24,7 +24,7 @@ import java.util.SortedMap;
      * Note that all "matching" is based on the compareTo method.
      * @author Mark Allen Weiss
      */
-    public class AvlTree extends AbstractMap implements SortedMap 
+    public class AvlGTree extends AbstractMap implements SortedMap 
     {
     	// Balance factor
     	int g;
@@ -32,7 +32,7 @@ import java.util.SortedMap;
         /**
          * Construct the tree.
          */
-        public AvlTree(int g)
+        public AvlGTree(int g)
         {
         	this.g = g;
             root = null;
@@ -53,7 +53,8 @@ import java.util.SortedMap;
          */
         public void remove( Comparable x )
         {
-            System.out.println( "Sorry, remove unimplemented" );
+            throw new UnsupportedOperationException("Invalid operation Have not implemented remove yet");
+            //System.out.println( "Sorry, remove unimplemented" );
         }
 
         /**
