@@ -4,24 +4,31 @@ package cmsc420.meeshquest.part2;
     // Note that this class is not accessible outside
     // of package DataStructures
 
-    class AvlNode
+    class AvlNode<K,V>
     {
-            // Constructors
-        AvlNode( Comparable theElement )
+            @Override
+		public String toString() {
+			return "AvlNode [Key=" + key +", Value= " + value + ", height=" + height + "]";
+		}
+
+		// Constructors
+        AvlNode( Comparable K, Object V )
         {
-            this( theElement, null, null );
+            this( K, V, null, null );
         }
 
-        AvlNode( Comparable theElement, AvlNode lt, AvlNode rt )
+        AvlNode( Comparable K, Object V, AvlNode lt, AvlNode rt )
         {
-            element  = theElement;
+            key  = K;
+            value = V;
             left     = lt;
             right    = rt;
             height   = 0;
         }
 
             // Friendly data; accessible by other package routines
-        Comparable element;      // The data in the node
+        Comparable key;      // The data in the node
+        Object value;
         AvlNode    left;         // Left child
         AvlNode    right;        // Right child
         int        height;       // Height

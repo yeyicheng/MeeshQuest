@@ -49,7 +49,28 @@ public class MeeshQuest {
 
 	public static void main(String[] args) {
 		final MeeshQuest m = new MeeshQuest();
-		m.processInput();
+		
+		// UNCOMMENT to run XML code
+		//m.processInput();
+		
+		// Testing for AVL-G Tree
+		System.out.println("dylan your the best");
+		
+		AvlGTree tree = new AvlGTree(1);
+		City a1 = new City("a1", 3, 1,1, "red");
+		City a2 = new City("a2", 3, 1,1, "red");
+		City a3 = new City("a3", 3, 1,1, "red");
+		City a4 = new City("a4", 3, 1,1, "red");
+		
+		tree.insert("a4", a4);
+		tree.insert("a1", a1);
+		tree.insert("a2", a2);
+		tree.insert("a3", a3);
+		
+		
+		tree.printTree();
+		
+		
 	}
 
 	public void processInput() {
