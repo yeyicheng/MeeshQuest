@@ -165,7 +165,7 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	 * @return the element field or null if t is null.
 	 */
 	private Comparable elementAt(AvlNode t) {
-		return t == null ? null : t.element;
+		return t == null ? null : t.key;
 	}
 
 	/**
@@ -211,9 +211,9 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	 */
 	private AvlNode find(Comparable x, AvlNode t) {
 		while (t != null)
-			if (x.compareTo(t.element) < 0)
+			if (x.compareTo(t.key) < 0)
 				t = t.left;
-			else if (x.compareTo(t.element) > 0)
+			else if (x.compareTo(t.key) > 0)
 				t = t.right;
 			else
 				return t; // Match

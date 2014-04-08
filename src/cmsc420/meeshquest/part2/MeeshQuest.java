@@ -51,9 +51,9 @@ public class MeeshQuest {
 		final MeeshQuest m = new MeeshQuest();
 		
 		// UNCOMMENT to run XML code
-		//m.processInput();
+		m.processInput();
 		
-		// Testing for AVL-G Tree
+		/*// Testing for AVL-G Tree
 		System.out.println("dylan your the best");
 		
 		AvlGTree tree = new AvlGTree(1);
@@ -69,7 +69,7 @@ public class MeeshQuest {
 		
 		
 		tree.printTree();
-		
+		*/
 		
 	}
 
