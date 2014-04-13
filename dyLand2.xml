@@ -1,11 +1,23 @@
-<?xml version="1.0" ?>
-<commands g="4" pmOrder="1" spatialHeight="32" spatialWidth="32" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="part2in.xsd">
-	<createCity color="black" id="1" name="noah" radius="5" x="1" y="17"/>
-	<createCity color="black" id="2" name="char" radius="5" x="17" y="1"/>
-	<createCity color="black" id="3" name="bad" radius="5" x="23" y="5"/>
-	<createCity color="black" id="4" name="nogood" radius="5" x="19" y="3"/>
-	<mapRoad end="bad" id="5" start="noah"/>
-	<mapRoad end="char" id="6" start="nogood"/>
-	<saveMap id="7" name="nearestCity_equalDist"/>
-	<nearestCity id="8" x="1" y="1"/>
+<commands
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="part2in.xsd"
+ 	spatialWidth="512"
+ 	spatialHeight="512"
+ 	pmOrder="3"
+ 	g="1">
+ <createCity id="1" name="Seattle" y="470" x="124" radius="30" color="black"/>
+ <createCity id="2" name="Palo_Alto" x="47" y="128" radius="35"  color="black"/>
+ <createCity id="3" name="Boulder" x="311" y="23" radius="40"  color="black"/>
+ <createCity id="4" name="New_York" x="420" y="324" radius="80"  color="black"/>
+
+ <mapRoad id="33"  start="Palo_Alto" end="Boulder"/>
+ <mapRoad id="34"  start="Seattle" end="Boulder"/>
+ <mapRoad id="35"  start="Palo_Alto" end="Seattle"/>
+ 
+ <mapCity id="60" name="New_York"/>
+ 
+ <printPMQuadtree id="999"/>
+ 
+ <saveMap name="part2.public.pm"/>
+ 
 </commands>

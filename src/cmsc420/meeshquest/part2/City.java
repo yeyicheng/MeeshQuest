@@ -185,7 +185,8 @@ public class City implements Comparable<City>{
 	}
 	
 	public String toString() {
-		return name; // + "(" + pt.x + ", " + pt.y + ")";
+		//return name; // + "(" + pt.x + ", " + pt.y + ")";
+		return "(" + (int)pt.x + "," + (int)pt.y + ")";
 	}
 
 	// Compares only on name lexographically

@@ -1,0 +1,68 @@
+<commands
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="part2in.xsd"
+	spatialWidth="128"
+	spatialHeight="128"
+	g="7"
+	pmOrder="3">
+ <printAvlTree/> 
+ <createCity name="c1" x="0" y="0" radius="5" color="black"/>
+ <createCity name="c2" x="127" y="127" radius="5" color="black"/>
+ <createCity name="c3" x="48" y="48" radius="5" color="black"/>
+ <createCity name="c4" x="64" y="64" radius="5" color="black"/>
+ <createCity name="c5" x="0" y="127" radius="5" color="black"/>
+ <createCity name="a1" x="13" y="42" radius="5" color="black"/>
+ <createCity name="a2" x="27" y="27" radius="5" color="black"/>
+ <createCity name="a3" x="58" y="58" radius="5" color="black"/>
+ <createCity name="a4" x="44" y="44" radius="5" color="black"/>
+ <createCity name="a5" x="30" y="17" radius="5" color="black"/>
+ <printAvlTree/>
+ <createCity name="c6" x="127" y="0" radius="5" color="black"/>
+ <createCity name="c7" x="96" y="96" radius="5" color="black"/>
+ <createCity name="c8" x="32" y="96" radius="5" color="black"/>
+ <createCity name="c9" x="96" y="32" radius="5" color="black"/>
+ <createCity name="c10" x="32" y="32" radius="5" color="black"/>
+ <createCity name="a6" x="47" y="50" radius="5" color="black"/>
+ <createCity name="a7" x="16" y="36" radius="5" color="black"/>
+ <createCity name="a8" x="72" y="86" radius="5" color="black"/>
+ <createCity name="a9" x="86" y="72" radius="5" color="black"/>
+ <createCity name="a10" x="32" y="32" radius="5" color="black"/>
+ <printAvlTree/>
+ <createCity name="a11" y="0" x="5" radius="5" color="black"/>
+ <createCity name="a12" y="0" x="10" radius="5" color="black"/>
+ <createCity name="a13" y="0" x="17" radius="5" color="black"/>
+ <createCity name="a14" y="0" x="23" radius="5" color="black"/>
+ <createCity name="a15" y="0" x="30" radius="5" color="black"/>
+ <createCity name="a16" y="0" x="45" radius="5" color="black"/>
+ <createCity name="a17" y="0" x="60" radius="5" color="black"/>
+ <createCity name="a18" y="0" x="85" radius="5" color="black"/>
+ <createCity name="a19" y="0" x="107" radius="5" color="black"/>
+ <createCity name="b20" y="0" x="119" radius="5" color="black"/> 
+ <printAvlTree/>
+ <createCity name="b21" x="0" y="5" radius="5" color="black"/>
+ <createCity name="b22" x="0" y="10" radius="5" color="black"/>
+ <createCity name="b23" x="0" y="17" radius="5" color="black"/>
+ <createCity name="b24" x="0" y="23" radius="5" color="black"/>
+ <createCity name="b25" x="0" y="30" radius="5" color="black"/>
+ <createCity name="b26" x="0" y="45" radius="5" color="black"/>
+ <createCity name="b27" x="0" y="60" radius="5" color="black"/>
+ <createCity name="b28" x="0" y="85" radius="5" color="black"/>
+ <createCity name="b29" x="0" y="107" radius="5" color="black"/>
+ <createCity name="b30" x="0" y="119" radius="5" color="black"/>
+ <printAvlTree/>
+ <createCity name="a0" y="200" x="307" radius="5" color="black"/>
+ <createCity name="a00" y="-200" x="-319" radius="5" color="black"/>
+ <createCity name="b31" y="5" x="5" radius="5" color="black"/>
+ <createCity name="b32" y="10" x="10" radius="5" color="black"/>
+ <createCity name="b33" y="17" x="17" radius="5" color="black"/>
+ <createCity name="b34" y="23" x="23" radius="5" color="black"/>
+ <createCity name="b35" y="30" x="30" radius="5" color="black"/>
+ <createCity name="b36" y="45" x="45" radius="5" color="black"/>
+ <createCity name="b37" y="60" x="60" radius="5" color="black"/>
+ <createCity name="b38" y="85" x="85" radius="5" color="black"/>
+ <createCity name="b39" y="107" x="107" radius="5" color="black"/>
+ <createCity name="b40" y="119" x="119" radius="5" color="black"/>
+ <printAvlTree/>
+ <clearAll/>
+ <printAvlTree/>
+</commands>

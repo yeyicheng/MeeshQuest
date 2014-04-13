@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<results>
+  <error type="emptyTree">
+    <command name="printAvlTree"/>
+    <parameters/>
+  </error>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c1"/>
+      <x value="0"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c2"/>
+      <x value="127"/>
+      <y value="127"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c3"/>
+      <x value="48"/>
+      <y value="48"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c4"/>
+      <x value="64"/>
+      <y value="64"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c5"/>
+      <x value="0"/>
+      <y value="127"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a1"/>
+      <x value="13"/>
+      <y value="42"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a2"/>
+      <x value="27"/>
+      <y value="27"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a3"/>
+      <x value="58"/>
+      <y value="58"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a4"/>
+      <x value="44"/>
+      <y value="44"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a5"/>
+      <x value="30"/>
+      <y value="17"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="printAvlTree"/>
+    <parameters/>
+    <output>
+      <AvlGTree cardinality="10" height="6" maxImbalance="7">
+        <node key="c1" value="(0,0)">
+          <node key="a1" value="(13,42)">
+            <emptyChild/>
+            <node key="a2" value="(27,27)">
+              <emptyChild/>
+              <node key="a3" value="(58,58)">
+                <emptyChild/>
+                <node key="a4" value="(44,44)">
+                  <emptyChild/>
+                  <node key="a5" value="(30,17)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node key="c2" value="(127,127)">
+            <emptyChild/>
+            <node key="c3" value="(48,48)">
+              <emptyChild/>
+              <node key="c4" value="(64,64)">
+                <emptyChild/>
+                <node key="c5" value="(0,127)">
+                  <emptyChild/>
+                  <emptyChild/>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </AvlGTree>
+    </output>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c6"/>
+      <x value="127"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c7"/>
+      <x value="96"/>
+      <y value="96"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c8"/>
+      <x value="32"/>
+      <y value="96"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c9"/>
+      <x value="96"/>
+      <y value="32"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="c10"/>
+      <x value="32"/>
+      <y value="32"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a6"/>
+      <x value="47"/>
+      <y value="50"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a7"/>
+      <x value="16"/>
+      <y value="36"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a8"/>
+      <x value="72"/>
+      <y value="86"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a9"/>
+      <x value="86"/>
+      <y value="72"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <error type="duplicateCityCoordinates">
+    <command name="createCity"/>
+    <parameters>
+      <name value="a10"/>
+      <x value="32"/>
+      <y value="32"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+  </error>
+  <success>
+    <command name="printAvlTree"/>
+    <parameters/>
+    <output>
+      <AvlGTree cardinality="19" height="9" maxImbalance="7">
+        <node key="c1" value="(0,0)">
+          <node key="a2" value="(27,27)">
+            <node key="a1" value="(13,42)">
+              <emptyChild/>
+              <emptyChild/>
+            </node>
+            <node key="a3" value="(58,58)">
+              <emptyChild/>
+              <node key="a4" value="(44,44)">
+                <emptyChild/>
+                <node key="a5" value="(30,17)">
+                  <emptyChild/>
+                  <node key="a6" value="(47,50)">
+                    <emptyChild/>
+                    <node key="a7" value="(16,36)">
+                      <emptyChild/>
+                      <node key="a8" value="(72,86)">
+                        <emptyChild/>
+                        <node key="a9" value="(86,72)">
+                          <emptyChild/>
+                          <emptyChild/>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node key="c2" value="(127,127)">
+            <node key="c10" value="(32,32)">
+              <emptyChild/>
+              <emptyChild/>
+            </node>
+            <node key="c3" value="(48,48)">
+              <emptyChild/>
+              <node key="c4" value="(64,64)">
+                <emptyChild/>
+                <node key="c5" value="(0,127)">
+                  <emptyChild/>
+                  <node key="c6" value="(127,0)">
+                    <emptyChild/>
+                    <node key="c7" value="(96,96)">
+                      <emptyChild/>
+                      <node key="c8" value="(32,96)">
+                        <emptyChild/>
+                        <node key="c9" value="(96,32)">
+                          <emptyChild/>
+                          <emptyChild/>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </AvlGTree>
+    </output>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a11"/>
+      <x value="5"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a12"/>
+      <x value="10"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a13"/>
+      <x value="17"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a14"/>
+      <x value="23"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a15"/>
+      <x value="30"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a16"/>
+      <x value="45"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a17"/>
+      <x value="60"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a18"/>
+      <x value="85"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a19"/>
+      <x value="107"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b20"/>
+      <x value="119"/>
+      <y value="0"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="printAvlTree"/>
+    <parameters/>
+    <output>
+      <AvlGTree cardinality="29" height="11" maxImbalance="7">
+        <node key="c1" value="(0,0)">
+          <node key="a2" value="(27,27)">
+            <node key="a11" value="(5,0)">
+              <node key="a1" value="(13,42)">
+                <emptyChild/>
+                <emptyChild/>
+              </node>
+              <node key="a12" value="(10,0)">
+                <emptyChild/>
+                <node key="a13" value="(17,0)">
+                  <emptyChild/>
+                  <node key="a14" value="(23,0)">
+                    <emptyChild/>
+                    <node key="a15" value="(30,0)">
+                      <emptyChild/>
+                      <node key="a16" value="(45,0)">
+                        <emptyChild/>
+                        <node key="a17" value="(60,0)">
+                          <emptyChild/>
+                          <node key="a18" value="(85,0)">
+                            <emptyChild/>
+                            <node key="a19" value="(107,0)">
+                              <emptyChild/>
+                              <emptyChild/>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node key="a3" value="(58,58)">
+              <emptyChild/>
+              <node key="a4" value="(44,44)">
+                <emptyChild/>
+                <node key="a5" value="(30,17)">
+                  <emptyChild/>
+                  <node key="a6" value="(47,50)">
+                    <emptyChild/>
+                    <node key="a7" value="(16,36)">
+                      <emptyChild/>
+                      <node key="a8" value="(72,86)">
+                        <emptyChild/>
+                        <node key="a9" value="(86,72)">
+                          <emptyChild/>
+                          <node key="b20" value="(119,0)">
+                            <emptyChild/>
+                            <emptyChild/>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node key="c2" value="(127,127)">
+            <node key="c10" value="(32,32)">
+              <emptyChild/>
+              <emptyChild/>
+            </node>
+            <node key="c3" value="(48,48)">
+              <emptyChild/>
+              <node key="c4" value="(64,64)">
+                <emptyChild/>
+                <node key="c5" value="(0,127)">
+                  <emptyChild/>
+                  <node key="c6" value="(127,0)">
+                    <emptyChild/>
+                    <node key="c7" value="(96,96)">
+                      <emptyChild/>
+                      <node key="c8" value="(32,96)">
+                        <emptyChild/>
+                        <node key="c9" value="(96,32)">
+                          <emptyChild/>
+                          <emptyChild/>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </AvlGTree>
+    </output>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b21"/>
+      <x value="0"/>
+      <y value="5"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b22"/>
+      <x value="0"/>
+      <y value="10"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b23"/>
+      <x value="0"/>
+      <y value="17"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b24"/>
+      <x value="0"/>
+      <y value="23"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b25"/>
+      <x value="0"/>
+      <y value="30"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b26"/>
+      <x value="0"/>
+      <y value="45"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b27"/>
+      <x value="0"/>
+      <y value="60"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b28"/>
+      <x value="0"/>
+      <y value="85"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b29"/>
+      <x value="0"/>
+      <y value="107"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b30"/>
+      <x value="0"/>
+      <y value="119"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="printAvlTree"/>
+    <parameters/>
+    <output>
+      <AvlGTree cardinality="39" height="12" maxImbalance="7">
+        <node key="c1" value="(0,0)">
+          <node key="a2" value="(27,27)">
+            <node key="a11" value="(5,0)">
+              <node key="a1" value="(13,42)">
+                <emptyChild/>
+                <emptyChild/>
+              </node>
+              <node key="a12" value="(10,0)">
+                <emptyChild/>
+                <node key="a13" value="(17,0)">
+                  <emptyChild/>
+                  <node key="a14" value="(23,0)">
+                    <emptyChild/>
+                    <node key="a15" value="(30,0)">
+                      <emptyChild/>
+                      <node key="a16" value="(45,0)">
+                        <emptyChild/>
+                        <node key="a17" value="(60,0)">
+                          <emptyChild/>
+                          <node key="a18" value="(85,0)">
+                            <emptyChild/>
+                            <node key="a19" value="(107,0)">
+                              <emptyChild/>
+                              <emptyChild/>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node key="b20" value="(119,0)">
+              <node key="a6" value="(47,50)">
+                <node key="a4" value="(44,44)">
+                  <node key="a3" value="(58,58)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                  <node key="a5" value="(30,17)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                </node>
+                <node key="a8" value="(72,86)">
+                  <node key="a7" value="(16,36)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                  <node key="a9" value="(86,72)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                </node>
+              </node>
+              <node key="b22" value="(0,10)">
+                <node key="b21" value="(0,5)">
+                  <emptyChild/>
+                  <emptyChild/>
+                </node>
+                <node key="b23" value="(0,17)">
+                  <emptyChild/>
+                  <node key="b24" value="(0,23)">
+                    <emptyChild/>
+                    <node key="b25" value="(0,30)">
+                      <emptyChild/>
+                      <node key="b26" value="(0,45)">
+                        <emptyChild/>
+                        <node key="b27" value="(0,60)">
+                          <emptyChild/>
+                          <node key="b28" value="(0,85)">
+                            <emptyChild/>
+                            <node key="b29" value="(0,107)">
+                              <emptyChild/>
+                              <node key="b30" value="(0,119)">
+                                <emptyChild/>
+                                <emptyChild/>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node key="c2" value="(127,127)">
+            <node key="c10" value="(32,32)">
+              <emptyChild/>
+              <emptyChild/>
+            </node>
+            <node key="c3" value="(48,48)">
+              <emptyChild/>
+              <node key="c4" value="(64,64)">
+                <emptyChild/>
+                <node key="c5" value="(0,127)">
+                  <emptyChild/>
+                  <node key="c6" value="(127,0)">
+                    <emptyChild/>
+                    <node key="c7" value="(96,96)">
+                      <emptyChild/>
+                      <node key="c8" value="(32,96)">
+                        <emptyChild/>
+                        <node key="c9" value="(96,32)">
+                          <emptyChild/>
+                          <emptyChild/>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </AvlGTree>
+    </output>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a0"/>
+      <x value="307"/>
+      <y value="200"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="a00"/>
+      <x value="-319"/>
+      <y value="-200"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b31"/>
+      <x value="5"/>
+      <y value="5"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b32"/>
+      <x value="10"/>
+      <y value="10"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b33"/>
+      <x value="17"/>
+      <y value="17"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b34"/>
+      <x value="23"/>
+      <y value="23"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b35"/>
+      <x value="30"/>
+      <y value="30"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b36"/>
+      <x value="45"/>
+      <y value="45"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b37"/>
+      <x value="60"/>
+      <y value="60"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b38"/>
+      <x value="85"/>
+      <y value="85"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b39"/>
+      <x value="107"/>
+      <y value="107"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="createCity"/>
+    <parameters>
+      <name value="b40"/>
+      <x value="119"/>
+      <y value="119"/>
+      <radius value="5"/>
+      <color value="black"/>
+    </parameters>
+    <output/>
+  </success>
+  <success>
+    <command name="printAvlTree"/>
+    <parameters/>
+    <output>
+      <AvlGTree cardinality="51" height="13" maxImbalance="7">
+        <node key="c1" value="(0,0)">
+          <node key="a2" value="(27,27)">
+            <node key="a11" value="(5,0)">
+              <node key="a1" value="(13,42)">
+                <node key="a0" value="(307,200)">
+                  <emptyChild/>
+                  <node key="a00" value="(-319,-200)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                </node>
+                <emptyChild/>
+              </node>
+              <node key="a12" value="(10,0)">
+                <emptyChild/>
+                <node key="a13" value="(17,0)">
+                  <emptyChild/>
+                  <node key="a14" value="(23,0)">
+                    <emptyChild/>
+                    <node key="a15" value="(30,0)">
+                      <emptyChild/>
+                      <node key="a16" value="(45,0)">
+                        <emptyChild/>
+                        <node key="a17" value="(60,0)">
+                          <emptyChild/>
+                          <node key="a18" value="(85,0)">
+                            <emptyChild/>
+                            <node key="a19" value="(107,0)">
+                              <emptyChild/>
+                              <emptyChild/>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node key="b20" value="(119,0)">
+              <node key="a6" value="(47,50)">
+                <node key="a4" value="(44,44)">
+                  <node key="a3" value="(58,58)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                  <node key="a5" value="(30,17)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                </node>
+                <node key="a8" value="(72,86)">
+                  <node key="a7" value="(16,36)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                  <node key="a9" value="(86,72)">
+                    <emptyChild/>
+                    <emptyChild/>
+                  </node>
+                </node>
+              </node>
+              <node key="b28" value="(0,85)">
+                <node key="b24" value="(0,23)">
+                  <node key="b22" value="(0,10)">
+                    <node key="b21" value="(0,5)">
+                      <emptyChild/>
+                      <emptyChild/>
+                    </node>
+                    <node key="b23" value="(0,17)">
+                      <emptyChild/>
+                      <emptyChild/>
+                    </node>
+                  </node>
+                  <node key="b26" value="(0,45)">
+                    <node key="b25" value="(0,30)">
+                      <emptyChild/>
+                      <emptyChild/>
+                    </node>
+                    <node key="b27" value="(0,60)">
+                      <emptyChild/>
+                      <emptyChild/>
+                    </node>
+                  </node>
+                </node>
+                <node key="b32" value="(10,10)">
+                  <node key="b30" value="(0,119)">
+                    <node key="b29" value="(0,107)">
+                      <emptyChild/>
+                      <emptyChild/>
+                    </node>
+                    <node key="b31" value="(5,5)">
+                      <emptyChild/>
+                      <emptyChild/>
+                    </node>
+                  </node>
+                  <node key="b33" value="(17,17)">
+                    <emptyChild/>
+                    <node key="b34" value="(23,23)">
+                      <emptyChild/>
+                      <node key="b35" value="(30,30)">
+                        <emptyChild/>
+                        <node key="b36" value="(45,45)">
+                          <emptyChild/>
+                          <node key="b37" value="(60,60)">
+                            <emptyChild/>
+                            <node key="b38" value="(85,85)">
+                              <emptyChild/>
+                              <node key="b39" value="(107,107)">
+                                <emptyChild/>
+                                <node key="b40" value="(119,119)">
+                                  <emptyChild/>
+                                  <emptyChild/>
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node key="c2" value="(127,127)">
+            <node key="c10" value="(32,32)">
+              <emptyChild/>
+              <emptyChild/>
+            </node>
+            <node key="c3" value="(48,48)">
+              <emptyChild/>
+              <node key="c4" value="(64,64)">
+                <emptyChild/>
+                <node key="c5" value="(0,127)">
+                  <emptyChild/>
+                  <node key="c6" value="(127,0)">
+                    <emptyChild/>
+                    <node key="c7" value="(96,96)">
+                      <emptyChild/>
+                      <node key="c8" value="(32,96)">
+                        <emptyChild/>
+                        <node key="c9" value="(96,32)">
+                          <emptyChild/>
+                          <emptyChild/>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </AvlGTree>
+    </output>
+  </success>
+  <success>
+    <command name="clearAll"/>
+    <parameters/>
+    <output/>
+  </success>
+  <error type="emptyTree">
+    <command name="printAvlTree"/>
+    <parameters/>
+  </error>
+</results>

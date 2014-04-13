@@ -3,10 +3,10 @@
   <success>
     <command id="1" name="createCity"/>
     <parameters>
-      <name value="noah"/>
-      <x value="1"/>
-      <y value="17"/>
-      <radius value="5"/>
+      <name value="Seattle"/>
+      <x value="124"/>
+      <y value="470"/>
+      <radius value="30"/>
       <color value="black"/>
     </parameters>
     <output/>
@@ -14,10 +14,10 @@
   <success>
     <command id="2" name="createCity"/>
     <parameters>
-      <name value="char"/>
-      <x value="17"/>
-      <y value="1"/>
-      <radius value="5"/>
+      <name value="Palo_Alto"/>
+      <x value="47"/>
+      <y value="128"/>
+      <radius value="35"/>
       <color value="black"/>
     </parameters>
     <output/>
@@ -25,10 +25,10 @@
   <success>
     <command id="3" name="createCity"/>
     <parameters>
-      <name value="bad"/>
-      <x value="23"/>
-      <y value="5"/>
-      <radius value="5"/>
+      <name value="Boulder"/>
+      <x value="311"/>
+      <y value="23"/>
+      <radius value="40"/>
       <color value="black"/>
     </parameters>
     <output/>
@@ -36,49 +36,85 @@
   <success>
     <command id="4" name="createCity"/>
     <parameters>
-      <name value="nogood"/>
-      <x value="19"/>
-      <y value="3"/>
-      <radius value="5"/>
+      <name value="New_York"/>
+      <x value="420"/>
+      <y value="324"/>
+      <radius value="80"/>
       <color value="black"/>
     </parameters>
     <output/>
   </success>
   <success>
-    <command id="5" name="mapRoad"/>
+    <command id="33" name="mapRoad"/>
     <parameters>
-      <start value="noah"/>
-      <end value="bad"/>
+      <start value="Palo_Alto"/>
+      <end value="Boulder"/>
     </parameters>
     <output>
-      <roadCreated end="bad" start="noah"/>
+      <roadCreated end="Boulder" start="Palo_Alto"/>
     </output>
   </success>
   <success>
-    <command id="6" name="mapRoad"/>
+    <command id="34" name="mapRoad"/>
     <parameters>
-      <start value="nogood"/>
-      <end value="char"/>
+      <start value="Seattle"/>
+      <end value="Boulder"/>
     </parameters>
     <output>
-      <roadCreated end="char" start="nogood"/>
+      <roadCreated end="Boulder" start="Seattle"/>
     </output>
   </success>
   <success>
-    <command id="7" name="saveMap"/>
+    <command id="35" name="mapRoad"/>
     <parameters>
-      <name value="nearestCity_equalDist"/>
+      <start value="Palo_Alto"/>
+      <end value="Seattle"/>
+    </parameters>
+    <output>
+      <roadCreated end="Seattle" start="Palo_Alto"/>
+    </output>
+  </success>
+  <success>
+    <command id="60" name="mapCity"/>
+    <parameters>
+      <name value="New_York"/>
     </parameters>
     <output/>
   </success>
   <success>
-    <command id="8" name="nearestCity"/>
-    <parameters>
-      <x value="1"/>
-      <y value="1"/>
-    </parameters>
+    <command id="999" name="printPMQuadtree"/>
+    <parameters/>
     <output>
-      <city color="black" name="char" radius="5" x="17" y="1"/>
+      <quadtree order="3">
+        <gray x="256" y="256">
+          <black cardinality="3">
+            <city color="black" name="Seattle" radius="30" x="124" y="470"/>
+            <road end="Seattle" start="Boulder"/>
+            <road end="Seattle" start="Palo_Alto"/>
+          </black>
+          <black cardinality="1">
+            <isolatedCity color="black" name="New_York" radius="80" x="420" y="324"/>
+          </black>
+          <black cardinality="4">
+            <city color="black" name="Palo_Alto" radius="35" x="47" y="128"/>
+            <road end="Palo_Alto" start="Boulder"/>
+            <road end="Seattle" start="Boulder"/>
+            <road end="Seattle" start="Palo_Alto"/>
+          </black>
+          <black cardinality="3">
+            <city color="black" name="Boulder" radius="40" x="311" y="23"/>
+            <road end="Palo_Alto" start="Boulder"/>
+            <road end="Seattle" start="Boulder"/>
+          </black>
+        </gray>
+      </quadtree>
     </output>
+  </success>
+  <success>
+    <command name="saveMap"/>
+    <parameters>
+      <name value="part2.public.pm"/>
+    </parameters>
+    <output/>
   </success>
 </results>

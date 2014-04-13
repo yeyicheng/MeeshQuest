@@ -1,0 +1,14 @@
+Part 1: The code for this section is 100% the canonical solution. I, Dylan Zingler take no credit for the code submitted in part 1 of MeeshQuest
+The canonical solution has been modified for part 2 so any sections of code that can be seen by a diff command between the part 1 canonical and this code are my additions
+The PRQuadtree of the Part 1 canonical has been modified to a PMQuadtree for part 2
+
+The CircleLine class was taken from stackoverflow.com, the first answer in this link 
+http://stackoverflow.com/questions/13053061/circle-line-intersection-points 
+User Profile:
+http://stackoverflow.com/users/633770/arne-b
+
+AVL-Tree from Piazza post
+https://piazza.com/class/hq5glzx49lp56f?cid=133
+Mark Allen Weiss
+
+

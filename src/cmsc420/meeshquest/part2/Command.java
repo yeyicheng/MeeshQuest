@@ -56,7 +56,12 @@ public class Command {
 	 * stores created cities sorted by their names (used with listCities
 	 * command)
 	 */
-	protected final TreeMap<String, City> citiesByName = new TreeMap<String, City>();
+	//protected final TreeMap<String, City> citiesByName = new TreeMap<String, City>();
+	
+	/**
+	 * AVL-G Tree for citiesByName, once done testing these datastructures should be replaced
+	 */
+	protected AvlGTree<String, City> citiesByName = new AvlGTree<String, City>();
 
 	/**
 	 * Mapped cities
@@ -238,6 +243,9 @@ public class Command {
 		spatialHeight = Integer.parseInt(node.getAttribute("spatialHeight"));
 		g = Integer.parseInt(node.getAttribute("g"));
 		pmOrder = Integer.parseInt(node.getAttribute("pmOrder"));
+		
+		
+		//avlCitiesByName= new AvlGTree<String,City>(g);
 
 		/* initialize canvas */
 		canvas.setFrameSize(spatialWidth, spatialHeight);
@@ -287,6 +295,9 @@ public class Command {
 			/* add city to dictionary */
 			citiesByName.put(name, city);
 			citiesByLocation.add(city);
+			
+			// AVL g tree testing
+			//avlCitiesByName.insert(name, city);
 
 			/* add success node to results */
 			addSuccessNode(commandNode, parametersNode, outputNode);
@@ -341,6 +352,8 @@ public class Command {
 
 		/* clear data structures */
 		citiesByName.clear();
+		//avlCitiesByName.clear();
+		
 		citiesByLocation.clear();
 		mappedCities.clear();
 		mappedRoads.clear();
@@ -553,10 +566,75 @@ public class Command {
 	private void addRoadNode(final Element node, final Road road) {
 		final Element roadNode = results.createElement("road");
 
-		roadNode.setAttribute("end", road.getCities()[1].toString());
-		roadNode.setAttribute("start", road.getCities()[0].toString());
+		roadNode.setAttribute("end", road.getCities()[1].getName());
+		roadNode.setAttribute("start", road.getCities()[0].getName());
 
 		node.appendChild(roadNode);
+	}
+	
+	/**
+	 * Add Avl node
+	 * @param node
+	 * @param leaf
+	 */
+	private void addAvlNode(final Element node){
+		final Element avlNode = results.createElement("AvlGTree");
+		
+		avlNode.setAttribute("cardinality", String.valueOf(citiesByName.size));
+		avlNode.setAttribute("maxImbalance", String.valueOf(g));
+		avlNode.setAttribute("height", String.valueOf(citiesByName.getHeight()));
+
+		addAvlTreeNodes(avlNode, citiesByName.getRoot());
+		
+/*		avlNode.setAttribute("cardinality", String.valueOf(avlCitiesByName.size));
+		avlNode.setAttribute("maxImbalance", String.valueOf(g));
+		avlNode.setAttribute("height", String.valueOf(avlCitiesByName.getHeight()));
+		
+		
+		addAvlTreeNodes(avlNode, avlCitiesByName.getRoot());
+*/		
+		
+		node.appendChild(avlNode);
+		
+	}
+	
+	/**
+	 * Recursively goes through each node and adds its xml printout
+	 * @param node
+	 * @param avlnode
+	 */
+	private void addAvlTreeNodes(final Element node, AvlNode avlnode){
+		
+		if (avlnode == null){
+			final Element avlTreeNode = results.createElement("emptyChild");
+			node.appendChild(avlTreeNode);
+		} else {
+			final Element avlTreeNode = results.createElement("node");
+			avlTreeNode.setAttribute("key", avlnode.key.toString());
+			avlTreeNode.setAttribute("value", avlnode.value.toString());
+		
+/*			if (avlnode.left == null){
+				final Element empty = results.createElement("emptyChild");
+				node.appendChild(empty);
+			} else {
+				addAvlTreeNodes(avlTreeNode, avlnode.left);
+			}
+			
+			if (avlnode.right == null){
+				final Element empty = results.createElement("emptyChild");
+				node.appendChild(empty);
+			} else {
+				addAvlTreeNodes(avlTreeNode, avlnode.right);
+			}*/
+			
+
+			addAvlTreeNodes(avlTreeNode, avlnode.left);
+			addAvlTreeNodes(avlTreeNode, avlnode.right);
+
+			node.appendChild(avlTreeNode);
+
+		}		
+				
 	}
 
 	private void addLeafNode(final Element node, final LeafNode leaf) {
@@ -1429,9 +1507,30 @@ public class Command {
 		return roads_in_range;
 	}
 
-	public void processPrintAvlTree(Element commandNode) {
+	public void processPrintAvlTree(Element node) {
+		final Element commandNode = getCommandNode(node);
+		final Element parametersNode = results.createElement("parameters");
+		final Element outputNode = results.createElement("output");
+
 		
+		if (citiesByName.isEmpty()){
+			addErrorNode("emptyTree", commandNode, parametersNode);
+			return;
+		} else {
+			addAvlNode(outputNode);
+			citiesByName.printTree();
+			
+		}
+//		
+//		for (Object c :avlCitiesByName.entrySet())
+//			System.out.println(c.toString());
+//		
+//		for (Object c :avlCitiesByName.keySet())
+//			System.out.println(c.toString());
 		
+
+		
+		addSuccessNode(commandNode, parametersNode, outputNode);
 	}
 
 	public void processPrintPMQuadtree(Element commandNode) {

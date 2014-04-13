@@ -1,9 +1,16 @@
 package cmsc420.meeshquest.part2;
 
 import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.Stack;
 
 // BinarySearchTree class
 //
@@ -25,20 +32,35 @@ import java.util.SortedMap;
  * 
  * @author Mark Allen Weiss
  */
-public class AvlGTree extends AbstractMap implements SortedMap {
+public class AvlGTree<K extends Comparable<K>, V> implements
+SortedMap<K, V> {
 	// Balance factor
 	int g;
-	int size;
+	int size = 0;
+	int modCount = 0;
+	final Comparator<? super K> kComparator;
 
 	/**
 	 * Construct the tree.
 	 */
 	public AvlGTree(int g) {
+		this.kComparator = new DefaultComp<K>();
 		this.g = g;
 		root = null;
 		size = 0;
 	}
+	
+	public AvlGTree(Comparator<? super K> comp, int g){
+		this.kComparator = comp;
+		this.g = g;
+	}
 
+	public AvlGTree() {
+		this.kComparator = new DefaultComp<K>();
+		root = null;
+		size = 0;
+	}
+	
 	/**
 	 * Insert into the tree; duplicates are ignored.
 	 * 
@@ -60,16 +82,16 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	 * @return the new root.
 	 */
 	private AvlNode insert(Comparable x, Object v, AvlNode t) {
-		if (t == null){
+		if (t == null) {
 			t = new AvlNode(x, v, null, null);
 		} else if (x.compareTo(t.key) < 0) {
 			t.left = insert(x, v, t.left);
-			System.out.println(height(t.left));
-			System.out.println(height(t.right));
-			
-			System.out.println(Math.abs(height(t.left) - height(t.right)));
-			if (height(t.left) - height(t.right) >= g){
-				if (x.compareTo(t.left.key) < 0){
+			//System.out.println(height(t.left));
+			//System.out.println(height(t.right));
+
+			//System.out.println(Math.abs(height(t.left) - height(t.right)));
+			if (Math.abs(height(t.left) - height(t.right)) >= g) {
+				if (x.compareTo(t.left.key) < 0) {
 					t = rotateWithLeftChild(t);
 				} else {
 					t = doubleWithLeftChild(t);
@@ -77,8 +99,8 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 			}
 		} else if (x.compareTo(t.key) > 0) {
 			t.right = insert(x, v, t.right);
-			if (height(t.right) - height(t.left) >= g){
-				if (x.compareTo(t.right.key) > 0){
+			if (Math.abs(height(t.right) - height(t.left)) >= g) {
+				if (x.compareTo(t.right.key) > 0) {
 					t = rotateWithRightChild(t);
 				} else {
 					t = doubleWithRightChild(t);
@@ -127,8 +149,29 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	 *            the item to search for.
 	 * @return the matching item or null if not found.
 	 */
-	public Comparable find(Comparable x) {
-		return elementAt(find(x, root));
+	public Object find(K x) {
+		return getValue(find(x, root));
+	}
+
+	/**
+	 * Internal method to find an item in a subtree.
+	 * 
+	 * @param key
+	 *            is item to search for.
+	 * @param t
+	 *            the node that roots the tree.
+	 * @return node containing the matched item.
+	 */
+	private AvlNode find(K key, AvlNode t) {
+		while (t != null)
+			if (((Comparable) key).compareTo(t.key) < 0)
+				t = t.left;
+			else if (((Comparable) key).compareTo(t.key) > 0)
+				t = t.right;
+			else
+				return t; // Match
+
+		return null; // No match
 	}
 
 	/**
@@ -168,6 +211,10 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 		return t == null ? null : t.key;
 	}
 
+	private V getValue(AvlNode t) {
+		return t == null ? null : (V) t.value;
+	}
+
 	/**
 	 * Internal method to find the smallest item in a subtree.
 	 * 
@@ -201,27 +248,6 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	}
 
 	/**
-	 * Internal method to find an item in a subtree.
-	 * 
-	 * @param x
-	 *            is item to search for.
-	 * @param t
-	 *            the node that roots the tree.
-	 * @return node containing the matched item.
-	 */
-	private AvlNode find(Comparable x, AvlNode t) {
-		while (t != null)
-			if (x.compareTo(t.key) < 0)
-				t = t.left;
-			else if (x.compareTo(t.key) > 0)
-				t = t.right;
-			else
-				return t; // Match
-
-		return null; // No match
-	}
-
-	/**
 	 * Internal method to print a subtree in sorted order.
 	 * 
 	 * @param t
@@ -230,7 +256,7 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	private void printTree(AvlNode t) {
 		if (t != null) {
 			printTree(t.left);
-			System.out.println(t.key);
+			//System.out.println(t.key);
 			printTree(t.right);
 		}
 	}
@@ -240,6 +266,13 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	 */
 	private static int height(AvlNode t) {
 		return t == null ? -1 : t.height;
+	}
+	
+	/**
+	 *  Gets height of the tree
+	 */
+	public int getHeight(){
+		return root.height + 1;
 	}
 
 	/**
@@ -254,7 +287,7 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	 * rotation for case 1. Update heights, then return new root.
 	 */
 	private static AvlNode rotateWithLeftChild(AvlNode k2) {
-		if (k2.left != null){
+		if (k2.left != null) {
 			AvlNode k1 = k2.left;
 			k2.left = k1.right;
 			k1.right = k2;
@@ -271,7 +304,7 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 	 * rotation for case 4. Update heights, then return new root.
 	 */
 	private static AvlNode rotateWithRightChild(AvlNode k1) {
-		if (k1.right != null){
+		if (k1.right != null) {
 			AvlNode k2 = k1.right;
 			k1.right = k2.left;
 			k2.left = k1;
@@ -281,7 +314,7 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 		} else {
 			return k1;
 		}
-		
+
 	}
 
 	/**
@@ -306,67 +339,427 @@ public class AvlGTree extends AbstractMap implements SortedMap {
 
 	/** The tree root. */
 	private AvlNode root;
+	
+	public AvlNode getRoot(){
+		return root;
+	}
+	
+	@Override
+	public void clear() {
+		this.makeEmpty();
+	}
 
 	@Override
-	public Comparator comparator() {
+	public boolean containsKey(Object arg0) {
+		for (Map.Entry<K, V> entry : entrySet()){
+			if (entry.getKey().equals(arg0)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean containsValue(Object arg0) {
+		for (Map.Entry<K, V> entry : entrySet()){
+			if (entry.getValue().equals(arg0)){
+				return true;
+			}
+		}
+		return false;
+		
+	}
+
+	@Override
+	public V get(Object arg0) {
+		if (keySet().contains(arg0)){
+			return (V) find((K) arg0);
+		}
+		throw new NullPointerException();
+	}
+
+	@Override
+	public V put(K arg0, V arg1) {
+		if (arg0 == null) {
+			throw new NullPointerException();
+		}
+		
+		if (containsKey(arg0)){
+			V 
+		}
+		
+		this.insert(arg0, arg1);
+		
+		// Return null if there was not previous value associated with key
+		return null;
+	}
+
+	@Override
+	public void putAll(Map<? extends K, ? extends V> arg0) {
+		throw new UnsupportedOperationException(
+				"Invalid operation Have not implemented yet");
+		
+	}
+
+	@Override
+	public V remove(Object arg0) {
+		throw new UnsupportedOperationException(
+				"Invalid operation Have not implemented remove yet");
+	}
+
+	@Override
+	public int size() {
+		return size;
+	}
+
+	@Override
+	public Collection<V> values() {
+		ArrayList<V> values = new ArrayList<V>();
+		
+		for (K k : keySet()){
+			values.add(get(k));
+		}
+		return values;
+	}
+
+	@Override
+	public Comparator<? super K> comparator() {
+		return new DefaultComp();
+	}
+
+	@Override
+	public K firstKey() {
+		return (K) findMax(root).key;
+	}
+
+	@Override
+	public K lastKey() {
+		return (K) findMin(root).key;
+	}	
+	
+	@Override
+	public Set<Map.Entry<K, V>> entrySet() {
+		return new EntrySet();
+	}
+
+	@Override
+	public SortedMap<K, V> headMap(K toKey) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Comparable firstKey() {
-		return findMax(root).key;
-	}
-
-	@Override
-	public SortedMap headMap(Object arg0) {
+	public SortedMap<K, V> subMap(K fromKey, K toKey) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Comparable lastKey() {
-		return findMin(root).key;
-	}
-
-	@Override
-	public SortedMap subMap(Object arg0, Object arg1) {
+	public SortedMap<K, V> tailMap(K fromKey) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public SortedMap tailMap(Object arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public Set<K> keySet(){
+		return new KeySet();
+	}
+	
+	protected class DefaultComp<K extends Comparable<K>> implements Comparator<K>{
+
+		@Override
+		public int compare(K arg0, K arg1) {
+			return arg0.compareTo(arg1);
+		}
+		
+	}
+	
+	protected class KeySet implements Set<K>{
+
+		@Override
+		public boolean add(K arg0) {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public boolean addAll(Collection<? extends K> arg0) {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void clear() {
+			AvlGTree.this.clear();
+		}
+
+		@Override
+		public boolean contains(Object arg0) {
+			return AvlGTree.this.containsKey(arg0);
+		}
+
+		@Override
+		public boolean containsAll(Collection<?> arg0) {
+			for (Object k : arg0){
+				if (!contains(k)){
+					return false;
+				}
+			}
+			return true;
+			
+		}
+
+		@Override
+		public boolean isEmpty() {
+			return AvlGTree.this.isEmpty();
+		}
+
+		@Override
+		public Iterator<K> iterator() {
+			return new KeyIterator<K>();
+		}
+
+		@Override
+		public boolean remove(Object arg0) {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented remove yet");
+		}
+
+		@Override
+		public boolean removeAll(Collection<?> arg0) {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented remove yet");
+		}
+
+		@Override
+		public boolean retainAll(Collection<?> arg0) {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented remove yet");
+		}
+
+		@Override
+		public int size() {
+			return AvlGTree.this.size;
+		}
+
+		@Override
+		public Object[] toArray() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public <T> T[] toArray(T[] arg0) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
+		
+	private class KeyIterator<K> implements Iterator<K>{
+		int modCount;
+	    private Stack<AvlNode<? extends Comparable, V>> stack = new Stack<AvlNode<? extends Comparable,V>>();
+	    private AvlNode<? extends Comparable<K>,V> current;
+	    AvlGTree<? extends Comparable<K> , V> tree;
+
+	    public KeyIterator(){
+	    	modCount = AvlGTree.this.modCount;
+	    	tree = (AvlGTree<? extends Comparable<K>, V>) AvlGTree.this;
+	    	
+	    }
+		
+	    public KeyIterator(AvlNode argRoot) {
+	        current = argRoot;
+	    }
+
+		public Iterator iterator(AvlNode root) {
+	        return new KeyIterator(root);
+	    }
+		
+		@Override
+	    public boolean hasNext() {
+	        return (!stack.isEmpty() || current != null);
+	    }
+
+		@Override
+		public K next() {
+			if (modCount != AvlGTree.this.modCount){
+				throw new ConcurrentModificationException();
+			}
+				
+			if (!hasNext()){
+				throw new NoSuchElementException();
+			}
+	    	
+	        while (current != null) {
+	            stack.push((AvlNode<? extends Comparable, V>) current);
+	            current = current.left;
+	        }
+
+	        current = (AvlNode) stack.pop();
+	        AvlNode node = current;
+	        current = current.right;
+
+	        return (K) ((AvlNode)node).key;
+	    }
+
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented yet");
+		}
+		
 	}
 
-	@Override
-	public Set entrySet() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	private class EntrySet implements Set<Map.Entry<K, V>> {
 
-	// // Test program
-	// public static void main( String [ ] args )
-	// {
-	// AvlTree t = new AvlTree( );
-	// final int NUMS = 4000;
-	// final int GAP = 37;
-	//
-	// System.out.println( "Checking... (no more output means success)" );
-	//
-	// for( int i = GAP; i != 0; i = ( i + GAP ) % NUMS )
-	// t.insert( new MyInteger( i ) );
-	//
-	// if( NUMS < 40 )
-	// t.printTree( );
-	// if( ((MyInteger)(t.findMin( ))).intValue( ) != 1 ||
-	// ((MyInteger)(t.findMax( ))).intValue( ) != NUMS - 1 )
-	// System.out.println( "FindMin or FindMax error!" );
-	//
-	// for( int i = 1; i < NUMS; i++ )
-	// if( ((MyInteger)(t.find( new MyInteger( i ) ))).intValue( ) != i )
-	// System.out.println( "Find error1!" );
-	// }
+		@Override
+		public boolean add(java.util.Map.Entry<K, V> arg0) {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented yet");
+		}
+
+		@Override
+		public boolean addAll(
+				Collection<? extends java.util.Map.Entry<K, V>> arg0) {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented yet");
+		}
+
+		@Override
+		public void clear() {
+			AvlGTree.this.makeEmpty();
+
+		}
+
+		@Override
+		public boolean contains(Object arg0) {
+			if (arg0 instanceof Map.Entry) {
+				Map.Entry<K, V> entry = (Map.Entry<K, V>) arg0;
+				Object value = AvlGTree.this.get(entry.getKey());
+				return entry.getValue() == null ? value == null : entry
+						.getValue().equals(value);
+			}
+			return false;
+		}
+
+		@Override
+		public boolean containsAll(Collection<?> arg0) {
+			// Boolean to check if each value is in the structure
+			boolean cont = true;
+			// && with boolean, so if false it stays false
+			for (Object o : arg0){
+				cont = cont && contains(o);
+			}
+			return cont;
+		}
+
+		@Override
+		public boolean isEmpty() {
+			return AvlGTree.this.isEmpty();
+		}
+
+		@Override
+		public Iterator<java.util.Map.Entry<K, V>> iterator() {
+			return new AvlIterator(root);
+		}
+
+		@Override
+		public boolean remove(Object arg0) {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented remove yet");
+		}
+
+		@Override
+		public boolean removeAll(Collection<?> arg0) {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented remove yet");
+		}
+
+		@Override
+		public boolean retainAll(Collection<?> arg0) {
+			throw new UnsupportedOperationException(
+					"Invalid operation Have not implemented remove yet");
+		}
+
+		@Override
+		public int size() {
+			return size; 
+		}
+
+		@Override
+		public Object[] toArray() {
+			Iterator<Map.Entry<K, V>> iter = new EntrySet.AvlIterator(root);
+			Object[] arr = new Object[size];
+			for (int i = 0; iter.hasNext(); i++) {
+				arr[i] = iter.next();
+			}
+			
+			return arr;
+			
+		}
+
+		@Override
+		public <T> T[] toArray(T[] arg0) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		/**
+		 * Iterator taken from
+		 * http://stackoverflow.com/questions/4581576/implementing
+		 * -an-iterator-over-a-binary-search-tree
+		 * @author picks
+		 *
+		 */
+		private class AvlIterator implements Iterator {
+			int modCount;
+		    private Stack<AvlNode<K,V>> stack = new Stack<AvlNode<K,V>>();
+		    private AvlNode current;
+		    AvlGTree<K, V> tree;
+
+		    public AvlIterator(){
+		    	modCount = AvlGTree.this.modCount;
+		    	tree = AvlGTree.this;
+		    	
+		    }
+		    
+		    private AvlIterator(AvlNode argRoot) {
+		        current = argRoot;
+		    }
+
+		    public AvlNode next() {
+				if (modCount != AvlGTree.this.modCount){
+					throw new ConcurrentModificationException();
+				}
+					
+				if (!hasNext()){
+					throw new NoSuchElementException();
+				}
+		    	
+		        while (current != null) {
+		            stack.push(current);
+		            current = current.left;
+		        }
+
+		        current = stack.pop();
+		        AvlNode node = current;
+		        current = current.right;
+
+		        return node;
+		    }
+
+		    public boolean hasNext() {
+		        return (!stack.isEmpty() || current != null);
+		    }
+
+		    public Iterator iterator(AvlNode root) {
+		        return new AvlIterator(root);
+		    }
+
+			@Override
+			public void remove() {
+				throw new UnsupportedOperationException(
+						"Invalid operation Have not implemented remove yet");				
+			}
+		}
+	}
 }
